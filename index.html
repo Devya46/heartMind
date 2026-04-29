@@ -1,0 +1,3015 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <title>Heart to Mind Integration | Home</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <style>
+      /* ========== GLOBAL STYLES (Blue Gradient + Light Pink) ========== */
+      :root {
+        /* SKY BLUE SYSTEM (clean, modern) */
+        --blue-deep: #0f2a44;
+        --blue-dark: #1e4d8f;
+        --blue-primary: #2f80ed;
+        --blue-medium: #56a6ff;
+        --blue-light: #cfe9ff;
+
+        /* GRADIENTS */
+        --blue-gradient: linear-gradient(135deg, #2f80ed, #56a6ff);
+        --blue-gradient-light: linear-gradient(135deg, #56a6ff, #a6d4ff);
+        --blue-gradient-radial: linear-gradient(120deg, #009de0, #77d4ff);
+
+        /* BETTER PINK (modern, not harsh) */
+        --light-pink: #ff4d8d;
+        --light-pink-dark: #e63e7a;
+        --light-pink-light: #ffd6e5;
+
+        /* NEUTRALS */
+        --white: #ffffff;
+        --black: #0f172a; /* replaced 'navy' with a proper deep tone */
+        --off-white: #f8fbff;
+
+        /* SHADOWS (slight blue tint = premium feel) */
+        --shadow-sm: 0 4px 20px rgba(47, 128, 237, 0.08);
+        --shadow-md: 0 8px 30px rgba(47, 128, 237, 0.12);
+        --shadow-lg: 0 20px 50px rgba(47, 128, 237, 0.18);
+        --shadow-xl: 0 30px 70px rgba(47, 128, 237, 0.22);
+
+        --transition: all 0.4s cubic-bezier(0.2, 0.95, 0.4, 1);
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Inter", sans-serif;
+        background: var(--white);
+        color: var(--black);
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+      h1,
+      h2,
+      h3,
+      h4,
+      .logo-text h2 {
+        font-family: "Playfair Display", serif;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+      }
+      .container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 80px;
+      }
+      @media (max-width: 1200px) {
+        .container {
+          padding: 0 50px;
+        }
+      }
+      @media (max-width: 768px) {
+        .container {
+          padding: 0 24px;
+        }
+      }
+
+      /* Buttons */
+      .btn-primary,
+      .btn-secondary,
+      .btn-outline-light {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 14px 36px;
+        border-radius: 50px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: var(--transition);
+        cursor: pointer;
+        border: none;
+        font-size: 16px;
+      }
+      .btn-primary {
+        background: linear-gradient(135deg, #2f80ed, #0b4482);
+        color: white;
+        box-shadow: var(--shadow-sm);
+      }
+      .btn-primary:hover {
+        transform: translateY(-3px);
+        box-shadow: var(--shadow-md);
+      }
+      .btn-secondary {
+        background: transparent;
+        border: 2px solid var(--blue-primary);
+        color: var(--blue-primary);
+      }
+      .btn-secondary:hover {
+        background: var(--blue-primary);
+        color: white;
+        transform: translateY(-3px);
+      }
+      .btn-outline-light {
+        background: transparent;
+        border: 2px solid white;
+        color: white;
+      }
+      .btn-outline-light:hover {
+        background: rgba(255, 255, 255, 0.1);
+        transform: translateY(-3px);
+      }
+      .btn-white {
+        background: white;
+        color: var(--blue-deep);
+        padding: 16px 48px;
+        border-radius: 50px;
+        font-weight: 700;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        transition: var(--transition);
+      }
+      .btn-white:hover {
+        transform: translateY(-3px);
+        background: var(--light-pink-light);
+        color: var(--blue-deep);
+      }
+
+      /* Header */
+      header {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(20px);
+        z-index: 1000;
+        transition: var(--transition);
+        border-bottom: 1px solid rgba(30, 58, 111, 0.1);
+      }
+      header.scrolled {
+        background: white;
+        box-shadow: var(--shadow-md);
+      }
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 18px 0;
+      }
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        text-decoration: none;
+      }
+      .logo-icon {
+        width: 48px;
+        height: 48px;
+        background: #030362;
+        border-radius: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 24px;
+      }
+      .logo-text h2 {
+        font-size: 24px;
+        background: #02023b;
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+      .logo-text p {
+        font-size: 9px;
+        letter-spacing: 3px;
+        color: #030362;
+        font-weight: 500;
+      }
+      .nav-links {
+        display: flex;
+        gap: 42px;
+        align-items: center;
+      }
+      .nav-link {
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 15px;
+        color: var(--black);
+        transition: var(--transition);
+        font-family: "Inter", sans-serif;
+      }
+      .nav-link:hover,
+      .nav-link.active {
+        color: var(--light-pink);
+      }
+      .btn-premium {
+        background: var(--blue-gradient);
+        color: white;
+        padding: 10px 28px;
+        border-radius: 40px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: var(--transition);
+      }
+      .btn-premium:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-md);
+      }
+      .menu-toggle {
+        display: none;
+        flex-direction: column;
+        gap: 6px;
+        cursor: pointer;
+      }
+      .menu-toggle span {
+        width: 24px;
+        height: 2px;
+        background: var(--black);
+        transition: var(--transition);
+      }
+
+      /* Mega Menu */
+      .mega-menu {
+        position: static;
+      }
+      .mega-dropdown {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: #f4f4ff;
+        box-shadow: var(--shadow-xl);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(20px);
+        transition: var(--transition);
+        border-top: 3px solid var(--light-pink);
+        z-index: 999;
+      }
+      .mega-menu:hover .mega-dropdown {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+      .mega-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 56px 80px;
+      }
+      .mega-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 56px;
+      }
+      .mega-header {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 28px;
+        border-bottom: 2px solid var(--light-pink-light);
+        padding-bottom: 12px;
+      }
+      .mega-header i {
+        font-size: 24px;
+        color: var(--blue-primary);
+      }
+      .mega-item {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        padding: 12px 0;
+        text-decoration: none;
+        transition: var(--transition);
+      }
+      .mega-item i {
+        font-size: 22px;
+        color: var(--light-pink);
+        width: 40px;
+      }
+      .mega-item strong {
+        display: block;
+        font-size: 15px;
+        color: var(--black);
+      }
+      .mega-item span {
+        font-size: 12px;
+        color: var(--blue-primary);
+      }
+
+      /* Floating Buttons */
+      .floating-buttons {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        z-index: 999;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+      .floating-btn {
+        width: 55px;
+        height: 55px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        transition: var(--transition);
+        box-shadow: var(--shadow-lg);
+        animation: float 3s ease-in-out infinite;
+      }
+      .floating-btn-wa {
+        background: linear-gradient(135deg, #25d366, #128c7e);
+        color: white;
+      }
+      .floating-btn-call {
+        background: var(--blue-gradient);
+        color: white;
+      }
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+
+      /* Footer */
+      footer {
+        background: var(--blue-deep);
+        color: rgba(255, 255, 255, 0.7);
+        padding: 70px 0 40px;
+        margin-top: 80px;
+      }
+      .footer-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 50px;
+        margin-bottom: 50px;
+      }
+      .footer-logo {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 20px;
+      }
+      .footer-logo i {
+        font-size: 32px;
+        color: var(--light-pink);
+      }
+      .footer-logo h3 {
+        font-size: 22px;
+        color: white;
+      }
+      .footer-col h4 {
+        font-size: 18px;
+        margin-bottom: 24px;
+        color: white;
+      }
+      .footer-col ul {
+        list-style: none;
+      }
+      .footer-col ul li {
+        margin-bottom: 12px;
+      }
+      .footer-col ul li a {
+        color: rgba(255, 255, 255, 0.7);
+        text-decoration: none;
+        transition: var(--transition);
+      }
+      .footer-col ul li a:hover {
+        color: var(--light-pink);
+        padding-left: 6px;
+      }
+      .social-links {
+        display: flex;
+        gap: 16px;
+        margin-top: 20px;
+      }
+      .social-links a {
+        width: 40px;
+        height: 40px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        transition: var(--transition);
+      }
+      .social-links a:hover {
+        background: var(--light-pink);
+        transform: translateY(-3px);
+      }
+      .footer-newsletter {
+        text-align: center;
+        padding: 40px 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        margin-bottom: 40px;
+      }
+      .footer-newsletter form {
+        display: flex;
+        justify-content: center;
+        gap: 12px;
+        max-width: 500px;
+        margin: 20px auto 0;
+        flex-wrap: wrap;
+      }
+      .footer-newsletter input {
+        flex: 1;
+        padding: 14px 24px;
+        border-radius: 50px;
+        border: none;
+        background: rgba(255, 255, 255, 0.1);
+        color: white;
+      }
+      .footer-newsletter button {
+        background: var(--light-pink);
+        color: var(--blue-deep);
+        border: none;
+        padding: 14px 32px;
+        border-radius: 50px;
+        font-weight: 600;
+        cursor: pointer;
+      }
+      .footer-bottom {
+        text-align: center;
+        padding-top: 32px;
+        font-size: 13px;
+      }
+
+      /* Section Styles */
+      .section {
+        padding: 90px 0;
+      }
+      .section-title {
+        font-size: 48px;
+        text-align: center;
+        margin-bottom: 20px;
+        color: var(--blue-deep);
+      }
+      .section-title span {
+        background: var(--blue-gradient);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+      .section-sub {
+        text-align: center;
+        max-width: 700px;
+        margin: 0 auto 56px;
+        font-size: 18px;
+        color: var(--blue-primary);
+      }
+      .section-tag {
+        display: inline-block;
+        background: var(--light-pink-light);
+        color: var(--blue-primary);
+        font-size: 13px;
+        font-weight: 600;
+        padding: 6px 18px;
+        border-radius: 40px;
+        margin-bottom: 20px;
+      }
+
+      /* ===== NEW HERO WITH YOUTUBE VIDEO ===== */
+      .hero-split {
+        background: var(--blue-gradient-radial);
+        padding: 160px 0 100px;
+        position: relative;
+        overflow: hidden;
+        color: white;
+      }
+      /* .hero-split::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 120px;
+        background: linear-gradient(to bottom, rgba(255, 255, 255, 0), #ffffff);
+      } */
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        align-items: center;
+      }
+      .hero-content {
+        text-align: left;
+      }
+      .hero-content h1 {
+        font-size: 56px;
+        line-height: 1.2;
+        margin-bottom: 24px;
+        color: white;
+      }
+      .hero-content .gradient-text {
+        background: radial-gradient(
+          circle,
+          rgb(224 91 144) 0%,
+          rgb(229 23 65) 100%
+        );
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        -webkit-text-stroke: 0.7px #000000;
+      }
+      .hero-content p {
+        font-size: 18px;
+        margin-bottom: 32px;
+        opacity: 0.9;
+      }
+      .hero-stats {
+        display: flex;
+        gap: 40px;
+        margin-top: 48px;
+        flex-wrap: wrap;
+      }
+      .hero-stats .stat h3 {
+        font-size: 32px;
+        font-weight: 800;
+        color: var(--light-pink);
+        -webkit-text-stroke: 0.5px #dd004d;
+        margin-bottom: 4px;
+      }
+      .hero-video {
+        border-radius: 24px;
+        overflow: hidden;
+        box-shadow: var(--shadow-xl);
+        background: #000;
+        aspect-ratio: 16 / 9;
+        position: relative;
+      }
+      .hero-video iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+      @media (max-width: 1024px) {
+        .hero-content h1 {
+          font-size: 44px;
+        }
+      }
+      @media (max-width: 768px) {
+        .hero-split {
+          padding: 140px 0 60px;
+        }
+        .hero-grid {
+          grid-template-columns: 1fr;
+          gap: 40px;
+          text-align: center;
+        }
+        .hero-content {
+          text-align: center;
+        }
+        .hero-stats {
+          justify-content: center;
+        }
+        .hero-content h1 {
+          font-size: 36px;
+        }
+      }
+
+      /* ===== NEW PROBLEM & SOLUTION STYLE ===== */
+      .problem-solution-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+      }
+      .ps-card {
+        background: var(--white);
+        border-radius: 32px;
+        padding: 48px;
+        transition: var(--transition);
+        border: 1px solid rgba(30, 58, 111, 0.1);
+        box-shadow: var(--shadow-sm);
+        position: relative;
+        overflow: hidden;
+      }
+      .ps-card.problem {
+        border-bottom: 4px solid var(--light-pink);
+      }
+      .ps-card.solution {
+        border-bottom: 4px solid var(--blue-primary);
+      }
+      .ps-card:hover {
+        transform: translateY(-8px);
+        box-shadow: var(--shadow-lg);
+      }
+      .ps-icon {
+        width: 70px;
+        height: 70px;
+        background: var(--blue-gradient);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 24px;
+      }
+      .ps-icon i {
+        font-size: 32px;
+        color: white;
+      }
+      .ps-card.problem .ps-icon {
+        background: var(--blue-gradient);
+      }
+      .ps-card.solution .ps-icon {
+        background: linear-gradient(
+          135deg,
+          var(--light-pink),
+          var(--blue-primary)
+        );
+      }
+      .ps-card h3 {
+        font-size: 28px;
+        margin-bottom: 16px;
+        color: var(--blue-deep);
+      }
+      .ps-card p {
+        color: var(--blue-primary);
+        margin-bottom: 24px;
+        line-height: 1.7;
+      }
+      .ps-list {
+        list-style: none;
+        margin-top: 20px;
+      }
+      .ps-list li {
+        padding: 10px 0;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-size: 15px;
+        color: var(--black);
+        border-bottom: 1px dashed rgba(30, 58, 111, 0.1);
+      }
+      .ps-list li i {
+        width: 24px;
+        font-size: 16px;
+      }
+      .ps-list.problem-list li i {
+        color: var(--light-pink);
+      }
+      .ps-list.solution-list li i {
+        color: var(--light-pink);
+      }
+      .quote-box-new {
+        margin-top: 32px;
+        background: linear-gradient(
+          135deg,
+          var(--off-white),
+          var(--light-pink-light)
+        );
+        padding: 24px;
+        border-radius: 20px;
+        border-left: 4px solid var(--light-pink);
+      }
+      @media (max-width: 768px) {
+        .problem-solution-grid {
+          grid-template-columns: 1fr;
+        }
+        .ps-card {
+          padding: 32px 24px;
+        }
+      }
+
+      /* Other section styles */
+      .three-col-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 48px;
+      }
+      .four-col-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 30px;
+      }
+
+      .insta-card {
+        display: block;
+        border-radius: 24px;
+        overflow: hidden;
+        position: relative;
+        transition: transform 0.3s ease;
+      }
+
+      .insta-card img {
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+        display: block;
+      }
+
+      /* Hover effect */
+      .insta-card:hover {
+        transform: scale(1.05);
+      }
+
+      /* Play icon overlay */
+      .insta-card::after {
+        content: "▶";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: rgba(0, 0, 0, 0.6);
+        color: #fff;
+        font-size: 18px;
+        padding: 12px 16px;
+        border-radius: 50%;
+      }
+      .transfo-card,
+      .step-card {
+        background: white;
+        border-radius: 32px;
+        padding: 40px 28px;
+        transition: var(--transition);
+        border: 1px solid rgba(30, 58, 111, 0.1);
+        box-shadow: var(--shadow-sm);
+        text-align: center;
+      }
+      .transfo-card:hover,
+      .step-card:hover {
+        transform: translateY(-8px);
+        box-shadow: var(--shadow-lg);
+        border-color: var(--light-pink);
+      }
+      .transfo-card i,
+      .step-card i {
+        font-size: 48px;
+        color: var(--light-pink);
+        margin-bottom: 20px;
+        display: inline-block;
+      }
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 24px;
+        margin-top: 48px;
+      }
+      .gallery-item {
+        position: relative;
+        overflow: hidden;
+        border-radius: 28px;
+        cursor: pointer;
+        aspect-ratio: 1;
+      }
+      .gallery-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: var(--transition);
+      }
+      .gallery-item:hover img {
+        transform: scale(1.08);
+      }
+      .gallery-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(transparent, rgba(10, 26, 58, 0.9));
+        padding: 28px;
+        color: white;
+        opacity: 0;
+        transition: var(--transition);
+      }
+      .gallery-item:hover .gallery-overlay {
+        opacity: 1;
+      }
+      .double-scroll-slider {
+        position: relative;
+        overflow: hidden;
+        padding: 40px 0;
+        background: var(--off-white);
+      }
+      .scroll-wrapper {
+        display: flex;
+        gap: 24px;
+        animation: scrollLeft 30s linear infinite;
+        transform: translateX(80px);
+        width: fit-content;
+      }
+      .scroll-wrapper:hover {
+        animation-play-state: paused;
+      }
+      .scroll-item {
+        flex-shrink: 0;
+        width: 320px;
+        height: 290px;
+        background: white;
+        border-radius: 28px;
+        overflow: hidden;
+        box-shadow: var(--shadow-md);
+      }
+      .scroll-item img {
+        width: 100%;
+        height: 290px;
+        object-fit: cover;
+      }
+      @keyframes scrollLeft {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-50%);
+        }
+      }
+      .double-scroll-slider {
+        padding-left: 80px;
+      }
+
+      @media (max-width: 768px) {
+        .double-scroll-slider {
+          padding-left: 24px;
+        }
+      }
+      .step-number {
+        width: 70px;
+        height: 70px;
+        background: var(--blue-gradient);
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 32px;
+        font-weight: 700;
+        margin: 0 auto 24px;
+        font-family: "Playfair Display", serif;
+      }
+      .stats-premium {
+        background: var(--blue-gradient);
+        color: #000000;
+        font-weight: 700;
+        padding: 80px 0;
+        text-align: center;
+      }
+      .stats-grid {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        gap: 40px;
+      }
+      .stat-number {
+        font-size: 56px;
+        font-weight: 800;
+        font-family: "Playfair Display", serif;
+        color: var(--light-pink);
+        -webkit-text-stroke: 1px #000000;
+        margin-bottom: 8px;
+      }
+      .testimonial-card {
+        background: white;
+        padding: 48px;
+        border-radius: 36px;
+        text-align: center;
+        margin: 20px;
+        box-shadow: var(--shadow-md);
+        border: 1px solid rgba(30, 58, 111, 0.1);
+      }
+      .testimonial-card i {
+        font-size: 48px;
+        color: var(--light-pink);
+        -webkit-text-stroke: 0.5px #dd004d;
+        margin-bottom: 24px;
+      }
+      .stars {
+        color: var(--light-pink);
+        margin-top: 16px;
+        letter-spacing: 3px;
+      }
+      .video-gallery {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 30px;
+        margin-top: 48px;
+      }
+
+      .video-card {
+        position: relative;
+        border-radius: 28px;
+        overflow: hidden;
+        cursor: pointer;
+        aspect-ratio: 12/16;
+      }
+
+      .video-card iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+
+      .video-card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .video-play {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 60px;
+        height: 60px;
+        background: rgba(10, 26, 58, 0.7);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 24px;
+      }
+      .faq-list {
+        max-width: 900px;
+        margin: 0 auto;
+      }
+      .faq-item {
+        background: white;
+        border-radius: 24px;
+        margin-bottom: 20px;
+        padding: 28px 36px;
+        border: 1px solid rgba(30, 58, 111, 0.1);
+        cursor: pointer;
+        text-align: left;
+      }
+      .faq-q {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-weight: 600;
+        font-size: 18px;
+        color: var(--black);
+      }
+      .faq-q i {
+        transition: var(--transition);
+        color: var(--light-pink);
+      }
+      .faq-a {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s ease;
+        color: var(--blue-primary);
+        padding-top: 0;
+      }
+      .faq-item.active .faq-a {
+        max-height: 200px;
+        padding-top: 20px;
+      }
+      .blog-card {
+        background: white;
+        border-radius: 28px;
+        overflow: hidden;
+        transition: var(--transition);
+        box-shadow: var(--shadow-sm);
+        border: 1px solid rgba(30, 58, 111, 0.1);
+        text-align: left;
+      }
+      .blog-image {
+        height: 240px;
+        background-size: cover;
+        background-position: center;
+      }
+      .blog-content {
+        padding: 28px;
+      }
+      .blog-category {
+        display: inline-block;
+        padding: 5px 14px;
+        background: var(--off-white);
+        color: var(--light-pink);
+        border-radius: 30px;
+        font-size: 11px;
+        font-weight: 600;
+        margin-bottom: 16px;
+      }
+      .read-more {
+        color: var(--light-pink);
+        text-decoration: none;
+        font-weight: 600;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        margin-top: 16px;
+      }
+      .cta-premium {
+        background: var(--blue-gradient);
+        color: white;
+        border-radius: 48px;
+        margin: 0 80px 80px;
+        text-align: center;
+        padding: 70px 60px;
+        position: relative;
+        overflow: hidden;
+      }
+      .program-card {
+        background: white;
+        border-radius: 32px;
+        padding: 40px;
+        transition: var(--transition);
+        border: 1px solid rgba(30, 58, 111, 0.1);
+        box-shadow: var(--shadow-sm);
+        text-align: left;
+      }
+      .program-card .program-badge {
+        display: inline-block;
+        background: var(--blue-gradient);
+        color: white;
+        padding: 6px 18px;
+        border-radius: 30px;
+        font-size: 12px;
+        font-weight: 600;
+        margin-bottom: 20px;
+      }
+      .program-price {
+        font-size: 36px;
+        font-weight: 800;
+        color: var(--light-pink);
+        margin-bottom: 20px;
+        font-family: "Playfair Display", serif;
+        line-height: 1.2;
+      }
+      .program-price span {
+        font-size: 14px;
+        font-weight: 400;
+        color: var(--blue-primary);
+        display: inline-block;
+        margin-left: 8px;
+      }
+      .program-features {
+        list-style: none;
+        margin: 24px 0;
+      }
+      .program-features li {
+        padding: 10px 0;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-size: 14px;
+        color: var(--blue-primary);
+      }
+      .program-features li i {
+        color: var(--light-pink);
+      }
+      .program-btn {
+        display: block;
+        background: var(--blue-gradient);
+        color: white;
+        text-align: center;
+        padding: 14px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 600;
+        margin-top: 20px;
+      }
+
+      @media (max-width: 1024px) {
+        .grid-4 {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .grid-3 {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .gallery-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .video-gallery {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media (max-width: 768px) {
+        .nav-links {
+          position: fixed;
+          top: 80px;
+          left: -100%;
+          width: 100%;
+          height: calc(100vh - 80px);
+          background: white;
+          flex-direction: column;
+          padding: 40px 24px;
+          transition: var(--transition);
+          gap: 24px;
+          align-items: flex-start;
+          box-shadow: var(--shadow-lg);
+          overflow-y: auto;
+        }
+        .nav-links.active {
+          left: 0;
+        }
+        .menu-toggle {
+          display: flex;
+        }
+        .mega-dropdown {
+          display: none;
+          position: static;
+          opacity: 1;
+          visibility: visible;
+          transform: none;
+          box-shadow: none;
+          border-top: none;
+        }
+        .mega-menu.active .mega-dropdown {
+          display: block;
+        }
+        .mega-grid {
+          grid-template-columns: 1fr;
+          gap: 28px;
+        }
+        .section-title {
+          font-size: 32px;
+        }
+        .section {
+          padding: 60px 0;
+        }
+        .three-col-grid,
+        .four-col-grid {
+          grid-template-columns: 1fr;
+        }
+        .gallery-grid,
+        .video-gallery {
+          grid-template-columns: 1fr;
+        }
+        .cta-premium {
+          margin: 0 20px 50px;
+          border-radius: 32px;
+          padding: 40px 24px;
+        }
+        .program-price {
+          font-size: 28px;
+        }
+        .program-card {
+          padding: 28px 24px;
+        }
+      }
+      /* -----------About us-----------  */
+      .split-layout {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        min-height: 100vh;
+      }
+
+      /* On desktop (≥900px) row layout: video left, content right but intact */
+      @media (min-width: 900px) {
+        .split-layout {
+          flex-direction: row;
+        }
+        .video-side {
+          order: 1;
+          flex: 1;
+        }
+        .content-side {
+          order: 2;
+          flex: 1;
+        }
+      }
+
+      /* mobile order: content appears first, video second */
+      @media (max-width: 899px) {
+        .video-side {
+          order: 2;
+        }
+        .content-side {
+          order: 1;
+        }
+      }
+
+      /* LEFT SIDE: VIDEO CONTAINER (enhanced styling & resilient) */
+      .video-side {
+        background: var(--blue-gradient);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem 1.5rem;
+        position: relative;
+        border-top: 4px solid #e5fcff;
+      }
+
+      .video-container {
+        max-width: 640px;
+        width: 100%;
+        border-radius: 32px;
+        overflow: hidden;
+        box-shadow: var(--shadow-xl);
+        background: var(--white);
+        transition: var(--transition);
+      }
+
+      .video-wrapper {
+        position: relative;
+        width: 100%;
+        background: #000;
+        aspect-ratio: 16 / 9;
+      }
+
+      .video-wrapper iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+      }
+
+      /* THUMBNAIL + MODERN PLAY BUTTON (elegant, responsive, scalable) */
+      .video-thumbnail {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #0a1a2f;
+        cursor: pointer;
+        z-index: 5;
+        transition: all 0.3s ease;
+      }
+
+      .video-thumbnail img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition:
+          transform 0.5s ease,
+          opacity 0.4s;
+      }
+
+      .video-thumbnail:hover img {
+        transform: scale(1.02);
+        opacity: 0.85;
+      }
+
+      /* Play button overlay - glassy, refined, no external deps */
+      .play-btn-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.25);
+        backdrop-filter: blur(2px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 6;
+        transition: background 0.2s;
+      }
+
+      .play-btn {
+        background: rgba(255, 77, 141, 0.95);
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow:
+          0 20px 35px -8px rgba(0, 0, 0, 0.5),
+          0 0 0 0 rgba(255, 77, 141, 0.5);
+        transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+        backdrop-filter: blur(2px);
+      }
+
+      .play-btn i {
+        font-size: 3rem;
+        color: white;
+
+        filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
+      }
+
+      .video-thumbnail:hover .play-btn {
+        transform: scale(1.08);
+        background: var(--light-pink-dark);
+        box-shadow: 0 25px 40px -10px black;
+      }
+
+      @media (max-width: 550px) {
+        .play-btn {
+          width: 65px;
+          height: 65px;
+        }
+        .play-btn i {
+          font-size: 2.4rem;
+          margin-left: 4px;
+        }
+      }
+
+      .video-caption {
+        padding: 0.7rem;
+        text-align: center;
+        background: var(--white);
+        font-weight: 500;
+        color: var(--blue-dark);
+        font-size: 0.8rem;
+        border-top: 1px solid #eef2ff;
+        letter-spacing: 0.2px;
+      }
+
+      /* RIGHT SIDE: Content */
+      .content-side {
+        background: var(--white);
+        padding: 2rem 1.8rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        box-shadow: var(--shadow-sm);
+        overflow-y: auto;
+      }
+
+      .content-compact {
+        max-width: 560px;
+        margin: 0 auto;
+        width: 100%;
+      }
+
+      .top-heading {
+        margin-bottom: 1.2rem;
+      }
+
+      .mini-badge {
+        display: inline-block;
+        background: var(--blue-light);
+        color: var(--blue-dark);
+        font-size: 0.7rem;
+        font-weight: 700;
+        padding: 0.2rem 1rem;
+        border-radius: 30px;
+        letter-spacing: 0.3px;
+        margin-bottom: 0.8rem;
+      }
+
+      h1 {
+        font-size: 2.2rem;
+        font-weight: 700;
+        line-height: 1.2;
+        background: var(--blue-gradient);
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+        margin-bottom: 0.5rem;
+      }
+
+      .founder-note {
+        display: flex;
+        align-items: center;
+        gap: 0.7rem;
+        background: var(--off-white);
+        padding: 0.55rem 1rem;
+        border-radius: 30px;
+        margin: 0.7rem 0 1rem;
+        font-weight: 500;
+        flex-wrap: wrap;
+      }
+
+      .founder-note i {
+        color: var(--light-pink);
+        font-size: 1.1rem;
+      }
+
+      .cards-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 0.9rem;
+        margin: 0.5rem 0 1rem;
+      }
+
+      .info-card {
+        border-radius: 24px;
+        transition: var(--transition);
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+        padding: 4px 8px;
+      }
+
+      .card-icon {
+        background: var(--blue-gradient);
+        width: 42px;
+        height: 42px;
+        border-radius: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        color: white;
+        font-size: 1.2rem;
+        box-shadow: var(--shadow-sm);
+      }
+
+      .card-text h3 {
+        /* font-size: 1rem; */
+        font-weight: 700;
+        color: var(--blue-deep);
+        margin-bottom: 0.2rem;
+      }
+
+      .card-text p {
+        /* font-size: 0.8rem; */
+        color: #334155;
+        line-height: 1.4;
+      }
+
+      .twin-mv {
+        display: flex;
+        gap: 0.9rem;
+        margin: 0.5rem 0 0.8rem;
+      }
+
+      .mv-card {
+        flex: 1;
+        background: #f9fcff;
+        border-radius: 20px;
+        padding: 0.7rem 0.9rem;
+        border: 1px solid #eef2ff;
+      }
+
+      .mv-card strong {
+        color: var(--blue-primary);
+        font-size: 0.8rem;
+        display: block;
+        margin-bottom: 0.2rem;
+      }
+
+      .mv-card p {
+        font-size: 0.75rem;
+        color: #334155;
+        line-height: 1.35;
+      }
+
+      .values-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin: 0.7rem 0 0.6rem;
+      }
+
+      .value-chip {
+        background: var(--blue-light);
+        padding: 0.25rem 1rem;
+        border-radius: 30px;
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--blue-deep);
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+      }
+
+      .quote-mini {
+        background: linear-gradient(110deg, #f0f7ff, #ffffff);
+        padding: 10px 14px;
+        border-radius: 20px;
+        font-style: italic;
+        font-size: 13.5px;
+        border-left: 3px solid var(--light-pink);
+        margin: 0.6rem 0;
+        color: #1e2f44;
+      }
+
+      .bottom-line {
+        font-weight: 700;
+        margin-top: 0.5rem;
+        background: var(--blue-gradient);
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+        display: inline-block;
+      }
+
+      hr {
+        margin: 0.5rem 0;
+        border: 0;
+        height: 1px;
+        background: linear-gradient(90deg, #cbd5e1, transparent);
+      }
+
+      /* MODAL POPUP - resilient, modern, fully functional */
+      .modal-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(10, 25, 47, 0.85);
+        backdrop-filter: blur(8px);
+        z-index: 2000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        visibility: hidden;
+        opacity: 0;
+        transition:
+          visibility 0.2s,
+          opacity 0.25s ease;
+      }
+
+      .modal-overlay.active {
+        visibility: visible;
+        opacity: 1;
+      }
+
+      .popup-form-container {
+        background: var(--white);
+        max-width: 520px;
+        width: 90%;
+        border-radius: 36px;
+        padding: 2rem;
+        box-shadow: var(--shadow-xl);
+        transform: scale(0.97);
+        transition: transform 0.3s cubic-bezier(0.2, 0.95, 0.4, 1);
+        position: relative;
+      }
+
+      .modal-overlay.active .popup-form-container {
+        transform: scale(1);
+      }
+
+      .close-modal {
+        position: absolute;
+        top: 1rem;
+        right: 1.5rem;
+        font-size: 1.8rem;
+        cursor: pointer;
+        color: #94a3b8;
+        transition: var(--transition);
+        background: none;
+        border: none;
+        line-height: 1;
+      }
+
+      .close-modal:hover {
+        color: var(--light-pink);
+      }
+
+      .form-logo-area {
+        text-align: center;
+        margin-bottom: 1.2rem;
+      }
+
+      .form-logo-area i {
+        font-size: 2rem;
+        background: var(--blue-gradient);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      .form-logo-area h3 {
+        font-size: 1.5rem;
+        font-weight: 700;
+        background: var(--blue-gradient);
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+        margin: 0.2rem 0 0.1rem;
+      }
+
+      .subtext {
+        font-size: 0.78rem;
+        color: #475569;
+        margin-bottom: 1.2rem;
+        text-align: center;
+      }
+
+      .form-group {
+        margin-bottom: 1rem;
+      }
+
+      .form-group input,
+      .form-group textarea,
+      .form-group select {
+        width: 100%;
+        padding: 0.75rem 1rem;
+        border: 1px solid #e2e8f0;
+        border-radius: 32px;
+        font-family: inherit;
+        font-size: 0.85rem;
+        transition: var(--transition);
+        background: var(--white);
+        outline: none;
+      }
+
+      .form-group input:focus,
+      .form-group textarea:focus {
+        border-color: var(--blue-primary);
+        box-shadow: 0 0 0 3px rgba(47, 128, 237, 0.2);
+      }
+
+      .row-2col {
+        display: flex;
+        gap: 0.8rem;
+      }
+
+      .row-2col .form-group {
+        flex: 1;
+      }
+
+      .submit-btn {
+        width: 100%;
+        background: var(--blue-gradient);
+        border: none;
+        padding: 0.8rem;
+        border-radius: 40px;
+        font-weight: 700;
+        font-size: 0.9rem;
+        color: white;
+        cursor: pointer;
+        transition: var(--transition);
+        margin-top: 0.3rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .submit-btn:disabled {
+        opacity: 0.7;
+        cursor: not-allowed;
+      }
+
+      .form-message {
+        margin-top: 0.8rem;
+        font-size: 0.75rem;
+        text-align: center;
+        padding: 0.4rem;
+        border-radius: 40px;
+      }
+
+      /* fallback for font awesome icons if CDN fails - using emoji / text fallback via pseudo */
+      .fa,
+      .fas,
+      .far {
+        font-family: "Font Awesome 6 Free";
+      }
+      /* graceful degradation: if icons fail, we add hidden text fallback via aria labels */
+      @media (max-width: 650px) {
+        .content-side {
+          padding: 1.5rem;
+        }
+        h1 {
+          font-size: 1.8rem;
+        }
+        .twin-mv {
+          flex-direction: column;
+        }
+        .video-side {
+          padding: 1.2rem;
+        }
+        .popup-form-container {
+          padding: 1.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="header-placeholder"></div>
+    <main>
+      <!-- Hero Section with YouTube Video -->
+      <section class="hero-split">
+        <div class="container">
+          <div class="hero-grid">
+            <div class="hero-content">
+              <div
+                class="section-tag"
+                style="
+                  background: rgba(255, 182, 193, 0.2);
+                  color: navy;
+                  display: inline-block;
+                "
+              >
+                <i class="fas fa-heartbeat"></i> Heart-Mind Integration
+              </div>
+              <h1>
+                Align Your <br />
+                <span class="gradient-text">Heart & Mind</span><br />Transform
+                Your Life
+              </h1>
+              <p>
+                Break free from repeating patterns. Integrate emotional wisdom
+                with logical clarity — experience lasting peace and authentic
+                success.
+              </p>
+              <div style="display: flex; gap: 20px; flex-wrap: wrap">
+                <a href="free-session.html" class="btn-primary"
+                  ><i class="fas fa-calendar-alt"></i> Free Clarity Call</a
+                >
+                <a href="programs.html" class="btn-outline-light"
+                  ><i class="fas fa-compass"></i> Explore Programs</a
+                >
+              </div>
+              <div class="hero-stats">
+                <div class="stat">
+                  <h3>7+</h3>
+                  <p>Years Experience</p>
+                </div>
+                <div class="stat">
+                  <h3>2,800+</h3>
+                  <p>Lives Transformed</p>
+                </div>
+                <div class="stat">
+                  <h3>98%</h3>
+                  <p>Lasting Shift</p>
+                </div>
+              </div>
+            </div>
+            <div class="hero-video">
+              <iframe
+                src="https://youtu.be/onYJGCcUeFo?si=R1jaSNOWftEh1oOO"
+                title="YouTube video player"
+                allow="
+                  accelerometer;
+                  autoplay;
+                  clipboard-write;
+                  encrypted-media;
+                  gyroscope;
+                  picture-in-picture;
+                  web-share;
+                "
+                allowfullscreen
+              >
+              </iframe>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- ------about us---------- -->
+      <div class="split-layout">
+        <!-- VIDEO SIDE (gated content) -->
+        <div class="video-side">
+          <div class="video-container">
+            <div class="video-wrapper" id="videoWrapper">
+              <div id="videoThumbnail" class="video-thumbnail">
+                <img
+                  src="https://img.youtube.com/vi/uOwoj8_IkUo/maxresdefault.jpg"
+                  alt="Heart to Mind integration video preview"
+                  onerror="
+                    this.src =
+                      'https://img.youtube.com/vi/uOwoj8_IkUo/hqdefault.jpg'
+                  "
+                />
+                <div class="play-btn-overlay">
+                  <div class="play-btn" aria-label="Play video">
+                    <i class="fas fa-play"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="video-caption">
+              <i
+                class="fas fa-heart"
+                style="color: var(--light-pink); margin-right: 6px"
+              ></i>
+              Click ▶ to unlock transformational wisdom — submit form for access
+            </div>
+          </div>
+        </div>
+
+        <!-- CONTENT SIDE (appears first on mobile) -->
+        <div class="content-side">
+          <div class="content-compact">
+            <div class="top-heading">
+              <div class="mini-badge">ABOUT US</div>
+              <h1>Align. Integrate. Transform.</h1>
+              <div class="founder-note">
+                <i class="fas fa-user-md"></i>
+                <span
+                  >Founded by <strong>Dr. Nitin Sharma</strong> · 2,800+ lives ·
+                  7+ years</span
+                >
+              </div>
+            </div>
+
+            <div class="cards-grid">
+              <div class="info-card">
+                <div class="card-icon"><i class="fas fa-heartbeat"></i></div>
+                <div class="card-text">
+                  <h3>Heart-Mind Alignment</h3>
+                  <p>
+                    Helps you align emotions & logic — decisions not only make
+                    sense, but feel right too. Break limiting patterns & gain
+                    clarity.
+                  </p>
+                </div>
+              </div>
+              <div class="info-card">
+                <div class="card-icon">
+                  <i class="fas fa-chalkboard-user"></i>
+                </div>
+                <div class="card-text">
+                  <h3>Proven Methodology</h3>
+                  <p>
+                    Designed to create lasting inner change by integrating heart
+                    wisdom with mental clarity. True growth happens when all
+                    parts work together.
+                  </p>
+                </div>
+              </div>
+              <div class="info-card">
+                <div class="card-icon"><i class="fas fa-seedling"></i></div>
+                <div class="card-text">
+                  <h3>Lasting Transformation</h3>
+                  <p>
+                    Reprogram your inner patterns, build alignment, and achieve
+                    sustainable peace — from the inside out.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- <div class="twin-mv">
+              <div class="mv-card">
+                <strong
+                  ><i class="fas fa-flag-checkered"></i> Our Mission</strong
+                >
+                <p>
+                  To help individuals achieve lasting peace by integrating heart
+                  wisdom with mental clarity.
+                </p>
+              </div>
+              <div class="mv-card">
+                <strong><i class="fas fa-globe-asia"></i> Our Vision</strong>
+                <p>
+                  A world where people live in alignment — thinking clearly and
+                  feeling deeply.
+                </p>
+              </div>
+            </div> -->
+
+            <div class="values-row">
+              <span class="value-chip"
+                ><i class="fas fa-heart"></i> Authenticity</span
+              >
+              <span class="value-chip"
+                ><i class="fas fa-hands-helping"></i> Compassion</span
+              >
+              <span class="value-chip"
+                ><i class="fas fa-chalkboard-user"></i> Integration</span
+              >
+              <span class="value-chip"
+                ><i class="fas fa-medal"></i> Excellence</span
+              >
+            </div>
+
+            <div class="quote-mini">
+              <i
+                class="fas fa-quote-left"
+                style="color: var(--light-pink); margin-right: 5px"
+              ></i>
+              “True freedom comes when your heart’s wisdom and mind’s logic work
+              together.”
+            </div>
+            <div class="bottom-line">
+              <i class="fas fa-compass"></i> Align Your Heart. Reprogram Your
+              Mind. Transform Your Life.
+            </div>
+            <hr />
+            <div style="font-size: 0.7rem; color: #5a6e8a; margin-top: 0.4rem">
+              <i class="fas fa-brain"></i> Break limiting patterns ·
+              <i class="fas fa-smile"></i> Inner clarity
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MODAL: Gated form + Google Sheets -->
+      <div id="accessModal" class="modal-overlay">
+        <div class="popup-form-container">
+          <button class="close-modal" id="closeModalBtn" aria-label="Close">
+            <i class="fas fa-times"></i>
+          </button>
+          <div class="form-logo-area">
+            <i class="fas fa-heartbeat"></i>
+            <h3>Heart to Mind</h3>
+            <div class="subtext">Fill the form to unlock & play the video</div>
+          </div>
+          <form id="gatewayForm" novalidate>
+            <div class="form-group">
+              <input
+                type="text"
+                id="name"
+                placeholder="Full Name *"
+                required
+                autocomplete="name"
+              />
+            </div>
+            <div class="form-group">
+              <input
+                type="email"
+                id="email"
+                placeholder="Email Address *"
+                required
+                autocomplete="email"
+              />
+            </div>
+            <div class="form-group">
+              <input
+                type="tel"
+                id="phone"
+                placeholder="Phone Number *"
+                required
+                autocomplete="tel"
+              />
+            </div>
+            <div class="row-2col">
+              <div class="form-group">
+                <input
+                  type="text"
+                  id="city"
+                  placeholder="City"
+                  autocomplete="address-level2"
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  type="text"
+                  id="state"
+                  placeholder="State"
+                  autocomplete="address-level1"
+                />
+              </div>
+            </div>
+            <div class="form-group">
+              <textarea
+                rows="2"
+                id="message"
+                placeholder="Message (optional)"
+              ></textarea>
+            </div>
+            <button type="submit" class="submit-btn" id="submitFormBtn">
+              <i class="fas fa-spinner fa-pulse" style="display: none"></i>
+              <span id="btnText">Submit & Unlock Video</span>
+            </button>
+            <div id="formStatus" class="form-message"></div>
+          </form>
+        </div>
+      </div>
+
+      <script>
+        // ==============================================================
+        // OVERRIDING FREE & RESILIENT:
+        // - No external dependencies beyond optional font/icons (graceful fallback)
+        // - Google Sheets webhook, local validation, robust async.
+        // - Works even if network fails for external resources.
+        // ==============================================================
+        const GOOGLE_SHEET_WEBHOOK_URL =
+          "https://script.google.com/macros/s/AKfycbyonAFo2GhqOOsKgnhM15GM4qyFDJzxgFPKrp_7B3TSe4_NhHt8zq6JzQD_qQVmXTzl/exec";
+        const IS_DEMO_MODE = GOOGLE_SHEET_WEBHOOK_URL.includes(
+          "REPLACE_WITH_YOUR_SCRIPT_ID",
+        );
+        const YOUTUBE_VIDEO_ID = "uOwoj8_IkUo";
+        const IFRAME_SRC = `https://www.youtube.com/embed/${YOUTUBE_VIDEO_ID}?autoplay=1&rel=0&modestbranding=1&enablejsapi=1`;
+
+        let videoUnlocked = false;
+
+        // DOM elements
+        const modalOverlay = document.getElementById("accessModal");
+        const thumbnailDiv = document.getElementById("videoThumbnail");
+        const videoWrapper = document.getElementById("videoWrapper");
+        const closeModalBtn = document.getElementById("closeModalBtn");
+        const form = document.getElementById("gatewayForm");
+        const submitBtn = document.getElementById("submitFormBtn");
+        const btnTextSpan = document.getElementById("btnText");
+        const spinnerIcon = document.querySelector(
+          "#submitFormBtn i.fa-spinner",
+        );
+        const formStatusDiv = document.getElementById("formStatus");
+
+        function setStatus(message, isError = false) {
+          if (!formStatusDiv) return;
+          formStatusDiv.innerHTML = message;
+          formStatusDiv.style.color = isError ? "#e63e7a" : "#2f80ed";
+          formStatusDiv.style.background = isError ? "#fff0f3" : "#eaf4ff";
+          formStatusDiv.style.borderRadius = "50px";
+          formStatusDiv.style.padding = "0.4rem";
+        }
+
+        function clearStatus() {
+          if (formStatusDiv) formStatusDiv.innerHTML = "";
+        }
+        function showModal() {
+          modalOverlay.classList.add("active");
+          clearStatus();
+        }
+        function closeModal() {
+          modalOverlay.classList.remove("active");
+        }
+
+        // Load video (replace thumbnail with iframe)
+        function activateVideo() {
+          if (videoUnlocked) return;
+          if (thumbnailDiv) thumbnailDiv.style.display = "none";
+          const iframe = document.createElement("iframe");
+          iframe.src = IFRAME_SRC;
+          iframe.allow =
+            "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+          iframe.allowFullscreen = true;
+          iframe.style.position = "absolute";
+          iframe.style.top = "0";
+          iframe.style.left = "0";
+          iframe.style.width = "100%";
+          iframe.style.height = "100%";
+          iframe.style.border = "0";
+          iframe.title = "Heart to Mind – Integration Session";
+          videoWrapper.appendChild(iframe);
+          videoUnlocked = true;
+        }
+
+        // Google Sheets submission (no-cors, resilient)
+        async function submitToGoogleSheet(formDataObj) {
+          if (IS_DEMO_MODE) {
+            console.warn(
+              "⚠️ Demo: Using actual Google Sheets URL. If you see this, it's live.",
+            );
+            // still attempt to send real data
+          }
+          try {
+            await fetch(GOOGLE_SHEET_WEBHOOK_URL, {
+              method: "POST",
+              mode: "no-cors",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(formDataObj),
+            });
+            console.log("✅ Data sent to Google Sheet (no-cors mode).");
+            return true;
+          } catch (err) {
+            console.error("❌ Sheet POST error:", err);
+            return false;
+          }
+        }
+
+        // Form submit handler
+        form.addEventListener("submit", async (e) => {
+          e.preventDefault();
+          const name = document.getElementById("name").value.trim();
+          const email = document.getElementById("email").value.trim();
+          const phone = document.getElementById("phone").value.trim();
+
+          if (!name || !email || !phone) {
+            setStatus("Please fill Name, Email and Phone to continue.", true);
+            return;
+          }
+          if (!email.includes("@") || !email.includes(".")) {
+            setStatus("Please enter a valid email address.", true);
+            return;
+          }
+
+          // UI loading state
+          submitBtn.disabled = true;
+          if (spinnerIcon) spinnerIcon.style.display = "inline-block";
+          btnTextSpan.innerText = "Submitting...";
+          clearStatus();
+
+          const city = document.getElementById("city").value.trim();
+          const state = document.getElementById("state").value.trim();
+          const message = document.getElementById("message").value.trim();
+
+          const payload = {
+            name,
+            email,
+            phone,
+            city,
+            state,
+            message,
+            timestamp: new Date().toISOString(),
+            source: "HeartToMind_video_gate_responsive",
+          };
+
+          const success = await submitToGoogleSheet(payload);
+
+          if (success) {
+            setStatus(
+              "✔️ Success! Video unlocked. Enjoy your inner transformation.",
+              false,
+            );
+            setTimeout(() => {
+              closeModal();
+              activateVideo();
+              form.reset();
+              submitBtn.disabled = false;
+              if (spinnerIcon) spinnerIcon.style.display = "none";
+              btnTextSpan.innerText = "Submit & Unlock Video";
+              clearStatus();
+            }, 1300);
+          } else {
+            setStatus(
+              "Submission error. Please check connection or try again later.",
+              true,
+            );
+            submitBtn.disabled = false;
+            if (spinnerIcon) spinnerIcon.style.display = "none";
+            btnTextSpan.innerText = "Submit & Unlock Video";
+          }
+        });
+
+        // open modal on thumbnail click (if video not unlocked)
+        if (thumbnailDiv) {
+          thumbnailDiv.addEventListener("click", (e) => {
+            e.stopPropagation();
+            if (!videoUnlocked) showModal();
+          });
+        }
+        closeModalBtn.addEventListener("click", closeModal);
+        modalOverlay.addEventListener("click", (e) => {
+          if (e.target === modalOverlay) closeModal();
+        });
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "Escape" && modalOverlay.classList.contains("active"))
+            closeModal();
+        });
+
+        console.log(
+          "Heart to Mind — Overriding Free Mode active. Video gate + Google Sheets integration ready.",
+        );
+      </script>
+
+      <!-- Problem & Solution (New Style) -->
+      <section class="section">
+        <div class="container">
+          <div class="section-tag" style="margin: 0 auto 20px; display: table">
+            The Challenge & Answer
+          </div>
+          <h2 class="section-title">
+            Why Most People Stay <span>Stuck</span> & How We Help
+          </h2>
+          <div class="problem-solution-grid">
+            <!-- Problem Card -->
+            <div class="ps-card problem">
+              <div class="ps-icon"><i class="fas fa-heart-broken"></i></div>
+              <h3>The Real Problem</h3>
+              <p>
+                Feeling stuck, emotionally unstable, disconnected in
+                relationships, and unsuccessful despite immense effort. Stress,
+                anxiety, and confusion block real transformation.
+              </p>
+              <ul class="ps-list problem-list">
+                <li>
+                  <i class="fas fa-times-circle"></i> Exhausted despite
+                  achieving goals
+                </li>
+                <li>
+                  <i class="fas fa-times-circle"></i> Repeating same
+                  relationship patterns
+                </li>
+                <li>
+                  <i class="fas fa-times-circle"></i> Anxiety when things are
+                  going well
+                </li>
+                <li>
+                  <i class="fas fa-times-circle"></i> Success without
+                  fulfillment
+                </li>
+              </ul>
+            </div>
+            <!-- Solution Card -->
+            <div class="ps-card solution">
+              <div class="ps-icon"><i class="fas fa-brain"></i></div>
+              <h3>Our Solution</h3>
+              <p>
+                Heart to Mind Integration = Emotional + Logical Alignment →
+                Clear decisions, stable life, better results naturally.
+              </p>
+              <ul class="ps-list solution-list">
+                <li>
+                  <i class="fas fa-check-circle"></i> Listen to your heart's
+                  wisdom without being overwhelmed
+                </li>
+                <li>
+                  <i class="fas fa-check-circle"></i> Use your mind's logic
+                  without becoming rigid
+                </li>
+                <li>
+                  <i class="fas fa-check-circle"></i> Create decisions that feel
+                  right AND make sense
+                </li>
+                <li>
+                  <i class="fas fa-check-circle"></i> Experience peace while
+                  pursuing success
+                </li>
+              </ul>
+              <div class="quote-box-new">
+                <i
+                  class="fas fa-quote-left"
+                  style="color: var(--light-pink); margin-right: 8px"
+                ></i>
+                <p>
+                  "True transformation happens when the heart and mind stop
+                  fighting and start working together."
+                </p>
+                <strong>— Dr. Nitin Sharma</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Transformation Areas -->
+      <section class="section" style="background: var(--off-white)">
+        <div class="container">
+          <h2 class="section-title">
+            Areas of <span>Deep Transformation</span>
+          </h2>
+          <p class="section-sub">
+            We help you transform every aspect of your life by creating
+            alignment between your emotions and thoughts.
+          </p>
+          <div class="three-col-grid">
+            <div class="transfo-card">
+              <i class="fas fa-heartbeat"></i>
+              <h3>Health & Vitality</h3>
+              <p>
+                Emotional balance radiates into physical wellness. Release
+                stress that manifests as illness.
+              </p>
+            </div>
+            <div class="transfo-card">
+              <i class="fas fa-chart-line"></i>
+              <h3>Wealth Flow</h3>
+              <p>
+                Clear mind, aligned heart — abundance follows effortlessly.
+                Remove subconscious blocks.
+              </p>
+            </div>
+            <div class="transfo-card">
+              <i class="fas fa-hand-holding-heart"></i>
+              <h3>Relationships</h3>
+              <p>
+                Authentic connection starts from within. Heal patterns that
+                create conflict.
+              </p>
+            </div>
+            <div class="transfo-card">
+              <i class="fas fa-briefcase"></i>
+              <h3>Career Impact</h3>
+              <p>
+                Purpose-led decisions create real success. Find work that
+                fulfills you.
+              </p>
+            </div>
+            <div class="transfo-card">
+              <i class="fas fa-feather-alt"></i>
+              <h3>Emotional Stability</h3>
+              <p>
+                Master your inner world. Respond rather than react, stay
+                centered in chaos.
+              </p>
+            </div>
+            <div class="transfo-card">
+              <i class="fas fa-brain"></i>
+              <h3>Mental Clarity</h3>
+              <p>
+                Cut through mental fog and confusion. Make decisions with
+                confidence.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Programs Section -->
+      <section class="section">
+        <div class="container">
+          <h2 class="section-title">Our <span>Premium Programs</span></h2>
+          <p class="section-sub">
+            Choose the path that aligns with your transformation journey
+          </p>
+          <div class="three-col-grid">
+            <div class="program-card">
+              <div class="program-badge">SILVER FREE</div>
+              <h3>Consultation with Nileema Kirkire</h3>
+              <div class="program-price">₹0 <span>Free Session</span></div>
+              <ul class="program-features">
+                <li>
+                  <i class="fas fa-check-circle"></i> 30-min 1-on-1 clarity
+                  session
+                </li>
+                <li>
+                  <i class="fas fa-check-circle"></i> Identify emotional blocks
+                </li>
+                <li>
+                  <i class="fas fa-check-circle"></i> Personalized roadmap
+                </li>
+                <li>
+                  <i class="fas fa-check-circle"></i> Experience our approach
+                </li>
+              </ul>
+              <a href="free-session.html" class="program-btn">Book Free →</a>
+            </div>
+            <div class="program-card">
+              <div class="program-badge">GOLD</div>
+              <h3>Gold Integration</h3>
+              <div class="program-price">₹499 <span>One-time</span></div>
+              <ul class="program-features">
+                <li><i class="fas fa-check-circle"></i> Life Audit</li>
+                <li><i class="fas fa-check-circle"></i> Self Realisation</li>
+                <li>
+                  <i class="fas fa-check-circle"></i> Clarity of Direction
+                </li>
+                <li><i class="fas fa-check-circle"></i> Change Perception</li>
+                <li>
+                  <i class="fas fa-check-circle"></i> Be specific to your action
+                  and challenges
+                </li>
+              </ul>
+              <a href="programs.html" class="program-btn">Enroll Now →</a>
+            </div>
+            <div class="program-card">
+              <div class="program-badge">PLATINUM</div>
+              <h3>Platinum - 5 Levels</h3>
+              <div class="program-price">
+                ₹24,997 <span>For 3 Months | 20 Sessions</span>
+              </div>
+              <ul class="program-features">
+                <li>
+                  <i class="fas fa-check-circle"></i> Level 1: Build Your Aura &
+                  High Vibes
+                </li>
+                <li>
+                  <i class="fas fa-check-circle"></i> Level 2: Understanding
+                  Your Mapping
+                </li>
+                <li>
+                  <i class="fas fa-check-circle"></i> Level 3: Aligned
+                  Neurological Level
+                </li>
+                <li>
+                  <i class="fas fa-check-circle"></i> Level 4: Create Momentum
+                </li>
+                <li>
+                  <i class="fas fa-check-circle"></i> From Calamity to
+                  Prosperity
+                </li>
+              </ul>
+              <a href="programs.html" class="program-btn">Apply →</a>
+            </div>
+            <div class="program-card">
+              <div class="program-badge">DIAMOND</div>
+              <h3>Diamond - 5 Levels</h3>
+              <div class="program-price">
+                ₹98,997 <span>For One Year | ~45 Sessions</span>
+              </div>
+              <ul class="program-features">
+                <li>
+                  <i class="fas fa-check-circle"></i> Align to Almighty
+                  (Universal Power)
+                </li>
+                <li>
+                  <i class="fas fa-check-circle"></i> Manifest Your Desired Life
+                </li>
+                <li>
+                  <i class="fas fa-check-circle"></i> Write Your Future by New
+                  Synaptic
+                </li>
+                <li>
+                  <i class="fas fa-check-circle"></i> Ignite Neural Network to
+                  Action
+                </li>
+                <li>
+                  <i class="fas fa-check-circle"></i> Guidance from Ancestors &
+                  Divine Power
+                </li>
+              </ul>
+              <a href="programs.html" class="program-btn">Inquire →</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Stats Premium -->
+      <section class="stats-premium">
+        <div class="container">
+          <div class="stats-grid">
+            <div>
+              <div class="stat-number" id="stat1">7+</div>
+              <div class="stat-label">Years of Experience</div>
+            </div>
+            <div>
+              <div class="stat-number" id="stat2">2,800+</div>
+              <div class="stat-label">Lives Transformed</div>
+            </div>
+            <div>
+              <div class="stat-number" id="stat3">45+</div>
+              <div class="stat-label">Workshops Worldwide</div>
+            </div>
+            <div>
+              <div class="stat-number" id="stat4">98%</div>
+              <div class="stat-label">Report Lasting Shift</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Image Gallery -->
+      <section class="section">
+        <div class="container">
+          <h2 class="section-title">
+            Our <span>Transformational Spaces</span>
+          </h2>
+          <p class="section-sub">
+            Experience the journey through our healing environments
+          </p>
+          <div class="gallery-grid">
+            <div class="gallery-item">
+              <img
+                src="https://images.unsplash.com/photo-1545205597-3d9d02c29597?w=400"
+                alt="Retreat"
+              />
+              <div class="gallery-overlay">
+                <h4>Healing Retreat Center</h4>
+                <p>Serene environment for deep transformation</p>
+              </div>
+            </div>
+            <div class="gallery-item">
+              <img
+                src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400"
+                alt="Workshop"
+              />
+              <div class="gallery-overlay">
+                <h4>Workshop Space</h4>
+                <p>Where transformation happens</p>
+              </div>
+            </div>
+            <div class="gallery-item">
+              <img
+                src="https://images.unsplash.com/photo-1515187029135-18ee286d815b?w=400"
+                alt="Meditation"
+              />
+              <div class="gallery-overlay">
+                <h4>Meditation Hall</h4>
+                <p>Inner peace sanctuary</p>
+              </div>
+            </div>
+            <div class="gallery-item">
+              <img
+                src="https://images.unsplash.com/photo-1519834785169-98be25ec3f84?w=400"
+                alt="Community"
+              />
+              <div class="gallery-overlay">
+                <h4>Community Space</h4>
+                <p>Connection and growth</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Double Scroll Slider -->
+      <section style="background: var(--off-white); overflow: hidden">
+        <div class="container">
+          <h2 class="section-title">Success <span>Journey Gallery</span></h2>
+          <p class="section-sub">Witness the transformation moments</p>
+        </div>
+
+        <div class="double-scroll-slider">
+          <div class="scroll-wrapper">
+            <div class="scroll-item">
+              <img src="images/IMG06.png" />
+            </div>
+
+            <div class="scroll-item">
+              <img src="images/IMG07.png" />
+            </div>
+
+            <div class="scroll-item">
+              <img src="images/IMG05.JPG" />
+            </div>
+
+            <div class="scroll-item">
+              <img src="images/IMG04.JPG" />
+            </div>
+
+            <div class="scroll-item">
+              <img src="images/IMG03.jpg" />
+            </div>
+
+            <div class="scroll-item">
+              <img src="images/IMG02.jpg" />
+            </div>
+
+            <div class="scroll-item">
+              <img src="images/IMG01.jpg" />
+            </div>
+            <div class="scroll-item">
+              <img src="images/IMG07.png" />
+            </div>
+
+            <!-- <div class="scroll-item">
+              <img src="images/IMG01.HEIC" />
+            </div> -->
+          </div>
+        </div>
+      </section>
+
+      <!-- Journey Steps -->
+      <section class="section">
+        <div class="container">
+          <h2 class="section-title">Your <span>Journey</span> to Wholeness</h2>
+          <p class="section-sub">
+            Simple, powerful steps to lasting transformation
+          </p>
+          <div class="three-col-grid">
+            <div class="step-card">
+              <div class="step-number">1</div>
+              <h3>Awaken Awareness</h3>
+              <p>
+                Start with our free workshop to understand the core principles
+                of Heart to Mind Integration.
+              </p>
+            </div>
+            <div class="step-card">
+              <div class="step-number">2</div>
+              <h3>Integrate Deeply</h3>
+              <p>
+                Work with our expert coaches to apply the principles to your
+                specific life challenges.
+              </p>
+            </div>
+            <div class="step-card">
+              <div class="step-number">3</div>
+              <h3>Transform Fully</h3>
+              <p>
+                Experience lasting change as alignment becomes your new way of
+                being.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Testimonials Slider -->
+      <section class="section" style="background: var(--off-white)">
+        <div class="container">
+          <h2 class="section-title">Voices of <span>Transformation</span></h2>
+          <div class="swiper testimonial-swiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <div class="testimonial-card">
+                  <i class="fas fa-quote-left"></i>
+                  <p>
+                    "I was stuck in anxiety despite my business success. Dr.
+                    Nitin's work gave me peace I never thought possible. My
+                    relationships healed."
+                  </p>
+                  <h4>— Priya K., Entrepreneur</h4>
+                  <div class="stars">★★★★★</div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="testimonial-card">
+                  <i class="fas fa-quote-left"></i>
+                  <p>
+                    "Finally a method that doesn't just motivate but actually
+                    transforms. I feel aligned and powerful. Highly
+                    recommended."
+                  </p>
+                  <h4>— Anjali M., CEO</h4>
+                  <div class="stars">★★★★★</div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="testimonial-card">
+                  <i class="fas fa-quote-left"></i>
+                  <p>
+                    "Heart to Mind Integration is a rewiring of the soul.
+                    Finally, I understand why I kept repeating patterns."
+                  </p>
+                  <h4>— Rahul S., Director</h4>
+                  <div class="stars">★★★★★</div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="testimonial-card">
+                  <i class="fas fa-quote-left"></i>
+                  <p>
+                    "Life-changing! The practices are simple yet profound. My
+                    relationships have transformed completely."
+                  </p>
+                  <h4>— Meera S., Therapist</h4>
+                  <div class="stars">★★★★★</div>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-pagination"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Video Gallery -->
+      <section class="section">
+        <div class="container">
+          <h2 class="section-title">Watch <span>Our Journey</span></h2>
+          <p class="section-sub">Experience transformation through video</p>
+
+          <div class="video-gallery">
+            <!-- Video 1 -->
+            <div class="video-card" data-id="KJ_5QtTM-WU">
+              <img src="https://img.youtube.com/vi/KJ_5QtTM-WU/hqdefault.jpg" />
+              <div class="video-play"><i class="fas fa-play"></i></div>
+            </div>
+
+            <!-- Video 2 -->
+            <div class="video-card" data-id="YrSWT1fknAU">
+              <img src="https://img.youtube.com/vi/YrSWT1fknAU/hqdefault.jpg" />
+              <div class="video-play"><i class="fas fa-play"></i></div>
+            </div>
+
+            <!-- Video 3 -->
+            <div class="video-card" data-id="izcOoCR84g4">
+              <img src="https://img.youtube.com/vi/izcOoCR84g4/hqdefault.jpg" />
+              <div class="video-play"><i class="fas fa-play"></i></div>
+            </div>
+
+            <!-- Video 4 -->
+            <div class="video-card" data-id="gYo0EthA17w">
+              <img src="https://img.youtube.com/vi/gYo0EthA17w/hqdefault.jpg" />
+              <div class="video-play"><i class="fas fa-play"></i></div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <script>
+        document.querySelectorAll(".video-card").forEach((card) => {
+          card.addEventListener("click", () => {
+            const videoId = card.getAttribute("data-id");
+
+            card.innerHTML = `
+        <iframe 
+          src="https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0"
+          allow="autoplay; encrypted-media"
+          allowfullscreen>
+        </iframe>
+      `;
+          });
+        });
+      </script>
+
+      <!-- FAQ -->
+      <section class="section" style="background: var(--off-white)">
+        <div class="container">
+          <h2 class="section-title">Frequently Asked <span>Questions</span></h2>
+          <div class="faq-list">
+            <div class="faq-item">
+              <div class="faq-q">
+                What makes Heart to Mind different from regular coaching?<i
+                  class="fas fa-chevron-down"
+                ></i>
+              </div>
+              <div class="faq-a">
+                We integrate emotional intelligence with logical clarity,
+                creating holistic transformation that lasts. Most approaches
+                focus only on thinking, ignoring the emotional body.
+              </div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-q">
+                How long does it take to see results?<i
+                  class="fas fa-chevron-down"
+                ></i>
+              </div>
+              <div class="faq-a">
+                Most feel a shift within first session. Deep integration unfolds
+                over 4-8 weeks. Many report immediate clarity after the free
+                workshop.
+              </div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-q">
+                Is this suitable for beginners?<i
+                  class="fas fa-chevron-down"
+                ></i>
+              </div>
+              <div class="faq-a">
+                Absolutely. Our free workshop is designed for anyone seeking
+                deeper alignment. No prior experience needed.
+              </div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-q">
+                Can I apply this to business leadership?<i
+                  class="fas fa-chevron-down"
+                ></i>
+              </div>
+              <div class="faq-a">
+                Yes, our advanced program is tailored for leaders wanting
+                success without internal conflict.
+              </div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-q">
+                Is this religious or spiritual?<i
+                  class="fas fa-chevron-down"
+                ></i>
+              </div>
+              <div class="faq-a">
+                No, our approach is grounded in psychology, neuroscience, and
+                emotional intelligence. It's completely secular and practical.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Blog Section -->
+      <section class="section">
+        <div class="container">
+          <h2 class="section-title">Latest <span>Wisdom</span></h2>
+          <p class="section-sub">Insights from our transformation library</p>
+          <div class="three-col-grid">
+            <div class="blog-card">
+              <div
+                class="blog-image"
+                style="
+                  background-image: url(&quot;https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=500&quot;);
+                "
+              ></div>
+              <div class="blog-content">
+                <span class="blog-category">Heart-Mind Science</span>
+                <h3>The Neuroscience of Alignment</h3>
+                <p>
+                  Discover how emotional and logical centers work together for
+                  better decisions.
+                </p>
+                <a href="insights.html" class="read-more">Read More →</a>
+              </div>
+            </div>
+            <div class="blog-card">
+              <div
+                class="blog-image"
+                style="
+                  background-image: url(&quot;https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=500&quot;);
+                "
+              ></div>
+              <div class="blog-content">
+                <span class="blog-category">Emotional Intelligence</span>
+                <h3>5 Signs Your Heart and Mind Are Misaligned</h3>
+                <p>
+                  Learn to recognize the subtle signals that indicate internal
+                  conflict.
+                </p>
+                <a href="insights.html" class="read-more">Read More →</a>
+              </div>
+            </div>
+            <div class="blog-card">
+              <div
+                class="blog-image"
+                style="
+                  background-image: url(&quot;https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=500&quot;);
+                "
+              ></div>
+              <div class="blog-content">
+                <span class="blog-category">Leadership</span>
+                <h3>Conscious Leadership: Leading Without Burnout</h3>
+                <p>
+                  How top executives are using heart-mind integration to lead
+                  with clarity.
+                </p>
+                <a href="insights.html" class="read-more">Read More →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <div class="cta-premium">
+        <div class="container">
+          <h2>Ready to Change Your Life From Inside?</h2>
+          <p>
+            Join thousands who have discovered the power of Heart-Mind Alignment
+          </p>
+          <a href="free-session.html" class="btn-white"
+            ><i class="fas fa-calendar-alt"></i> Book Your Free Clarity Call</a
+          >
+          <p style="margin-top: 24px; font-size: 13px; opacity: 0.8">
+            Limited spots for 1-on-1 sessions with Dr. Nitin Sharma & Nileema
+            Kirkire
+          </p>
+        </div>
+      </div>
+
+      <!-- Instagram Feed -->
+      <section class="section">
+        <div class="container">
+          <h2 class="section-title">Follow Our <span>Journey</span></h2>
+          <p class="section-sub">Join us on Instagram @HeartToMind</p>
+
+          <div class="four-col-grid">
+            <a
+              href="https://www.instagram.com/stories/highlights/17889307767053318/"
+              target="_blank"
+              class="insta-card"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1611262588024-d12430b98920?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              />
+            </a>
+
+            <a
+              href="https://www.instagram.com/s/aGlnaGxpZ2h0OjE3OTE2NTcyMTIwODcyMjk5?story_media_id=3324235427253545530_6566413716"
+              target="_blank"
+              class="insta-card"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1611262588024-d12430b98920?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              />
+            </a>
+
+            <a
+              href="https://www.instagram.com/s/aGlnaGxpZ2h0OjE4MDQxMzI5NDMyNjc1NzUy?story_media_id=3324336843637894309_6566413716"
+              target="_blank"
+              class="insta-card"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1611262588024-d12430b98920?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              />
+            </a>
+
+            <a
+              href="https://www.instagram.com/stories/highlights/18025612141996582/"
+              target="_blank"
+              class="insta-card"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1611262588024-d12430b98920?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              />
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ------Footer---------- -->
+    </main>
+    <div id="footer-placeholder"></div>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+      // Header/Footer Loader (self-contained)
+      class HeaderFooterLoader {
+        constructor() {
+          this.headerHTML = `<header id="main-header"><div class="container"><nav class="navbar"><a href="index.html" class="logo"><div class="logo-icon"><i class="fas fa-heartbeat"></i></div><div class="logo-text"><h2>Heart to Mind</h2><p>INTEGRATION</p></div></a><div class="nav-links" id="navLinks"><a href="index.html" class="nav-link" data-page="home">Home</a><div class="mega-menu"><a href="javascript:void(0)" class="mega-toggle nav-link">Programs <i class="fas fa-chevron-down"></i></a><div class="mega-dropdown"><div class="mega-container"><div class="mega-grid"><div class="mega-col"><div class="mega-header"><i class="fas fa-gift"></i><h4>Free Resources</h4></div><a href="free-session.html" class="mega-item"><i class="fas fa-chalkboard-user"></i><div><strong>Free Session</strong><span>With Nileema Kirkire</span></div></a><a href="#" class="mega-item"><i class="fas fa-book-open"></i><div><strong>Free E-Book</strong><span>The Heart-Mind Guide</span></div></a></div><div class="mega-col"><div class="mega-header"><i class="fas fa-crown"></i><h4>Premium Programs</h4></div><a href="programs.html" class="mega-item"><i class="fas fa-star"></i><div><strong>Gold - ₹499</strong><span>Life Audit & Clarity</span></div></a><a href="programs.html" class="mega-item"><i class="fas fa-gem"></i><div><strong>Platinum - ₹24,997</strong><span>20 Sessions / 3 Months</span></div></a><a href="programs.html" class="mega-item"><i class="fas fa-diamond"></i><div><strong>Diamond - ₹98,997</strong><span>~45 Sessions / Year</span></div></a></div><div class="mega-col"><div class="mega-header"><i class="fas fa-users"></i><h4>Community</h4></div><a href="insights.html#stories" class="mega-item"><i class="fas fa-heart"></i><div><strong>Success Stories</strong><span>Real transformations</span></div></a><a href="insights.html" class="mega-item"><i class="fas fa-newspaper"></i><div><strong>Wisdom Library</strong><span>Articles & insights</span></div></a></div></div></div></div></div><a href="about.html" class="nav-link" data-page="about">About</a><a href="mentors.html" class="nav-link" data-page="mentors">Mentors</a><a href="insights.html" class="nav-link" data-page="insights">Insights</a><a href="contact.html" class="nav-link" data-page="contact">Connect</a><a href="free-session.html" class="btn-premium"><i class="fas fa-calendar-alt"></i> Free Session</a></div><div class="header-actions"><div class="menu-toggle" id="menuToggle"><span></span><span></span><span></span></div></div></nav></div></header>`;
+          this.footerHTML = `<footer><div class="container"><div class="footer-grid"><div class="footer-col"><div class="footer-logo"><i class="fas fa-heartbeat"></i><div><h3>Heart to Mind</h3><p style="font-size:9px; letter-spacing:2px;">INTEGRATION</p></div></div><p class="footer-desc">Align Your Heart. Reprogram Your Mind. Transform Your Life.</p><div class="social-links"><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fab fa-linkedin-in"></i></a><a href="#"><i class="fab fa-youtube"></i></a></div></div><div class="footer-col"><h4>Explore</h4><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About Dr. Nitin</a></li><li><a href="mentors.html">Our Mentors</a></li><li><a href="insights.html#stories">Success Stories</a></li><li><a href="contact.html">Contact</a></li></ul></div><div class="footer-col"><h4>Programs</h4><ul><li><a href="free-session.html">Free Session</a></li><li><a href="programs.html">Gold - ₹499</a></li><li><a href="programs.html">Platinum - ₹24,997</a></li><li><a href="programs.html">Diamond - ₹98,997</a></li></ul></div><div class="footer-col"><h4>Contact</h4><ul class="contact-info"><li><i class="fas fa-envelope"></i> hello@hearttomind.com</li><li><i class="fas fa-phone"></i> +91 85888 62861 / +91 72762 17902</li><li><i class="fas fa-clock"></i> Mon-Fri: 9AM - 7PM IST</li></ul></div></div><div class="footer-newsletter"><h4>Join 2,800+ Souls on the Path to Integration</h4><form id="newsletterForm"><input type="email" placeholder="Your email address" required><button type="submit">Subscribe →</button></form></div><div class="footer-bottom"><p>&copy; 2025 Heart to Mind Integration. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p><p class="credits">Dr. Nitin Sharma & Nileema Kirkire — Transforming lives since 2017</p></div></div></footer>`;
+          this.floatingButtons = `<div class="floating-buttons"><a href="https://wa.me/918588862861" class="floating-btn floating-btn-wa" target="_blank"><i class="fab fa-whatsapp"></i></a><a href="tel:+918588862861" class="floating-btn floating-btn-call"><i class="fas fa-phone-alt"></i></a></div>`;
+        }
+        loadHeader() {
+          document.body.insertAdjacentHTML("afterbegin", this.headerHTML);
+          document.body.insertAdjacentHTML("beforeend", this.floatingButtons);
+          this.setActiveNavLink();
+          this.initMegaMenuMobile();
+        }
+        loadFooter() {
+          document.body.insertAdjacentHTML("beforeend", this.footerHTML);
+          this.initFooterScripts();
+        }
+        setActiveNavLink() {
+          const current =
+            window.location.pathname.split("/").pop() || "index.html";
+          document.querySelectorAll(".nav-link[data-page]").forEach((link) => {
+            const page = link.getAttribute("data-page");
+            if (
+              (current === "index.html" && page === "home") ||
+              current === page + ".html"
+            )
+              link.classList.add("active");
+          });
+        }
+        initMegaMenuMobile() {
+          if (window.innerWidth <= 768) {
+            const megaMenu = document.querySelector(".mega-menu");
+            if (megaMenu) {
+              const toggle = megaMenu.querySelector(".mega-toggle");
+              toggle?.addEventListener("click", (e) => {
+                e.preventDefault();
+                megaMenu.classList.toggle("active");
+              });
+            }
+          }
+        }
+        initFooterScripts() {
+          document
+            .getElementById("newsletterForm")
+            ?.addEventListener("submit", (e) => {
+              e.preventDefault();
+              alert(
+                `Thank you! We'll send insights to ${e.target.querySelector("input").value}`,
+              );
+              e.target.reset();
+            });
+        }
+      }
+      document.addEventListener("DOMContentLoaded", function () {
+        const loader = new HeaderFooterLoader();
+        loader.loadHeader();
+        loader.loadFooter();
+
+        new Swiper(".testimonial-swiper", {
+          loop: true,
+          autoplay: { delay: 4000 },
+          pagination: { el: ".swiper-pagination", clickable: true },
+          slidesPerView: 1,
+          spaceBetween: 20,
+          breakpoints: {
+            768: { slidesPerView: 2 },
+            1024: { slidesPerView: 3 },
+          },
+        });
+        document.querySelectorAll(".faq-item").forEach((item) => {
+          const q = item.querySelector(".faq-q");
+          if (q)
+            q.addEventListener("click", () => item.classList.toggle("active"));
+        });
+        window.addEventListener("scroll", () => {
+          const header = document.getElementById("main-header");
+          if (header) header.classList.toggle("scrolled", window.scrollY > 50);
+        });
+        const menuToggle = document.getElementById("menuToggle"),
+          navLinks = document.getElementById("navLinks");
+        if (menuToggle) {
+          menuToggle.addEventListener("click", () => {
+            navLinks.classList.toggle("active");
+            const spans = menuToggle.querySelectorAll("span");
+            if (navLinks.classList.contains("active")) {
+              spans[0].style.transform = "rotate(45deg) translate(5px,6px)";
+              spans[1].style.opacity = "0";
+              spans[2].style.transform = "rotate(-45deg) translate(5px,-6px)";
+            } else {
+              spans[0].style.transform = "none";
+              spans[1].style.opacity = "1";
+              spans[2].style.transform = "none";
+            }
+          });
+        }
+        const statsSection = document.querySelector(".stats-premium");
+        if (statsSection) {
+          const observer = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                  [1, 2, 3, 4].forEach((i) => {
+                    const stat = document.getElementById(`stat${i}`);
+                    if (stat && !stat.getAttribute("data-animated")) {
+                      stat.setAttribute("data-animated", "true");
+                      const text = stat.textContent;
+                      const num = parseInt(text.replace(/[^0-9]/g, ""));
+                      if (num) {
+                        let current = 0;
+                        const inc = num / 50;
+                        const timer = setInterval(() => {
+                          current += inc;
+                          if (current >= num) {
+                            stat.textContent = text;
+                            clearInterval(timer);
+                          } else {
+                            stat.textContent =
+                              Math.floor(current) +
+                              (text.includes("%")
+                                ? "%"
+                                : text.includes("+")
+                                  ? "+"
+                                  : "");
+                          }
+                        }, 30);
+                      }
+                    }
+                  });
+                  observer.unobserve(entry.target);
+                }
+              });
+            },
+            { threshold: 0.5 },
+          );
+          observer.observe(statsSection);
+        }
+        document
+          .querySelectorAll(".video-card, .gallery-item")
+          .forEach((item) => {
+            item.addEventListener("click", () => {
+              const img = item.querySelector("img")?.src;
+              if (img) alert(`View full image: ${img}`);
+            });
+          });
+      });
+    </script>
+  </body>
+</html>
