@@ -123,7 +123,7 @@
       .btn-white {
         background: white;
         color: var(--blue-deep);
-        padding: 16px 48px;
+        padding: 12px 48px;
         border-radius: 50px;
         font-weight: 700;
         text-decoration: none;
@@ -131,6 +131,7 @@
         align-items: center;
         gap: 12px;
         transition: var(--transition);
+        margin-top: 25px;
       }
       .btn-white:hover {
         transform: translateY(-3px);
@@ -484,7 +485,7 @@
         color: var(--blue-primary);
       }
       .featured-mentor {
-        background: var(--blue-gradient);
+        background: linear-gradient(135deg, #2f80ed, #00254f);
         border-radius: 48px;
         padding: 60px;
         margin-top: 40px;
@@ -492,6 +493,33 @@
         grid-template-columns: 1fr 2fr;
         gap: 60px;
         align-items: center;
+      }
+
+      /* Flip layout for second card */
+      .featured-mentor.reverse {
+        grid-template-columns: 2fr 1fr;
+        background: linear-gradient(135deg, #00254f, #2f80ed);
+      }
+
+      /* Ensure proper ordering */
+      .featured-mentor.reverse div:first-child {
+        order: 2;
+      }
+      .featured-mentor.reverse div:last-child {
+        order: 1;
+      }
+
+      /* Mobile fix */
+      @media (max-width: 768px) {
+        .featured-mentor,
+        .featured-mentor.reverse {
+          grid-template-columns: 1fr;
+          padding: 30px;
+        }
+
+        .featured-mentor.reverse div {
+          order: unset;
+        }
       }
       @media (max-width: 1024px) {
         .team-grid {
@@ -559,8 +587,13 @@
             Meet Our
             <span
               style="
-                color: var(--light-pink);
-                -webkit-text-stroke: 0.5px #000000;
+                background: radial-gradient(
+                  circle,
+                  rgb(224 91 144) 0%,
+                  rgb(229 23 65) 100%
+                );
+                background-clip: text;
+                color: transparent;
               "
               >Mentors</span
             >
@@ -573,7 +606,7 @@
           <div class="featured-mentor">
             <div>
               <img
-                src="images/IMG01.jpg"
+                src="images/NITIN 02.01.png"
                 style="border-radius: 28px; width: 100%"
               />
             </div>
@@ -585,18 +618,45 @@
               <p style="color: rgba(255, 255, 255, 0.9)">
                 With over 7 years of experience in emotional integration and
                 consciousness coaching, Dr. Nitin has transformed over 2,800
-                lives globally. His unique Heart to Mind Integration methodology
-                combines ancient wisdom with modern neuroscience.
+                lives globally.
               </p>
               <a
                 href="about.html"
                 class="btn-white"
                 style="display: inline-flex"
-                >Learn More →</a
               >
+                Learn More →
+              </a>
             </div>
           </div>
-          <div class="team-grid">
+          <div class="featured-mentor reverse">
+            <div>
+              <img
+                src="images/mentor-Nileema2.jpeg"
+                alt="Nileema"
+                style="border-radius: 28px; width: 100%"
+              />
+            </div>
+            <div>
+              <h3 style="color: white; font-size: 36px">Nileema Kirkire</h3>
+              <div style="color: var(--light-pink); margin-bottom: 16px">
+                Senior Integration Coach
+              </div>
+              <p style="color: rgba(255, 255, 255, 0.9)">
+                Expert in emotional healing and relationship transformation.
+                Helps individuals heal deep-seated patterns and build authentic
+                connections.
+              </p>
+              <a
+                href="about.html"
+                class="btn-white"
+                style="display: inline-flex"
+              >
+                Learn More →
+              </a>
+            </div>
+          </div>
+          <!-- <div class="team-grid">
             <div class="mentor-card">
               <img src="images/mentor-Nileema2.jpeg" alt="Nileema" />
               <h3>Nileema Kirkire</h3>
@@ -625,7 +685,7 @@
                 calm through meditation and breathwork practices.
               </p>
             </div>
-          </div>
+          </div> -->
         </div>
       </section>
     </main>
