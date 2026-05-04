@@ -26,9 +26,9 @@
         --blue-light: #cfe9ff;
 
         /* GRADIENTS */
-        --blue-gradient: linear-gradient(135deg, #2f80ed, #56a6ff);
+        --blue-gradient: linear-gradient(135deg, #001e5a, #0051e9);
         --blue-gradient-light: linear-gradient(135deg, #56a6ff, #a6d4ff);
-        --blue-gradient-radial: linear-gradient(120deg, #009de0, #77d4ff);
+        --blue-gradient-radial: linear-gradient(120deg, #009de0, #14a4e6);
 
         /* BETTER PINK (modern, not harsh) */
         --light-pink: #ff4d8d;
@@ -295,6 +295,14 @@
         font-size: 15px;
         color: var(--black);
       }
+      .logo-img {
+        height: 56px;
+        width: auto;
+        object-fit: contain;
+        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.05));
+        transition: transform 0.2s ease;
+      }
+
       .mega-item span {
         font-size: 12px;
         color: var(--blue-primary);
@@ -1428,12 +1436,25 @@
     <div id="footer-placeholder"></div>
 
     <script>
-      // Header/Footer Loader (no search bar, no Resources column)
+      // Header/Footer Loader (self-contained)
       class HeaderFooterLoader {
         constructor() {
-          this.headerHTML = `<header id="main-header"><div class="container"><nav class="navbar"><a href="index.html" class="logo"><div class="logo-icon"><i class="fas fa-heartbeat"></i></div><div class="logo-text"><h2>Heart to Mind</h2><p>INTEGRATION</p></div></a><div class="nav-links" id="navLinks"><a href="index.html" class="nav-link" data-page="home">Home</a><div class="mega-menu"><a href="javascript:void(0)" class="mega-toggle nav-link">Programs <i class="fas fa-chevron-down"></i></a><div class="mega-dropdown"><div class="mega-container"><div class="mega-grid"><div class="mega-col"><div class="mega-header"><i class="fas fa-gift"></i><h4>Free Resources</h4></div><a href="free-session.html" class="mega-item"><i class="fas fa-chalkboard-user"></i><div><strong>Free Session</strong><span>With Nileema Kirkire</span></div></a><a href="#" class="mega-item"><i class="fas fa-book-open"></i><div><strong>Free E-Book</strong><span>The Heart-Mind Guide</span></div></a></div><div class="mega-col"><div class="mega-header"><i class="fas fa-crown"></i><h4>Premium Programs</h4></div><a href="programs.html" class="mega-item"><i class="fas fa-star"></i><div><strong>Gold - ₹499</strong><span>Life Audit & Clarity</span></div></a><a href="programs.html" class="mega-item"><i class="fas fa-gem"></i><div><strong>Platinum - ₹24,997</strong><span>20 Sessions / 3 Months</span></div></a><a href="programs.html" class="mega-item"><i class="fas fa-diamond"></i><div><strong>Diamond - ₹98,997</strong><span>~45 Sessions / Year</span></div></a></div><div class="mega-col"><div class="mega-header"><i class="fas fa-users"></i><h4>Community</h4></div><a href="insights.html#stories" class="mega-item"><i class="fas fa-heart"></i><div><strong>Success Stories</strong><span>Real transformations</span></div></a><a href="insights.html" class="mega-item"><i class="fas fa-newspaper"></i><div><strong>Wisdom Library</strong><span>Articles & insights</span></div></a></div></div></div></div></div><a href="about.html" class="nav-link" data-page="about">About</a><a href="mentors.html" class="nav-link" data-page="mentors">Mentors</a><a href="insights.html" class="nav-link" data-page="insights">Insights</a><a href="contact.html" class="nav-link" data-page="contact">Connect</a><a href="free-session.html" class="btn-premium"><i class="fas fa-calendar-alt"></i> Free Session</a></div><div class="header-actions"><div class="menu-toggle" id="menuToggle"><span></span><span></span><span></span></div></div></nav></div></header>`;
-          this.footerHTML = `<footer><div class="container"><div class="footer-grid"><div class="footer-col"><div class="footer-logo"><i class="fas fa-heartbeat"></i><div><h3>Heart to Mind</h3><p style="font-size:9px; letter-spacing:2px;">INTEGRATION</p></div></div><p class="footer-desc">Align Your Heart. Reprogram Your Mind. Transform Your Life.</p><div class="social-links"><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fab fa-linkedin-in"></i></a><a href="#"><i class="fab fa-youtube"></i></a></div></div><div class="footer-col"><h4>Explore</h4><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About Dr. Nitin</a></li><li><a href="mentors.html">Our Mentors</a></li><li><a href="insights.html#stories">Success Stories</a></li><li><a href="contact.html">Contact</a></li></ul></div><div class="footer-col"><h4>Programs</h4><ul><li><a href="free-session.html">Free Session</a></li><li><a href="programs.html">Gold - ₹499</a></li><li><a href="programs.html">Platinum - ₹24,997</a></li><li><a href="programs.html">Diamond - ₹98,997</a></li></ul></div><div class="footer-col"><h4>Contact</h4><ul class="contact-info"><li><i class="fas fa-envelope"></i> hello@hearttomind.com</li><li><i class="fas fa-phone"></i> +91 85888 62861 / +91 72762 17902</li><li><i class="fas fa-clock"></i> Mon-Fri: 9AM - 7PM IST</li></ul></div></div><div class="footer-newsletter"><h4>Join 2,800+ Souls on the Path to Integration</h4><form id="newsletterForm"><input type="email" placeholder="Your email address" required><button type="submit">Subscribe →</button></form></div><div class="footer-bottom"><p>&copy; 2025 Heart to Mind Integration. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p><p class="credits">Dr. Nitin Sharma & Nileema Kirkire — Transforming lives since 2017</p></div></div></footer>`;
-          this.floatingButtons = `<div class="floating-buttons"><a href="https://wa.me/910000000000" class="floating-btn floating-btn-wa" target="_blank"><i class="fab fa-whatsapp"></i></a><a href="tel:+918588862861" class="floating-btn floating-btn-call"><i class="fas fa-phone-alt"></i></a></div>`;
+          this.headerHTML = `<header id="main-header"><div class="container"><nav class="navbar">
+            <a href="index.html" class="logo" id="brandLogo">
+              <img src="images/favicon-removebg-preview.png" alt="Heart to Mind Integration Logo" class="logo-img" onerror="this.onerror=null; this.src='https://placehold.co/400x120?text=Heart+to+Mind'; this.style.width='auto';">
+              <div class="logo-text-side">
+                <h2>Heart to Mind</h2>
+                <p>INTEGRATION</p>
+              </div>
+            </a><div class="nav-links" id="navLinks"><a href="index.html" class="nav-link" data-page="home">Home</a><div class="mega-menu"><a href="javascript:void(0)" class="mega-toggle nav-link">Programs <i class="fas fa-chevron-down"></i></a><div class="mega-dropdown"><div class="mega-container"><div class="mega-grid"><div class="mega-col"><div class="mega-header"><i class="fas fa-gift"></i><h4>Free Resources</h4></div><a href="free-session.html" class="mega-item"><i class="fas fa-chalkboard-user"></i><div><strong>Free Session</strong><span>With Nileema Kirkire</span></div></a><a href="#" class="mega-item"><i class="fas fa-book-open"></i><div><strong>Free E-Book</strong><span>The Heart-Mind Guide</span></div></a></div><div class="mega-col"><div class="mega-header"><i class="fas fa-crown"></i><h4>Premium Programs</h4></div><a href="programs.html" class="mega-item"><i class="fas fa-star"></i><div><strong>Gold - ₹499</strong><span>Life Audit & Clarity</span></div></a><a href="programs.html" class="mega-item"><i class="fas fa-gem"></i><div><strong>Platinum - ₹24,997</strong><span>20 Sessions / 3 Months</span></div></a><a href="programs.html" class="mega-item"><i class="fas fa-diamond"></i><div><strong>Diamond - ₹98,997</strong><span>~45 Sessions / Year</span></div></a></div><div class="mega-col"><div class="mega-header"><i class="fas fa-users"></i><h4>Community</h4></div><a href="insights.html#stories" class="mega-item"><i class="fas fa-heart"></i><div><strong>Success Stories</strong><span>Real transformations</span></div></a><a href="insights.html" class="mega-item"><i class="fas fa-newspaper"></i><div><strong>Wisdom Library</strong><span>Articles & insights</span></div></a></div></div></div></div></div><a href="about.html" class="nav-link" data-page="about">About</a><a href="mentors.html" class="nav-link" data-page="mentors">Mentors</a><a href="insights.html" class="nav-link" data-page="insights">Insights</a><a href="contact.html" class="nav-link" data-page="contact">Connect</a><a href="free-session.html" class="btn-premium"><i class="fas fa-calendar-alt"></i> Free Session</a></div><div class="header-actions"><div class="menu-toggle" id="menuToggle"><span></span><span></span><span></span></div></div></nav></div></header>`;
+          this.footerHTML = `<footer><div class="container"><div class="footer-grid"><div class="footer-col"><div class="footer-logo"><img src="images/favicon-removebg-preview.png" alt="Heart to Mind Integration Logo" class="logo-img" onerror="this.onerror=null; this.src='https://placehold.co/400x120?text=Heart+to+Mind'; this.style.width='auto';">
+              <div class="logo-text-side">
+                <h2>Heart to Mind</h2>
+                <p>INTEGRATION</p>
+              </div></i><div></div></div><p class="footer-desc">Align Your Heart. Reprogram Your Mind. Transform Your Life.</p>
+            <div class="social-links"><a href="www.facebook.com/harshnitin.sharma">
+            <i class="fab fa-facebook-f"></i></a><a href="https://www.instagram.com/official_dr.nitinsharmanlp/"><i class="fab fa-instagram"></i></a><a href="https://www.linkedin.com/in/nitin-sharma-982bb615b/"><i class="fab fa-linkedin-in"></i></a><a href="https://youtube.com/playlist?list=PL0H1qta9hwykpiUu1zZNrFKErGqTC8U08&si=xLKUv0ICzMFis7VM"><i class="fab fa-youtube"></i></a></div></div><div class="footer-col"><h4>Explore</h4><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About Dr. Nitin</a></li><li><a href="mentors.html">Our Mentors</a></li><li><a href="insights.html#stories">Success Stories</a></li><li><a href="contact.html">Contact</a></li></ul></div><div class="footer-col"><h4>Programs</h4><ul><li><a href="free-session.html">Free Session</a></li><li><a href="programs.html">Gold - ₹499</a></li><li><a href="programs.html">Platinum - ₹24,997</a></li><li><a href="programs.html">Diamond - ₹98,997</a></li></ul></div><div class="footer-col"><h4>Contact</h4><ul class="contact-info"><li><i class="fas fa-envelope"></i> hello@hearttomind.com</li><li><i class="fas fa-phone"></i>+91 72762 17902</li><li><i class="fas fa-clock"></i> Mon-Fri: 9AM - 7PM IST</li></ul></div></div><div class="footer-newsletter"><h4>Join 2,800+ Souls on the Path to Integration</h4><form id="newsletterForm"><input type="email" placeholder="Your email address" required><button type="submit">Subscribe →</button></form></div><div class="footer-bottom"><p>&copy; 2025 Heart to Mind Integration. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p><p class="credits">Dr. Nitin Sharma & Nileema Kirkire — Transforming lives since 2017</p></div></div></footer>`;
+          this.floatingButtons = `<div class="floating-buttons"><a href="https://wa.me/7276217902" class="floating-btn floating-btn-wa" target="_blank"><i class="fab fa-whatsapp"></i></a><a href="tel:+917276217902" class="floating-btn floating-btn-call"><i class="fas fa-phone-alt"></i></a></div>`;
         }
         loadHeader() {
           document.body.insertAdjacentHTML("afterbegin", this.headerHTML);
@@ -1486,21 +1507,28 @@
         loader.loadHeader();
         loader.loadFooter();
 
-        // FAQ accordion
+        new Swiper(".testimonial-swiper", {
+          loop: true,
+          autoplay: { delay: 4000 },
+          pagination: { el: ".swiper-pagination", clickable: true },
+          slidesPerView: 1,
+          spaceBetween: 20,
+          breakpoints: {
+            768: { slidesPerView: 2 },
+            1024: { slidesPerView: 3 },
+          },
+        });
         document.querySelectorAll(".faq-item").forEach((item) => {
           const q = item.querySelector(".faq-q");
-          q.addEventListener("click", () => item.classList.toggle("active"));
+          if (q)
+            q.addEventListener("click", () => item.classList.toggle("active"));
         });
-
-        // Header scroll effect
         window.addEventListener("scroll", () => {
           const header = document.getElementById("main-header");
           if (header) header.classList.toggle("scrolled", window.scrollY > 50);
         });
-
-        // Mobile menu toggle
-        const menuToggle = document.getElementById("menuToggle");
-        const navLinks = document.getElementById("navLinks");
+        const menuToggle = document.getElementById("menuToggle"),
+          navLinks = document.getElementById("navLinks");
         if (menuToggle) {
           menuToggle.addEventListener("click", () => {
             navLinks.classList.toggle("active");
@@ -1516,6 +1544,55 @@
             }
           });
         }
+        const statsSection = document.querySelector(".stats-premium");
+        if (statsSection) {
+          const observer = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                  [1, 2, 3, 4].forEach((i) => {
+                    const stat = document.getElementById(`stat${i}`);
+                    if (stat && !stat.getAttribute("data-animated")) {
+                      stat.setAttribute("data-animated", "true");
+                      const text = stat.textContent;
+                      const num = parseInt(text.replace(/[^0-9]/g, ""));
+                      if (num) {
+                        let current = 0;
+                        const inc = num / 50;
+                        const timer = setInterval(() => {
+                          current += inc;
+                          if (current >= num) {
+                            stat.textContent = text;
+                            clearInterval(timer);
+                          } else {
+                            stat.textContent =
+                              Math.floor(current) +
+                              (text.includes("%")
+                                ? "%"
+                                : text.includes("+")
+                                  ? "+"
+                                  : "");
+                          }
+                        }, 30);
+                      }
+                    }
+                  });
+                  observer.unobserve(entry.target);
+                }
+              });
+            },
+            { threshold: 0.5 },
+          );
+          observer.observe(statsSection);
+        }
+        document
+          .querySelectorAll(".video-card, .gallery-item")
+          .forEach((item) => {
+            item.addEventListener("click", () => {
+              const img = item.querySelector("img")?.src;
+              if (img) alert(`View full image: ${img}`);
+            });
+          });
       });
     </script>
   </body>
