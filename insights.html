@@ -906,7 +906,7 @@
               class="video-card"
             >
               <img
-                src="https://img.youtube.com/vi/PL0H1qta9hwykpiUu1zZNrFKErGqTC8U08/maxresdefault.jpg"
+                src="images/YT-1.png"
                 alt="Playlist 1"
                 onerror="
                   this.src =
@@ -921,7 +921,7 @@
               class="video-card"
             >
               <img
-                src="https://img.youtube.com/vi/PL0H1qta9hwym6hBDk30oY_z_5MJKZHMcD/maxresdefault.jpg"
+                src="images/YT-2.png"
                 alt="Playlist 2"
                 onerror="
                   this.src =
@@ -936,7 +936,7 @@
               class="video-card"
             >
               <img
-                src="https://img.youtube.com/vi/PL0H1qta9hwykby6qVkquYYvTddK5HKJmE/maxresdefault.jpg"
+                src="images/YT-3.png"
                 alt="Playlist 3"
                 onerror="
                   this.src =
@@ -1205,14 +1205,14 @@
           );
           observer.observe(statsSection);
         }
-        document
-          .querySelectorAll(".video-card, .gallery-item")
-          .forEach((item) => {
-            item.addEventListener("click", () => {
-              const img = item.querySelector("img")?.src;
-              if (img) alert(`View full image: ${img}`);
-            });
-          });
+        // document
+        //   .querySelectorAll(".video-card, .gallery-item")
+        //   .forEach((item) => {
+        //     item.addEventListener("click", () => {
+        //       const img = item.querySelector("img")?.src;
+        //       if (img) alert(`View full image: ${img}`);
+        //     });
+        //   });
       });
     </script>
   </body>
