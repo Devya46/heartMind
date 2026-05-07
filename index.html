@@ -1902,7 +1902,7 @@
               <div class="video-wrapper-gated" id="premiumVideoWrapper">
                 <div id="premiumThumb" class="video-thumb-gated">
                   <img
-                    src="images/Thumbnail02.jpeg"
+                    src="images/n01.png"
                     alt="Heart-Mind integration preview"
                     onerror="
                       this.src =
@@ -1933,7 +1933,11 @@
             <i class="fas fa-times"></i>
           </button>
           <div class="form-logo">
-            <i class="fas fa-heartbeat"></i>
+            <img
+              src="images/favicon-removebg-preview.png"
+              alt="Heart to Mind"
+              class="logo-img"
+            />
             <h3 style="margin-top: 4px">Heart to Mind</h3>
             <p style="font-size: 0.75rem">
               Fill details to unlock transformation video
@@ -3019,6 +3023,737 @@
         const cleanUrl = window.location.pathname.replace(".html", "/");
         window.history.replaceState({}, "", cleanUrl);
       }
+    </script>
+  </body>
+</html>
+<!-- ----refresh popup ----  -->
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>Free Ebook | Heart to Mind</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --blue-deep: #0f2a44;
+        --blue-dark: #1e4d8f;
+        --blue-primary: #2f80ed;
+        --blue-medium: #56a6ff;
+        --blue-light: #cfe9ff;
+        --blue-gradient: linear-gradient(135deg, #001e5a, #0051e9);
+        --light-pink: #ff4d8d;
+        --light-pink-dark: #e63e7a;
+        --light-pink-light: #ffd6e5;
+        --white: #ffffff;
+        --black: #0f172a;
+        --off-white: #f8fbff;
+        --shadow-xl: 0 30px 70px rgba(47, 128, 237, 0.22);
+        --transition: all 0.4s cubic-bezier(0.2, 0.95, 0.4, 1);
+      }
+
+      .popup-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(15, 42, 68, 0.92);
+        backdrop-filter: blur(10px);
+        z-index: 10000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        visibility: visible;
+        opacity: 1;
+        transition:
+          opacity 0.3s ease,
+          visibility 0.3s ease;
+        font-family:
+          "Inter",
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          Roboto,
+          sans-serif;
+        padding: 1rem;
+      }
+
+      .popup-overlay.hidden {
+        visibility: hidden;
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      body.popup-open {
+        overflow: hidden !important;
+      }
+
+      .popup-card {
+        max-width: 480px;
+        width: 100%;
+        background: var(--white);
+        border-radius: 2rem;
+        box-shadow: var(--shadow-xl);
+        overflow: hidden;
+        animation: fadeSlideUp 0.35s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+        position: relative;
+        border: 1px solid rgba(47, 128, 237, 0.2);
+      }
+
+      @keyframes fadeSlideUp {
+        0% {
+          opacity: 0;
+          transform: translateY(18px) scale(0.97);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
+      }
+
+      .cancel-top {
+        position: absolute;
+        top: 16px;
+        right: 18px;
+        background: rgba(15, 42, 68, 0.08);
+        backdrop-filter: blur(4px);
+        border: none;
+        font-size: 0.75rem;
+        font-weight: 600;
+        color: #2c3e66;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        padding: 6px 14px;
+        border-radius: 60px;
+        transition: var(--transition);
+        z-index: 20;
+        font-family: inherit;
+      }
+
+      .cancel-top:hover {
+        background: var(--light-pink-light);
+        color: var(--light-pink-dark);
+        transform: scale(0.96);
+      }
+
+      .popup-inner {
+        padding: 1.8rem 1.8rem 1.8rem;
+      }
+
+      .logo-row {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        margin-bottom: 1rem;
+        flex-wrap: wrap;
+      }
+
+      .logo-img {
+        height: 65px;
+        width: auto;
+        object-fit: contain;
+        border-radius: 20px;
+      }
+
+      .brand-name {
+        font-size: 26px;
+        font-weight: 800;
+        background: linear-gradient(
+          120deg,
+          var(--blue-deep),
+          var(--blue-primary)
+        );
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+        letter-spacing: -0.3px;
+      }
+
+      .brand-name small {
+        font-size: 11px;
+        font-weight: 500;
+        color: #5b6e8c;
+        display: block;
+      }
+
+      .offer-title {
+        text-align: center;
+        margin-bottom: 1rem;
+      }
+      .price-highlight {
+        background: linear-gradient(125deg, #fff1e0, #ffe6d9);
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 5px 14px;
+        border-radius: 100px;
+        font-size: 15px;
+        font-weight: 800;
+        color: #b45309;
+        margin-bottom: 8px;
+      }
+
+      .main-head {
+        font-size: 1.6rem;
+        font-weight: 800;
+        color: var(--blue-deep);
+        line-height: 1.25;
+      }
+      .main-head span {
+        font-size: 32px;
+        color: var(--light-pink-dark);
+        margin-right: 2px;
+      }
+
+      .worth-badge {
+        background: var(--blue-dark);
+        color: white;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 12px;
+        border-radius: 60px;
+        font-size: 12px;
+        font-weight: 600;
+        margin-top: 12px;
+      }
+
+      .limited-text {
+        font-size: 0.7rem;
+        color: #c2412c;
+        background: #fff0ed;
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        padding: 4px 12px;
+        border-radius: 60px;
+        margin-top: 10px;
+        font-weight: 700;
+      }
+
+      .form-group {
+        margin-bottom: 12px;
+      }
+      .form-group input {
+        width: 100%;
+        padding: 12px 18px;
+        border: 1.5px solid #e2edff;
+        border-radius: 48px;
+        font-size: 0.85rem;
+        font-family: inherit;
+        transition: var(--transition);
+        outline: none;
+        background: var(--off-white);
+      }
+      .form-group input:focus {
+        border-color: var(--blue-primary);
+        box-shadow: 0 0 0 4px rgba(47, 128, 237, 0.12);
+        background: white;
+      }
+
+      .lang-row {
+        margin: 12px 0 8px;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        flex-wrap: wrap;
+      }
+
+      .lang-label {
+        font-weight: 700;
+        color: var(--blue-deep);
+        font-size: 14px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .lang-option {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        cursor: pointer;
+        font-size: 0.8rem;
+        font-weight: 600;
+        color: #2c3e66;
+        background: #f2f6fe;
+        padding: 5px 14px;
+        border-radius: 60px;
+        transition: 0.2s;
+      }
+      .lang-option:hover {
+        background: var(--blue-light);
+      }
+      .lang-option input {
+        margin: 0;
+        width: 16px;
+        height: 16px;
+        accent-color: var(--blue-primary);
+      }
+
+      .btn-submit {
+        width: 100%;
+        background: var(--blue-gradient);
+        border: none;
+        padding: 13px 14px;
+        border-radius: 60px;
+        color: white;
+        font-weight: 800;
+        font-size: 0.9rem;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        transition: var(--transition);
+        box-shadow: 0 8px 18px rgba(47, 128, 237, 0.3);
+        margin-top: 16px;
+        letter-spacing: 0.3px;
+      }
+      .btn-submit:hover {
+        transform: translateY(-2px);
+        filter: brightness(1.02);
+        background: linear-gradient(135deg, #002c7a, #1e6ad9);
+      }
+
+      .status-msg {
+        font-size: 0.7rem;
+        text-align: center;
+        margin-top: 12px;
+        padding: 6px 10px;
+        border-radius: 40px;
+        font-weight: 500;
+      }
+
+      .success-block {
+        text-align: center;
+        margin-top: 8px;
+      }
+      .success-icon {
+        background: #e0f7ea;
+        width: 64px;
+        height: 64px;
+        line-height: 64px;
+        border-radius: 40px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 14px;
+      }
+      .success-icon i {
+        font-size: 34px;
+        color: #1e7b3c;
+      }
+      .success-title {
+        font-weight: 800;
+        font-size: 1.2rem;
+        margin-bottom: 8px;
+        color: #0a2e4d;
+      }
+      .manual-download-link {
+        background: #f1f9ff;
+        padding: 10px 12px;
+        border-radius: 60px;
+        font-size: 0.75rem;
+        margin-top: 12px;
+        border: 1px solid #cfe3ff;
+      }
+      .manual-download-link a {
+        color: var(--blue-primary);
+        text-decoration: none;
+        font-weight: 700;
+        cursor: pointer;
+      }
+      .close-success-btn {
+        background: #f0f4fe;
+        border: 1px solid #dce6f5;
+        padding: 10px 20px;
+        border-radius: 60px;
+        color: #2c4c7c;
+        font-weight: 700;
+        font-size: 0.8rem;
+        cursor: pointer;
+        margin-top: 18px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        transition: 0.2s;
+      }
+      .close-success-btn:hover {
+        background: #e6f0ff;
+        border-color: var(--blue-primary);
+      }
+
+      hr {
+        margin: 18px 0 10px;
+        border: 0;
+        height: 1px;
+        background: linear-gradient(to right, #e2edff, transparent);
+      }
+      .footer-note {
+        text-align: center;
+        font-size: 0.6rem;
+        color: #7a8aa8;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        margin-top: 8px;
+      }
+
+      @media (max-width: 500px) {
+        .popup-inner {
+          padding: 1.2rem 1.2rem 1.4rem;
+        }
+        .main-head {
+          font-size: 1.35rem;
+        }
+        .main-head span {
+          font-size: 1.3rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="ebookPopup" class="popup-overlay">
+      <div class="popup-card">
+        <button class="cancel-top" id="topCancelBtn">
+          <i class="fas fa-times"></i> Cancel
+        </button>
+        <div class="popup-inner">
+          <div class="logo-row">
+            <img
+              src="images/favicon-removebg-preview.png"
+              alt="Heart to Mind"
+              class="logo-img"
+            />
+            <div class="brand-name">
+              Heart to Mind <small>Integration • wisdom in motion</small>
+            </div>
+          </div>
+
+          <div class="offer-title">
+            <div class="price-highlight">
+              <i class="fas fa-tag"></i> WORTH ₹499 → FREE
+            </div>
+            <div class="main-head"><span>FREE</span> Instant Access</div>
+            <div class="worth-badge">
+              <i class="fas fa-bolt"></i> Take Immediate Control of Your Life
+            </div>
+            <div class="limited-text">
+              <i class="fas fa-hourglass-half"></i> Limited period offer
+            </div>
+          </div>
+
+          <div id="formSection">
+            <form id="popupForm">
+              <div class="form-group">
+                <input
+                  type="text"
+                  id="userName"
+                  placeholder="Full name"
+                  required
+                  autocomplete="name"
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  type="email"
+                  id="userEmail"
+                  placeholder="Email address"
+                  required
+                  autocomplete="email"
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  type="tel"
+                  id="userPhone"
+                  placeholder="Phone number"
+                  required
+                  autocomplete="tel"
+                />
+              </div>
+              <div class="lang-row">
+                <span class="lang-label"
+                  ><i class="fas fa-globe"></i> Ebook Language</span
+                >
+                <label class="lang-option">
+                  <input
+                    type="radio"
+                    name="ebookLang"
+                    value="hindi"
+                    id="langHindiRadio"
+                  />
+                  <i class="fas fa-language"></i> हिन्दी
+                </label>
+                <label class="lang-option">
+                  <input
+                    type="radio"
+                    name="ebookLang"
+                    value="english"
+                    id="langEnglishRadio"
+                    checked
+                  />
+                  <i class="fas fa-book-open"></i> English
+                </label>
+              </div>
+              <button type="submit" class="btn-submit" id="submitDownloadBtn">
+                <i class="fas fa-download"></i> Download Free Ebook
+              </button>
+              <div id="formStatus" class="status-msg"></div>
+            </form>
+          </div>
+
+          <div id="successSection" style="display: none">
+            <div class="success-block">
+              <div class="success-icon">
+                <i class="fas fa-check-circle"></i>
+              </div>
+              <div class="success-title">✓ Your Ebook is Ready!</div>
+              <div class="manual-download-link">
+                <i class="fas fa-cloud-download-alt"></i> Didn't start?
+                <a href="#" id="retryDownloadLink">click here</a>
+              </div>
+              <button class="close-success-btn" id="closeSuccessBtn">
+                <i class="fas fa-window-close"></i> Close & Continue
+              </button>
+            </div>
+          </div>
+          <hr />
+          <div class="footer-note">
+            <i class="fas fa-lock"></i> Secure instant PDF · No spam
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      (function () {
+        // PDF paths - update these to your actual file paths
+        const HINDI_PDF_URL =
+          "TAKE IMMEDIATE CONTROL ON YOUR LIFE - 30 MINUTES CHALLANGE hindi.pdf";
+        const ENGLISH_PDF_URL =
+          "TAKE IMMEDIATE CONTROL ON YOUR LIFE - 30 MINUTES CHALLANGE.pdf";
+
+        const SHEET_API =
+          "https://script.google.com/macros/s/AKfycbyonAFo2GhqOOsKgnhM15GM4qyFDJzxgFPKrp_7B3TSe4_NhHt8zq6JzQD_qQVmXTzl/exec";
+
+        // Get DOM elements
+        const popup = document.getElementById("ebookPopup");
+        const formSection = document.getElementById("formSection");
+        const successSection = document.getElementById("successSection");
+        const submitBtn = document.getElementById("submitDownloadBtn");
+        const cancelBtn = document.getElementById("topCancelBtn");
+        const closeSuccessBtn = document.getElementById("closeSuccessBtn");
+        const retryLink = document.getElementById("retryDownloadLink");
+        const statusDiv = document.getElementById("formStatus");
+        const userName = document.getElementById("userName");
+        const userEmail = document.getElementById("userEmail");
+        const userPhone = document.getElementById("userPhone");
+        const hindiRadio = document.getElementById("langHindiRadio");
+        const englishRadio = document.getElementById("langEnglishRadio");
+
+        let currentPdfUrl = ENGLISH_PDF_URL;
+        let currentLang = "english";
+
+        function getSelectedLang() {
+          return hindiRadio.checked ? "hindi" : "english";
+        }
+
+        function lockBodyScroll(lock) {
+          if (lock) {
+            document.body.classList.add("popup-open");
+          } else {
+            document.body.classList.remove("popup-open");
+          }
+        }
+
+        function setStatus(message, isError = false) {
+          if (statusDiv) {
+            statusDiv.innerHTML = message;
+            statusDiv.style.backgroundColor = isError ? "#fff0f3" : "#e3f0ff";
+            statusDiv.style.color = isError ? "#c7254e" : "#0f5b9e";
+          }
+        }
+
+        function downloadPDF(pdfUrl, filename) {
+          try {
+            // Try direct download with anchor tag
+            const link = document.createElement("a");
+            link.href = pdfUrl;
+            link.download =
+              filename ||
+              (pdfUrl.includes("hindi")
+                ? "30Min_Challenge_Hindi.pdf"
+                : "30Min_Challenge_English.pdf");
+            link.style.display = "none";
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            return true;
+          } catch (err) {
+            console.error("Download error:", err);
+            // Fallback: open in new window
+            window.open(pdfUrl, "_blank");
+            return false;
+          }
+        }
+
+        async function sendToGoogleSheets(data) {
+          try {
+            // Use fetch with no-cors for local file testing
+            await fetch(SHEET_API, {
+              method: "POST",
+              mode: "no-cors",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(data),
+            });
+            console.log("Data sent to Google Sheets");
+          } catch (err) {
+            console.warn("Google Sheets error (data still captured):", err);
+          }
+        }
+
+        async function handleSubmit(e) {
+          e.preventDefault();
+
+          const name = userName.value.trim();
+          const email = userEmail.value.trim();
+          const phone = userPhone.value.trim();
+
+          if (!name) {
+            setStatus("✨ Please enter your full name", true);
+            return;
+          }
+          if (!email || !email.includes("@")) {
+            setStatus("📧 Valid email address required", true);
+            return;
+          }
+          if (!phone || phone.length < 5) {
+            setStatus("📞 Phone number is required", true);
+            return;
+          }
+
+          currentLang = getSelectedLang();
+          currentPdfUrl =
+            currentLang === "hindi" ? HINDI_PDF_URL : ENGLISH_PDF_URL;
+
+          const filename =
+            currentLang === "hindi"
+              ? "30Min_Challenge_Hindi.pdf"
+              : "30Min_Challenge_English.pdf";
+
+          // Disable button
+          submitBtn.disabled = true;
+          const originalText = submitBtn.innerHTML;
+          submitBtn.innerHTML =
+            '<i class="fas fa-spinner fa-pulse"></i> Processing...';
+          setStatus("Sending info & preparing your ebook...");
+
+          // Send data to Google Sheets (non-blocking)
+          const payload = {
+            full_name: name,
+            email: email,
+            phone: phone,
+            language_preference: currentLang,
+            source: "premium_popup_global_refresh",
+            ebook_worth: "₹499",
+            timestamp: new Date().toISOString(),
+            download_status: "triggered",
+          };
+
+          await sendToGoogleSheets(payload);
+
+          // Small delay to ensure sheet gets data
+          setTimeout(() => {
+            downloadPDF(currentPdfUrl, filename);
+          }, 100);
+
+          // Show success section
+          formSection.style.display = "none";
+          successSection.style.display = "block";
+
+          // Setup retry link
+          if (retryLink) {
+            retryLink.onclick = (e) => {
+              e.preventDefault();
+              downloadPDF(currentPdfUrl, filename);
+              return false;
+            };
+          }
+
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = originalText;
+        }
+
+        function closePopup() {
+          if (popup) {
+            popup.classList.add("hidden");
+            lockBodyScroll(false);
+          }
+        }
+
+        // Initialize event listeners
+        function init() {
+          const form = document.getElementById("popupForm");
+          if (form) {
+            form.addEventListener("submit", handleSubmit);
+          }
+
+          if (cancelBtn) {
+            cancelBtn.addEventListener("click", closePopup);
+          }
+
+          if (closeSuccessBtn) {
+            closeSuccessBtn.addEventListener("click", closePopup);
+          }
+
+          // Lock body scroll on load
+          lockBodyScroll(true);
+
+          // Update PDF URL when language changes
+          if (hindiRadio) {
+            hindiRadio.addEventListener("change", function () {
+              if (this.checked) currentPdfUrl = HINDI_PDF_URL;
+            });
+          }
+
+          if (englishRadio) {
+            englishRadio.addEventListener("change", function () {
+              if (this.checked) currentPdfUrl = ENGLISH_PDF_URL;
+            });
+          }
+
+          console.log("Popup initialized successfully");
+        }
+
+        // Start everything when DOM is ready
+        if (document.readyState === "loading") {
+          document.addEventListener("DOMContentLoaded", init);
+        } else {
+          init();
+        }
+      })();
     </script>
   </body>
 </html>

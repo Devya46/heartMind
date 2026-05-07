@@ -444,12 +444,12 @@
         text-align: center;
       }
       .section {
-        padding: 90px 0;
+        padding: 70px 0;
       }
       .section-title {
-        font-size: 48px;
+        font-size: 42px;
         text-align: center;
-        margin-bottom: 20px;
+        margin-bottom: 16px;
         color: var(--blue-deep);
       }
       .section-title span {
@@ -460,47 +460,78 @@
       }
       .section-sub {
         text-align: center;
-        max-width: 700px;
-        margin: 0 auto 56px;
-        font-size: 18px;
+        max-width: 650px;
+        margin: 0 auto 48px;
+        font-size: 16px;
         color: var(--blue-primary);
+        text-transform: capitalize;
       }
+      /* SMALLER BLOG CARDS + condensed text */
       .blog-grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        gap: 40px;
-        margin-top: 60px;
+        gap: 28px;
+        margin-top: 40px;
       }
       .blog-card {
         background: white;
-        border-radius: 28px;
+        border-radius: 22px;
         overflow: hidden;
         box-shadow: var(--shadow-sm);
         transition: var(--transition);
-        border: 1px solid rgba(30, 58, 111, 0.1);
+        border: 1px solid rgba(30, 58, 111, 0.08);
+        display: flex;
+        flex-direction: column;
+        height: 100%;
       }
       .blog-card:hover {
-        transform: translateY(-8px);
-        box-shadow: var(--shadow-lg);
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-md);
         border-color: var(--light-pink);
       }
       .blog-card img {
         width: 100%;
-        height: 240px;
+        height: 170px; /* smaller image */
         object-fit: cover;
+        display: block;
       }
       .blog-content {
-        padding: 28px;
+        padding: 18px 20px 22px 20px;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
       }
       .blog-category {
         display: inline-block;
-        padding: 5px 14px;
+        padding: 4px 12px;
         background: var(--off-white);
         color: var(--light-pink);
         border-radius: 30px;
-        font-size: 11px;
+        font-size: 10px;
         font-weight: 600;
-        margin-bottom: 16px;
+        letter-spacing: 0.75px;
+        margin-bottom: 12px;
+        width: fit-content;
+        text-transform: uppercase;
+      }
+      .blog-content h3 {
+        font-size: 1.08rem;
+        line-height: 1.35;
+        margin-bottom: 10px;
+        color: var(--blue-deep);
+        font-weight: 700;
+        font-family: "Inter", sans-serif;
+      }
+      .blog-content p {
+        color: #2c4c6e;
+        line-height: 1.45;
+        font-size: 0.82rem;
+        margin-bottom: 14px;
+        flex: 1;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
       }
       .read-more {
         color: var(--light-pink);
@@ -509,13 +540,15 @@
         display: inline-flex;
         align-items: center;
         gap: 6px;
-        margin-top: 16px;
+        margin-top: 8px;
         transition: var(--transition);
+        font-size: 0.8rem;
       }
       .read-more:hover {
         gap: 10px;
+        color: #b84c5e;
       }
-      /* Swiper styling for success stories - auto-scroll + swipe */
+      /* Swiper styling for success stories */
       .testimonial-swiper {
         padding: 20px 10px 50px 10px;
         width: 100%;
@@ -534,11 +567,10 @@
       .testimonial-card i {
         font-size: 48px;
         color: var(--light-pink);
-        -webkit-text-stroke: 0.5px #dd004d;
         margin-bottom: 24px;
       }
       .testimonial-card p {
-        font-size: 1.1rem;
+        font-size: 1rem;
         line-height: 1.5;
         margin-bottom: 20px;
         color: var(--black);
@@ -654,6 +686,7 @@
       @media (max-width: 1024px) {
         .blog-grid {
           grid-template-columns: repeat(2, 1fr);
+          gap: 25px;
         }
         .video-grid {
           grid-template-columns: repeat(2, 1fr);
@@ -667,7 +700,7 @@
           grid-template-columns: 1fr;
         }
         .page-header h1 {
-          font-size: 42px;
+          font-size: 38px;
         }
         .newsletter-cta {
           margin: 0 20px 50px;
@@ -746,68 +779,169 @@
         </div>
       </div>
 
-      <!-- Blog Section -->
+      <!-- Blog Section - 7 CARDS (Small cards, smaller subtext, custom content) -->
       <section class="section">
         <div class="container">
-          <h2 class="section-title">Latest <span>Articles</span></h2>
+          <h2 class="section-title">Trending <span>Articles</span></h2>
           <p class="section-sub">
-            Fresh insights from our transformation library
+            Fresh insights from our transformation library — bite-sized wisdom,
+            profound impact.
           </p>
           <div class="blog-grid">
             <div class="blog-card">
-              <img
-                src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=500"
-                alt="Neuroscience"
-              />
+              <img src="images/IMG04.JPG" alt="Holistic transformation" />
               <div class="blog-content">
-                <span class="blog-category">Heart-Mind Science</span>
-                <h3>The Neuroscience of Alignment</h3>
+                <span class="blog-category">Insights & Wisdom</span>
+                <h3>More from Dr. Nitin</h3>
                 <p>
-                  Discover how emotional and logical centers work together for
-                  better decisions and inner peace. New research reveals the
-                  powerful connection between heart coherence and cognitive
-                  function.
+                  Explore deep articles on emotional mastery, subconscious
+                  reprogramming, and conscious living.
                 </p>
-                <a href="#" class="read-more">Read More →</a>
+                <a href="nitin-blog.html" class="read-more">Read More →</a>
               </div>
             </div>
+            <!-- Card 1: How Heart to Mind Integration Can Transform Every Aspect of Your Life -->
             <div class="blog-card">
               <img
-                src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=500"
-                alt="Emotional Intelligence"
+                src="https://images.unsplash.com/photo-1518281420975-50db6e5d0a97?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGxpZmV8ZW58MHx8MHx8fDA%3D"
+                alt="Holistic transformation"
               />
               <div class="blog-content">
-                <span class="blog-category">Emotional Intelligence</span>
-                <h3>5 Signs Your Heart and Mind Are Misaligned</h3>
+                <span class="blog-category"> Integrated Wisdom</span>
+                <h3>
+                  How Heart to Mind Integration Can Transform Every Aspect of
+                  Your Life
+                </h3>
                 <p>
-                  Learn to recognize the subtle signals that indicate internal
-                  conflict and how to address them. From indecision to physical
-                  symptoms, discover the warning signs.
+                  Align emotional & cognitive intelligence to rewire neural
+                  pathways. Experience clarity, deeper relationships and
+                  purpose-driven success.
                 </p>
-                <a href="#" class="read-more">Read More →</a>
+                <a href="blog1.html" class="read-more">Read More →</a>
               </div>
             </div>
+            <!-- Card 2: Why People Stay Stressed Even After Success -->
             <div class="blog-card">
               <img
-                src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=500"
-                alt="Leadership"
+                src="https://images.unsplash.com/photo-1519834785169-98be25ec3f84?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8c3VjY2VzfGVufDB8fDB8fHww"
+                alt="Stress after success"
               />
               <div class="blog-content">
-                <span class="blog-category">Leadership</span>
-                <h3>Conscious Leadership: Leading Without Burnout</h3>
+                <span class="blog-category">Connected for Growth</span>
+                <h3>
+                  Why People Stay Stressed Even After Success – The Real Need of
+                  Heart to Mind Integration
+                </h3>
                 <p>
-                  How top executives are using heart-mind integration to lead
-                  with clarity and maintain well-being. Success doesn't have to
-                  come at the cost of your peace.
+                  Chronic stress persists despite wins. Heart-mind alignment
+                  heals emotional residue and unlocks true fulfillment beyond
+                  achievement.
                 </p>
-                <a href="#" class="read-more">Read More →</a>
+                <a href="blog2.html" class="read-more">Read More →</a>
+              </div>
+            </div>
+            <!-- Card 3: Why People Repeat the Same Problems Again and Again in Life -->
+            <div class="blog-card">
+              <img
+                src="https://images.unsplash.com/photo-1611329857570-f02f340e7378?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHByb2JsZW18ZW58MHx8MHx8fDA%3D"
+                alt="Repeating patterns"
+              />
+              <div class="blog-content">
+                <span class="blog-category">Breaking the Pattern</span>
+                <h3>
+                  Why People Repeat the Same Problems Again and Again in Life
+                </h3>
+                <p>
+                  Explore how unresolved emotional imprints create loops.
+                  Integration rewires subconscious patterns for lasting change.
+                </p>
+                <a href="blog3.html" class="read-more">Read More →</a>
+              </div>
+            </div>
+            <!-- Card 4: Why Love Starts Fading After 1–2 Years of Marriage -->
+            <div class="blog-card">
+              <img
+                src="https://images.unsplash.com/photo-1575395372205-8951fc17c2fb?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGhlYXJ0YnJlYWt8ZW58MHx8MHx8fDA%3D"
+                alt="Marriage fading love"
+              />
+              <div class="blog-content">
+                <span class="blog-category">Why Hustle Feels Draining</span>
+                <h3>
+                  Why Love Starts Fading After 1–2 Years of Marriage – And How
+                  Heart to Mind Integration Helps
+                </h3>
+                <p>
+                  Brain chemistry and emotional distance explained. Heart-mind
+                  practices restore attunement and deep intimacy at neurological
+                  level.
+                </p>
+                <a href="blog4.html" class="read-more">Read More →</a>
+              </div>
+            </div>
+            <!-- Card 5: Why Many Entrepreneurs Feel Mentally Exhausted Even After Working Hard -->
+            <div class="blog-card">
+              <img
+                src="https://images.unsplash.com/photo-1586473219010-2ffc57b0d282?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8dGlyZWR8ZW58MHx8MHx8fDA%3D"
+                alt="Entrepreneur exhaustion"
+              />
+              <div class="blog-content">
+                <span class="blog-category">Career Burnout After 30–35</span>
+                <h3>
+                  Why Many Entrepreneurs Feel Mentally Exhausted Even After
+                  Working Hard
+                </h3>
+                <p>
+                  Hustle culture depletes cognitive reserves. Heart-brain
+                  coherence restores energy, intuition and sustainable
+                  leadership.
+                </p>
+                <a href="blog5.html" class="read-more">Read More →</a>
+              </div>
+            </div>
+            <!-- Card 6: Why Many People Feel Emotionally Exhausted and Stuck in Career After the Age of 30–35 -->
+            <div class="blog-card">
+              <img
+                src="https://images.unsplash.com/photo-1713947503867-3b27964f042b?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8dGlyZWR8ZW58MHx8MHx8fDA%3D"
+                alt="Career stuck"
+              />
+              <div class="blog-content">
+                <span class="blog-category">The Hidden Disconnect</span>
+                <h3>
+                  Why Many People Feel Emotionally Exhausted and Stuck in Career
+                  After the Age of 30–35
+                </h3>
+                <p>
+                  Mid-career stagnation is emotional misalignment. Learn how
+                  integration breaks inertia and reignites authentic purpose.
+                </p>
+                <a href="blog6.html" class="read-more">Read More →</a>
+              </div>
+            </div>
+            <!-- Card 7: Hidden Connection Between Emotions, Stress, and Psychosomatic Diseases -->
+            <div class="blog-card">
+              <img
+                src="https://images.unsplash.com/photo-1542865763-0339b28c4a34?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8ZW1vdGlvbnxlbnwwfHwwfHx8MA%3D%3D"
+                alt="Psychosomatic health"
+              />
+              <div class="blog-content">
+                <span class="blog-category">Mind-Body Science</span>
+                <h3>
+                  The Hidden Connection Between Emotions, Stress, and
+                  Psychosomatic Diseases
+                </h3>
+                <p>
+                  How unresolved emotions become physical symptoms. Explore
+                  heart-mind science to reverse chronic stress and restore
+                  vitality.
+                </p>
+                <a href="blog7.html" class="read-more">Read More →</a>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- Success Stories Section with AUTO-SCROLL Swiper (card by card) -->
+      <!-- Success Stories Section with AUTO-SCROLL Swiper -->
       <section class="section" style="background: var(--off-white)">
         <div class="container">
           <h2 class="section-title">Success <span>Stories</span></h2>
@@ -886,7 +1020,6 @@
                 </div>
               </div>
             </div>
-            <!-- Navigation arrows & pagination (auto-scroll + manual control) -->
             <div class="swiper-button-next"></div>
             <div class="swiper-button-prev"></div>
             <div class="swiper-pagination"></div>
@@ -904,47 +1037,41 @@
               href="https://youtube.com/playlist?list=PL0H1qta9hwykpiUu1zZNrFKErGqTC8U08"
               target="_blank"
               class="video-card"
-            >
-              <img
+              ><img
                 src="images/YT-1.png"
                 alt="Playlist 1"
                 onerror="
                   this.src =
                     'https://via.placeholder.com/640x360?text=Heart+Mind+Playlist'
-                "
-              />
-              <div class="video-play"><i class="fas fa-play"></i></div>
-            </a>
+                " />
+              <div class="video-play"><i class="fas fa-play"></i></div
+            ></a>
             <a
               href="https://youtube.com/playlist?list=PL0H1qta9hwym6hBDk30oY_z_5MJKZHMcD"
               target="_blank"
               class="video-card"
-            >
-              <img
+              ><img
                 src="images/YT-2.png"
                 alt="Playlist 2"
                 onerror="
                   this.src =
                     'https://via.placeholder.com/640x360?text=Wisdom+Session'
-                "
-              />
-              <div class="video-play"><i class="fas fa-play"></i></div>
-            </a>
+                " />
+              <div class="video-play"><i class="fas fa-play"></i></div
+            ></a>
             <a
               href="https://youtube.com/playlist?list=PL0H1qta9hwykby6qVkquYYvTddK5HKJmE"
               target="_blank"
               class="video-card"
-            >
-              <img
+              ><img
                 src="images/YT-3.png"
                 alt="Playlist 3"
                 onerror="
                   this.src =
                     'https://via.placeholder.com/640x360?text=Integration+Tips'
-                "
-              />
-              <div class="video-play"><i class="fas fa-play"></i></div>
-            </a>
+                " />
+              <div class="video-play"><i class="fas fa-play"></i></div
+            ></a>
           </div>
         </div>
       </section>
@@ -958,21 +1085,21 @@
             inbox
           </p>
           <form class="newsletter-form" id="insightNewsletter">
-            <input type="email" placeholder="Your email address" required />
-            <button type="submit">Subscribe</button>
+            <input
+              type="email"
+              placeholder="Your email address"
+              required
+            /><button type="submit">Subscribe</button>
           </form>
         </div>
       </div>
     </main>
     <div id="footer-placeholder"></div>
 
-    <!-- Swiper JS library -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
-      // Header & Footer loader (unchanged functionality)
-      // /
-
-        // Newsletter form inside insights
+      (function () {
+        // Newsletter inside insights
         document
           .getElementById("insightNewsletter")
           ?.addEventListener("submit", (e) => {
@@ -981,43 +1108,17 @@
             if (email) alert(`Thank you! Wisdom will be sent to ${email}`);
             e.target.reset();
           });
-
-        // Header scroll effect
-        window.addEventListener("scroll", () => {
-          const header = document.getElementById("main-header");
-          if (header) header.classList.toggle("scrolled", window.scrollY > 50);
-        });
-
-        // Mobile menu toggle
-        const menuToggle = document.getElementById("menuToggle");
-        const navLinks = document.getElementById("navLinks");
-        if (menuToggle) {
-          menuToggle.addEventListener("click", () => {
-            navLinks.classList.toggle("active");
-            const spans = menuToggle.querySelectorAll("span");
-            if (navLinks.classList.contains("active")) {
-              spans[0].style.transform = "rotate(45deg) translate(5px,6px)";
-              spans[1].style.opacity = "0";
-              spans[2].style.transform = "rotate(-45deg) translate(5px,-6px)";
-            } else {
-              spans[0].style.transform = "none";
-              spans[1].style.opacity = "1";
-              spans[2].style.transform = "none";
-            }
-          });
-        }
-
-        // ========== SWIPER WITH AUTO-SCROLL (card by card, infinite loop) ==========
-        const swiper = new Swiper(".testimonial-swiper", {
+        // Swiper init (autoplay, responsive)
+        new Swiper(".testimonial-swiper", {
           loop: true,
           autoplay: {
-            delay: 3500, // 3.5 seconds per card transition
-            disableOnInteraction: false, // keeps autoplay running after user interaction, but pauses briefly? Better UX: keep auto but resume. We set pauseOnMouseEnter false but we want smooth.
-            pauseOnMouseEnter: true, // Pause when hovering over the carousel (good UX)
+            delay: 3500,
+            disableOnInteraction: false,
+            pauseOnMouseEnter: true,
           },
           slidesPerView: 1,
           spaceBetween: 30,
-          speed: 800, // smooth sliding animation
+          speed: 700,
           pagination: {
             el: ".swiper-pagination",
             clickable: true,
@@ -1028,121 +1129,69 @@
             prevEl: ".swiper-button-prev",
           },
           breakpoints: {
-            768: {
-              slidesPerView: 2,
-              spaceBetween: 30,
-            },
-            1024: {
-              slidesPerView: 3,
-              spaceBetween: 30,
-            },
-          },
-          grabCursor: true,
-          simulateTouch: true,
-          touchRatio: 1,
-          // Important: when user clicks or touches, auto-scroll will resume after interaction because disableOnInteraction false.
-        });
-
-        // Optional: Pause autoplay when user hovers on any testimonial card for better UX
-        const swiperContainer = document.querySelector(".testimonial-swiper");
-        if (swiperContainer) {
-          swiperContainer.addEventListener("mouseenter", () => {
-            swiper.autoplay.stop();
-          });
-          swiperContainer.addEventListener("mouseleave", () => {
-            swiper.autoplay.start();
-          });
-        }
-      });
-    </script>
-    <script>
-      // Header/Footer Loader (self-contained)
-      class HeaderFooterLoader {
-        constructor() {
-          this.headerHTML = `<header id="main-header"><div class="container"><nav class="navbar">
-            <a href="index.html" class="logo" id="brandLogo">
-              <img src="images/favicon-removebg-preview.png" alt="Heart to Mind Integration Logo" class="logo-img" onerror="this.onerror=null; this.src='https://placehold.co/400x120?text=Heart+to+Mind'; this.style.width='auto';">
-              <div class="logo-text-side">
-                <h2>Heart to Mind</h2>
-                <p>INTEGRATION</p>
-              </div>
-            </a><div class="nav-links" id="navLinks"><a href="index.html" class="nav-link" data-page="home">Home</a><div class="mega-menu"><a href="javascript:void(0)" class="mega-toggle nav-link">Programs <i class="fas fa-chevron-down"></i></a><div class="mega-dropdown"><div class="mega-container"><div class="mega-grid"><div class="mega-col"><div class="mega-header"><i class="fas fa-gift"></i><h4>Free Resources</h4></div><a href="free-session.html" class="mega-item"><i class="fas fa-chalkboard-user"></i><div><strong>Free Session</strong><span>With Nileema Kirkire</span></div></a><a href="#" class="mega-item"><i class="fas fa-book-open"></i><div><strong>Free E-Book</strong><span>The Heart-Mind Guide</span></div></a></div><div class="mega-col"><div class="mega-header"><i class="fas fa-crown"></i><h4>Premium Programs</h4></div><a href="programs.html" class="mega-item"><i class="fas fa-star"></i><div><strong>Gold - ₹499</strong><span>Life Audit & Clarity</span></div></a><a href="programs.html" class="mega-item"><i class="fas fa-gem"></i><div><strong>Platinum - ₹24,997</strong><span>20 Sessions / 3 Months</span></div></a><a href="programs.html" class="mega-item"><i class="fas fa-diamond"></i><div><strong>Diamond - ₹98,997</strong><span>~45 Sessions / Year</span></div></a></div><div class="mega-col"><div class="mega-header"><i class="fas fa-users"></i><h4>Community</h4></div><a href="insights.html#stories" class="mega-item"><i class="fas fa-heart"></i><div><strong>Success Stories</strong><span>Real transformations</span></div></a><a href="insights.html" class="mega-item"><i class="fas fa-newspaper"></i><div><strong>Wisdom Library</strong><span>Articles & insights</span></div></a></div></div></div></div></div><a href="about.html" class="nav-link" data-page="about">About</a><a href="mentors.html" class="nav-link" data-page="mentors">Mentors</a><a href="insights.html" class="nav-link" data-page="insights">Insights</a><a href="contact.html" class="nav-link" data-page="contact">Connect</a><a href="free-session.html" class="btn-premium"><i class="fas fa-calendar-alt"></i> Free Session</a></div><div class="header-actions"><div class="menu-toggle" id="menuToggle"><span></span><span></span><span></span></div></div></nav></div></header>`;
-          this.footerHTML = `<footer><div class="container"><div class="footer-grid"><div class="footer-col"><div class="footer-logo"><img src="images/favicon-removebg-preview.png" alt="Heart to Mind Integration Logo" class="logo-img" onerror="this.onerror=null; this.src='https://placehold.co/400x120?text=Heart+to+Mind'; this.style.width='auto';">
-              <div class="logo-text-side">
-                <h2>Heart to Mind</h2>
-                <p>INTEGRATION</p>
-              </div></i><div></div></div><p class="footer-desc">Align Your Heart. Reprogram Your Mind. Transform Your Life.</p>
-            <div class="social-links"><a href="www.facebook.com/harshnitin.sharma">
-            <i class="fab fa-facebook-f"></i></a><a href="https://www.instagram.com/official_dr.nitinsharmanlp/"><i class="fab fa-instagram"></i></a><a href="https://www.linkedin.com/in/nitin-sharma-982bb615b/"><i class="fab fa-linkedin-in"></i></a><a href="https://youtube.com/playlist?list=PL0H1qta9hwykpiUu1zZNrFKErGqTC8U08&si=xLKUv0ICzMFis7VM"><i class="fab fa-youtube"></i></a></div></div><div class="footer-col"><h4>Explore</h4><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About Dr. Nitin</a></li><li><a href="mentors.html">Our Mentors</a></li><li><a href="insights.html#stories">Success Stories</a></li><li><a href="contact.html">Contact</a></li></ul></div><div class="footer-col"><h4>Programs</h4><ul><li><a href="free-session.html">Free Session</a></li><li><a href="programs.html">Gold - ₹499</a></li><li><a href="programs.html">Platinum - ₹24,997</a></li><li><a href="programs.html">Diamond - ₹98,997</a></li></ul></div><div class="footer-col"><h4>Contact</h4><ul class="contact-info"><li><i class="fas fa-envelope"></i> hello@hearttomind.com</li><li><i class="fas fa-phone"></i>+91 72762 17902</li><li><i class="fas fa-clock"></i> Mon-Fri: 9AM - 7PM IST</li></ul></div></div><div class="footer-newsletter"><h4>Join 2,800+ Souls on the Path to Integration</h4><form id="newsletterForm"><input type="email" placeholder="Your email address" required><button type="submit">Subscribe →</button></form></div><div class="footer-bottom"><p>&copy; 2025 Heart to Mind Integration. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p><p class="credits">Dr. Nitin Sharma & Nileema Kirkire — Transforming lives since 2017</p></div></div></footer>`;
-          this.floatingButtons = `<div class="floating-buttons"><a href="https://wa.me/7276217902" class="floating-btn floating-btn-wa" target="_blank"><i class="fab fa-whatsapp"></i></a><a href="tel:+917276217902" class="floating-btn floating-btn-call"><i class="fas fa-phone-alt"></i></a></div>`;
-        }
-        loadHeader() {
-          document.body.insertAdjacentHTML("afterbegin", this.headerHTML);
-          document.body.insertAdjacentHTML("beforeend", this.floatingButtons);
-          this.setActiveNavLink();
-          this.initMegaMenuMobile();
-        }
-        loadFooter() {
-          document.body.insertAdjacentHTML("beforeend", this.footerHTML);
-          this.initFooterScripts();
-        }
-        setActiveNavLink() {
-          const current =
-            window.location.pathname.split("/").pop() || "index.html";
-          document.querySelectorAll(".nav-link[data-page]").forEach((link) => {
-            const page = link.getAttribute("data-page");
-            if (
-              (current === "index.html" && page === "home") ||
-              current === page + ".html"
-            )
-              link.classList.add("active");
-          });
-        }
-        initMegaMenuMobile() {
-          if (window.innerWidth <= 768) {
-            const megaMenu = document.querySelector(".mega-menu");
-            if (megaMenu) {
-              const toggle = megaMenu.querySelector(".mega-toggle");
-              toggle?.addEventListener("click", (e) => {
-                e.preventDefault();
-                megaMenu.classList.toggle("active");
-              });
-            }
-          }
-        }
-        initFooterScripts() {
-          document
-            .getElementById("newsletterForm")
-            ?.addEventListener("submit", (e) => {
-              e.preventDefault();
-              alert(
-                `Thank you! We'll send insights to ${e.target.querySelector("input").value}`,
-              );
-              e.target.reset();
-            });
-        }
-      }
-      document.addEventListener("DOMContentLoaded", function () {
-        const loader = new HeaderFooterLoader();
-        loader.loadHeader();
-        loader.loadFooter();
-
-        new Swiper(".testimonial-swiper", {
-          loop: true,
-          autoplay: { delay: 4000 },
-          pagination: { el: ".swiper-pagination", clickable: true },
-          slidesPerView: 1,
-          spaceBetween: 20,
-          breakpoints: {
             768: { slidesPerView: 2 },
             1024: { slidesPerView: 3 },
           },
+          grabCursor: true,
         });
-        document.querySelectorAll(".faq-item").forEach((item) => {
-          const q = item.querySelector(".faq-q");
-          if (q)
-            q.addEventListener("click", () => item.classList.toggle("active"));
-        });
+        // HeaderFooterLoader class from original page (kept functionality)
+        class HeaderFooterLoader {
+          constructor() {
+            this.headerHTML = `<header id="main-header"><div class="container"><nav class="navbar"><a href="index.html" class="logo" id="brandLogo"><img src="images/favicon-removebg-preview.png" alt="Heart to Mind Integration Logo" class="logo-img" onerror="this.onerror=null; this.src='https://placehold.co/400x120?text=Heart+to+Mind'; this.style.width='auto';"><div class="logo-text-side"><h2>Heart to Mind</h2><p>INTEGRATION</p></div></a><div class="nav-links" id="navLinks"><a href="index.html" class="nav-link" data-page="home">Home</a><div class="mega-menu"><a href="javascript:void(0)" class="mega-toggle nav-link">Programs <i class="fas fa-chevron-down"></i></a><div class="mega-dropdown"><div class="mega-container"><div class="mega-grid"><div class="mega-col"><div class="mega-header"><i class="fas fa-gift"></i><h4>Free Resources</h4></div><a href="free-session.html" class="mega-item"><i class="fas fa-chalkboard-user"></i><div><strong>Free Session</strong><span>With Nileema Kirkire</span></div></a><a href="#" class="mega-item"><i class="fas fa-book-open"></i><div><strong>Free E-Book</strong><span>The Heart-Mind Guide</span></div></a></div><div class="mega-col"><div class="mega-header"><i class="fas fa-crown"></i><h4>Premium Programs</h4></div><a href="programs.html" class="mega-item"><i class="fas fa-star"></i><div><strong>Gold - ₹499</strong><span>Life Audit & Clarity</span></div></a><a href="programs.html" class="mega-item"><i class="fas fa-gem"></i><div><strong>Platinum - ₹24,997</strong><span>20 Sessions / 3 Months</span></div></a><a href="programs.html" class="mega-item"><i class="fas fa-diamond"></i><div><strong>Diamond - ₹98,997</strong><span>~45 Sessions / Year</span></div></a></div><div class="mega-col"><div class="mega-header"><i class="fas fa-users"></i><h4>Community</h4></div><a href="insights.html#stories" class="mega-item"><i class="fas fa-heart"></i><div><strong>Success Stories</strong><span>Real transformations</span></div></a><a href="insights.html" class="mega-item"><i class="fas fa-newspaper"></i><div><strong>Wisdom Library</strong><span>Articles & insights</span></div></a></div></div></div></div></div><a href="about.html" class="nav-link" data-page="about">About</a><a href="mentors.html" class="nav-link" data-page="mentors">Mentors</a><a href="insights.html" class="nav-link" data-page="insights">Insights</a><a href="contact.html" class="nav-link" data-page="contact">Connect</a><a href="free-session.html" class="btn-premium"><i class="fas fa-calendar-alt"></i> Free Session</a></div><div class="header-actions"><div class="menu-toggle" id="menuToggle"><span></span><span></span><span></span></div></div></nav></div></header>`;
+            this.footerHTML = `<footer><div class="container"><div class="footer-grid"><div class="footer-col"><div class="footer-logo"><img src="images/favicon-removebg-preview.png" alt="Heart to Mind Integration Logo" class="logo-img" onerror="this.onerror=null; this.src='https://placehold.co/400x120?text=Heart+to+Mind'; this.style.width='auto';"><div class="logo-text-side"><h2>Heart to Mind</h2><p>INTEGRATION</p></div></div><p class="footer-desc">Align Your Heart. Reprogram Your Mind. Transform Your Life.</p><div class="social-links"><a href="www.facebook.com/harshnitin.sharma"><i class="fab fa-facebook-f"></i></a><a href="https://www.instagram.com/official_dr.nitinsharmanlp/"><i class="fab fa-instagram"></i></a><a href="https://www.linkedin.com/in/nitin-sharma-982bb615b/"><i class="fab fa-linkedin-in"></i></a><a href="https://youtube.com/playlist?list=PL0H1qta9hwykpiUu1zZNrFKErGqTC8U08&si=xLKUv0ICzMFis7VM"><i class="fab fa-youtube"></i></a></div></div><div class="footer-col"><h4>Explore</h4><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About Dr. Nitin</a></li><li><a href="mentors.html">Our Mentors</a></li><li><a href="insights.html#stories">Success Stories</a></li><li><a href="contact.html">Contact</a></li></ul></div><div class="footer-col"><h4>Programs</h4><ul><li><a href="free-session.html">Free Session</a></li><li><a href="programs.html">Gold - ₹499</a></li><li><a href="programs.html">Platinum - ₹24,997</a></li><li><a href="programs.html">Diamond - ₹98,997</a></li></ul></div><div class="footer-col"><h4>Contact</h4><ul class="contact-info"><li><i class="fas fa-envelope"></i> hello@hearttomind.com</li><li><i class="fas fa-phone"></i>+91 72762 17902</li><li><i class="fas fa-clock"></i> Mon-Fri: 9AM - 7PM IST</li></ul></div></div><div class="footer-newsletter"><h4>Join 2,800+ Souls on the Path to Integration</h4><form id="newsletterForm"><input type="email" placeholder="Your email address" required><button type="submit">Subscribe →</button></form></div><div class="footer-bottom"><p>&copy; 2025 Heart to Mind Integration. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p><p class="credits">Dr. Nitin Sharma & Nileema Kirkire — Transforming lives since 2017</p></div></div></footer>`;
+            this.floatingButtons = `<div class="floating-buttons"><a href="https://wa.me/7276217902" class="floating-btn floating-btn-wa" target="_blank"><i class="fab fa-whatsapp"></i></a><a href="tel:+917276217902" class="floating-btn floating-btn-call"><i class="fas fa-phone-alt"></i></a></div>`;
+          }
+          loadHeader() {
+            document.body.insertAdjacentHTML("afterbegin", this.headerHTML);
+            document.body.insertAdjacentHTML("beforeend", this.floatingButtons);
+            this.setActiveNavLink();
+            this.initMegaMenuMobile();
+          }
+          loadFooter() {
+            document.body.insertAdjacentHTML("beforeend", this.footerHTML);
+            this.initFooterScripts();
+          }
+          setActiveNavLink() {
+            const current =
+              window.location.pathname.split("/").pop() || "index.html";
+            document
+              .querySelectorAll(".nav-link[data-page]")
+              .forEach((link) => {
+                const page = link.getAttribute("data-page");
+                if (
+                  (current === "index.html" && page === "home") ||
+                  current === page + ".html"
+                )
+                  link.classList.add("active");
+              });
+          }
+          initMegaMenuMobile() {
+            if (window.innerWidth <= 768) {
+              const megaMenu = document.querySelector(".mega-menu");
+              if (megaMenu) {
+                const toggle = megaMenu.querySelector(".mega-toggle");
+                toggle?.addEventListener("click", (e) => {
+                  e.preventDefault();
+                  megaMenu.classList.toggle("active");
+                });
+              }
+            }
+          }
+          initFooterScripts() {
+            document
+              .getElementById("newsletterForm")
+              ?.addEventListener("submit", (e) => {
+                e.preventDefault();
+                alert(
+                  `Thank you! We'll send insights to ${e.target.querySelector("input").value}`,
+                );
+                e.target.reset();
+              });
+          }
+        }
+        const loader = new HeaderFooterLoader();
+        loader.loadHeader();
+        loader.loadFooter();
         window.addEventListener("scroll", () => {
           const header = document.getElementById("main-header");
           if (header) header.classList.toggle("scrolled", window.scrollY > 50);
@@ -1164,61 +1213,7 @@
             }
           });
         }
-        const statsSection = document.querySelector(".stats-premium");
-        if (statsSection) {
-          const observer = new IntersectionObserver(
-            (entries) => {
-              entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                  [1, 2, 3, 4].forEach((i) => {
-                    const stat = document.getElementById(`stat${i}`);
-                    if (stat && !stat.getAttribute("data-animated")) {
-                      stat.setAttribute("data-animated", "true");
-                      const text = stat.textContent;
-                      const num = parseInt(text.replace(/[^0-9]/g, ""));
-                      if (num) {
-                        let current = 0;
-                        const inc = num / 50;
-                        const timer = setInterval(() => {
-                          current += inc;
-                          if (current >= num) {
-                            stat.textContent = text;
-                            clearInterval(timer);
-                          } else {
-                            stat.textContent =
-                              Math.floor(current) +
-                              (text.includes("%")
-                                ? "%"
-                                : text.includes("+")
-                                  ? "+"
-                                  : "");
-                          }
-                        }, 30);
-                      }
-                    }
-                  });
-                  observer.unobserve(entry.target);
-                }
-              });
-            },
-            { threshold: 0.5 },
-          );
-          observer.observe(statsSection);
-        }
-        // document
-        //   .querySelectorAll(".video-card, .gallery-item")
-        //   .forEach((item) => {
-        //     item.addEventListener("click", () => {
-        //       const img = item.querySelector("img")?.src;
-        //       if (img) alert(`View full image: ${img}`);
-        //     });
-        //   });
-      });
-      // Add this to your existing script
-      if (window.location.pathname.endsWith(".html")) {
-        const cleanUrl = window.location.pathname.replace(".html", "/");
-        window.history.replaceState({}, "", cleanUrl);
-      }
+      })();
     </script>
   </body>
 </html>

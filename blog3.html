@@ -1,0 +1,1033 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <title>Breaking the Pattern | Heart to Mind Integration</title>
+    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        background: #ffffff;
+        color: #1a2a3f;
+        line-height: 1.65;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      /* ========== HEADER & FOOTER STYLES (from reference) ========== */
+      :root {
+        --blue-deep: #0f2a44;
+        --blue-dark: #1e4d8f;
+        --blue-primary: #2f80ed;
+        --blue-medium: #56a6ff;
+        --blue-light: #cfe9ff;
+        --blue-gradient: linear-gradient(135deg, #001e5a, #0051e9);
+        --blue-gradient-light: linear-gradient(135deg, #56a6ff, #a6d4ff);
+        --blue-gradient-radial: linear-gradient(120deg, #009de0, #14a4e6);
+        --light-pink: #ff4d8d;
+        --light-pink-dark: #e63e7a;
+        --light-pink-light: #ffd6e5;
+        --white: #ffffff;
+        --black: #0f172a;
+        --off-white: #f8fbff;
+        --shadow-sm: 0 4px 20px rgba(47, 128, 237, 0.08);
+        --shadow-md: 0 8px 30px rgba(47, 128, 237, 0.12);
+        --shadow-lg: 0 20px 50px rgba(47, 128, 237, 0.18);
+        --shadow-xl: 0 30px 70px rgba(47, 128, 237, 0.22);
+        --transition: all 0.4s cubic-bezier(0.2, 0.95, 0.4, 1);
+      }
+      h1,
+      h2,
+      h3,
+      h4,
+      .logo-text h2 {
+        font-family: "Playfair Display", serif;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+      }
+
+      /* header styles */
+      header {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(20px);
+        z-index: 1000;
+        transition: var(--transition);
+        border-bottom: 1px solid rgba(30, 58, 111, 0.1);
+      }
+      header.scrolled {
+        background: white;
+        box-shadow: var(--shadow-md);
+      }
+      .container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 80px;
+      }
+      @media (max-width: 1200px) {
+        .container {
+          padding: 0 50px;
+        }
+      }
+      @media (max-width: 768px) {
+        .container {
+          padding: 0 24px;
+        }
+      }
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 18px 0;
+      }
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        text-decoration: none;
+      }
+      .logo-img {
+        height: 56px;
+        width: auto;
+        object-fit: contain;
+        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.05));
+      }
+      .nav-links {
+        display: flex;
+        gap: 42px;
+        align-items: center;
+      }
+      .nav-link {
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 15px;
+        color: var(--black);
+        transition: var(--transition);
+        font-family: "Inter", sans-serif;
+      }
+      .nav-link:hover,
+      .nav-link.active {
+        color: var(--light-pink);
+      }
+      .btn-premium {
+        background: var(--blue-gradient);
+        color: white;
+        padding: 10px 28px;
+        border-radius: 40px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: var(--transition);
+      }
+      .btn-premium:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-md);
+      }
+      .menu-toggle {
+        display: none;
+        flex-direction: column;
+        gap: 6px;
+        cursor: pointer;
+      }
+      .menu-toggle span {
+        width: 24px;
+        height: 2px;
+        background: var(--black);
+        transition: var(--transition);
+      }
+      .mega-menu {
+        position: static;
+      }
+      .mega-dropdown {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: white;
+        box-shadow: var(--shadow-xl);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(20px);
+        transition: var(--transition);
+        border-top: 3px solid var(--light-pink);
+        z-index: 999;
+      }
+      .mega-menu:hover .mega-dropdown {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+      .mega-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 56px 80px;
+      }
+      .mega-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 56px;
+      }
+      .mega-header {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 28px;
+        border-bottom: 2px solid var(--light-pink-light);
+        padding-bottom: 12px;
+      }
+      .mega-header i {
+        font-size: 24px;
+        color: var(--blue-primary);
+      }
+      .mega-header h4 {
+        font-family: "Playfair Display", serif;
+        font-weight: 700;
+      }
+      .mega-item {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        padding: 12px 0;
+        text-decoration: none;
+        transition: var(--transition);
+      }
+      .mega-item i {
+        font-size: 22px;
+        color: var(--light-pink);
+        width: 40px;
+      }
+      .mega-item strong {
+        display: block;
+        font-size: 15px;
+        color: var(--black);
+      }
+      .mega-item span {
+        font-size: 12px;
+        color: var(--blue-primary);
+      }
+
+      /* floating buttons */
+      .floating-buttons {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        z-index: 999;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+      .floating-btn {
+        width: 55px;
+        height: 55px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        transition: var(--transition);
+        box-shadow: var(--shadow-lg);
+        animation: float 3s ease-in-out infinite;
+      }
+      .floating-btn-wa {
+        background: linear-gradient(135deg, #25d366, #128c7e);
+        color: white;
+      }
+      .floating-btn-call {
+        background: var(--blue-gradient);
+        color: white;
+      }
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+
+      /* footer styles */
+      footer {
+        background: var(--blue-deep);
+        color: rgba(255, 255, 255, 0.7);
+        padding: 70px 0 40px;
+        margin-top: 80px;
+      }
+      .footer-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 50px;
+        margin-bottom: 50px;
+      }
+      .footer-logo {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 20px;
+      }
+      .footer-logo .logo-img {
+        height: 50px;
+      }
+      .footer-logo h3 {
+        font-size: 22px;
+        color: white;
+        font-family: "Playfair Display", serif;
+      }
+      .footer-desc {
+        margin-top: 10px;
+        color: rgba(255, 255, 255, 0.6);
+      }
+      .footer-col h4 {
+        font-size: 18px;
+        margin-bottom: 24px;
+        color: white;
+        font-family: "Playfair Display", serif;
+      }
+      .footer-col ul {
+        list-style: none;
+      }
+      .footer-col ul li {
+        margin-bottom: 12px;
+      }
+      .footer-col ul li a {
+        color: rgba(255, 255, 255, 0.7);
+        text-decoration: none;
+        transition: var(--transition);
+      }
+      .footer-col ul li a:hover {
+        color: var(--light-pink);
+        padding-left: 6px;
+      }
+      .contact-info li {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: rgba(255, 255, 255, 0.7);
+      }
+      .social-links {
+        display: flex;
+        gap: 16px;
+        margin-top: 20px;
+      }
+      .social-links a {
+        width: 40px;
+        height: 40px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        transition: var(--transition);
+      }
+      .social-links a:hover {
+        background: var(--light-pink);
+        transform: translateY(-3px);
+      }
+      .footer-newsletter {
+        text-align: center;
+        padding: 40px 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        margin-bottom: 40px;
+      }
+      .footer-newsletter h4 {
+        color: white;
+        font-family: "Playfair Display", serif;
+        font-size: 20px;
+      }
+      .footer-newsletter form {
+        display: flex;
+        justify-content: center;
+        gap: 12px;
+        max-width: 500px;
+        margin: 20px auto 0;
+        flex-wrap: wrap;
+      }
+      .footer-newsletter input {
+        flex: 1;
+        padding: 14px 24px;
+        border-radius: 50px;
+        border: none;
+        background: rgba(255, 255, 255, 0.1);
+        color: white;
+      }
+      .footer-newsletter input::placeholder {
+        color: rgba(255, 255, 255, 0.5);
+      }
+      .footer-newsletter button {
+        background: var(--light-pink);
+        color: var(--blue-deep);
+        border: none;
+        padding: 14px 32px;
+        border-radius: 50px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: var(--transition);
+      }
+      .footer-newsletter button:hover {
+        transform: translateY(-2px);
+      }
+      .footer-bottom {
+        text-align: center;
+        padding-top: 32px;
+        font-size: 13px;
+      }
+      .footer-bottom a {
+        color: rgba(255, 255, 255, 0.7);
+        text-decoration: none;
+      }
+      .footer-bottom a:hover {
+        color: var(--light-pink);
+      }
+      .credits {
+        /* margin-top: 12px; */
+        font-size: 12px;
+        opacity: 0.6;
+      }
+
+      @media (max-width: 768px) {
+        .nav-links {
+          position: fixed;
+          top: 80px;
+          left: -100%;
+          width: 100%;
+          height: calc(100vh - 80px);
+          background: white;
+          flex-direction: column;
+          padding: 40px 24px;
+          transition: var(--transition);
+          gap: 24px;
+          align-items: flex-start;
+          box-shadow: var(--shadow-lg);
+          overflow-y: auto;
+        }
+        .nav-links.active {
+          left: 0;
+        }
+        .menu-toggle {
+          display: flex;
+        }
+        .mega-dropdown {
+          display: none;
+          position: static;
+          opacity: 1;
+          visibility: visible;
+          transform: none;
+          box-shadow: none;
+          border-top: none;
+        }
+        .mega-menu.active .mega-dropdown {
+          display: block;
+        }
+        .mega-grid {
+          grid-template-columns: 1fr;
+          gap: 28px;
+        }
+        .mega-container {
+          padding: 30px 20px;
+        }
+      }
+
+      /* ========== BLOG CONTENT STYLES (SCOPED - NO CONFLICT) ========== */
+      .blog-post-content {
+        max-width: 860px;
+        margin: 0 auto;
+        padding: 9rem 2rem 5rem 2rem;
+      }
+
+      .blog-post-content h1,
+      .blog-post-content h2,
+      .blog-post-content h3,
+      .blog-post-content .author-name {
+        font-family: "Playfair Display", serif;
+        font-weight: 700;
+        letter-spacing: -0.01em;
+      }
+
+      .blog-post-content h1 {
+        font-size: 3.2rem;
+        line-height: 1.2;
+        margin: 0.8rem 0 1.2rem 0;
+        color: #0f2a44;
+        font-weight: 800;
+      }
+      .gradient-text {
+        background: radial-gradient(
+          circle,
+          rgb(224 91 144) 0%,
+          rgb(229 23 65) 100%
+        );
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      .blog-post-content h2 {
+        font-size: 1.9rem;
+        margin: 2.2rem 0 1rem 0;
+        padding-bottom: 0.5rem;
+        border-bottom: 3px solid #cfe9ff;
+        display: inline-block;
+        color: #1e4d8f;
+        font-weight: 700;
+      }
+
+      .blog-post-content h3 {
+        font-size: 1.5rem;
+        margin: 1.5rem 0 0.8rem 0;
+        color: #2f80ed;
+        font-weight: 600;
+      }
+
+      .blog-post-content p {
+        margin-bottom: 1.2rem;
+        font-size: 1.05rem;
+        color: #1f2e45;
+      }
+
+      .blog-post-content .insight-card {
+        background: #f8fbff;
+        padding: 1.8rem 2rem;
+        border-radius: 24px;
+        margin: 2rem 0;
+        border: 1px solid #e6f0ff;
+        box-shadow: 0 2px 12px rgba(47, 128, 237, 0.03);
+      }
+
+      .blog-post-content .icon-list {
+        list-style: none;
+        margin: 1.2rem 0 1.2rem 0;
+      }
+
+      .blog-post-content .icon-list li {
+        margin-bottom: 0.8rem;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-weight: 450;
+        text-transform: capitalize;
+      }
+
+      .blog-post-content .icon-list li i {
+        width: 28px;
+        color: var(--light-pink);
+        font-size: 1.2rem;
+        text-align: center;
+      }
+
+      .blog-post-content hr {
+        margin: 2rem 0;
+        border: 0;
+        height: 1px;
+        background: linear-gradient(90deg, #cfe9ff, #fff);
+      }
+
+      .blog-post-content .signature-block {
+        margin-top: 3rem;
+        padding-top: 1.5rem;
+        border-top: 1px solid #e2edff;
+        font-family: "Playfair Display", serif;
+        font-size: 1.1rem;
+        font-weight: 500;
+        color: #0f2a44;
+        text-align: center;
+      }
+
+      .blog-post-content .signature-block span {
+        font-family: "Inter", sans-serif;
+        font-weight: 400;
+        font-size: 0.9rem;
+        color: #2c3e66;
+        display: block;
+        margin-top: 6px;
+      }
+
+      .blog-post-content .icon-intro {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: #eef4ff;
+        padding: 6px 16px;
+        border-radius: 40px;
+        font-size: 0.85rem;
+        font-weight: 500;
+        color: #1e4d8f;
+        margin-bottom: 0.5rem;
+      }
+
+      .blog-post-content .quiet-quote {
+        font-style: normal;
+        padding-left: 1.2rem;
+        border-left: 3px solid #90c4ff;
+        margin: 1.6rem 0;
+        color: #2c5282;
+        font-weight: 450;
+      }
+
+      @media (max-width: 680px) {
+        .blog-post-content {
+          padding: 6rem 1.5rem 4rem;
+        }
+        .blog-post-content h1 {
+          font-size: 2.3rem;
+        }
+        .blog-post-content h2 {
+          font-size: 1.6rem;
+        }
+        .blog-post-content .insight-card {
+          padding: 1.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="header-placeholder"></div>
+
+    <!-- ========== BLOG CONTENT (NEW: Why People Repeat the Same Problems Again and Again) ========== -->
+    <div class="blog-post-content">
+      <div class="icon-intro">
+        <i class="fas fa-undo-alt"></i>
+        <span style="margin-left: 6px">Breaking the Pattern</span>
+      </div>
+
+      <h1>
+        Why People Repeat the Same Problems Again and Again in
+        <span class="gradient-text">Life</span>
+      </h1>
+
+      <p>
+        Have you ever noticed that many people keep facing the same type of
+        problems again and again?
+      </p>
+      <p>Different people. Different situations. Different places.</p>
+      <p>But the same emotional pain.</p>
+      <p>
+        Some people continuously struggle in relationships.<br />
+        Some always face financial instability.<br />
+        Some lose confidence after starting something new.<br />
+        Some feel emotionally hurt very quickly.<br />
+        Some remain stuck in fear, stress, overthinking, or self-doubt for
+        years.
+      </p>
+      <p>The biggest question is:</p>
+      <p>
+        <strong>Why does life repeat the same lessons again and again?</strong>
+      </p>
+      <p>
+        Because most people try to change situations without changing their
+        inner programming.
+      </p>
+
+      <h2>Your Subconscious Mind Creates Repeating Patterns</h2>
+      <p>Human behavior is not controlled only by conscious thinking.</p>
+      <p>
+        Most decisions, reactions, emotional triggers, fears, habits, and
+        relationship patterns come from the subconscious mind.
+      </p>
+      <p>If someone has deep subconscious programming of:</p>
+      <ul class="icon-list">
+        <li><i class="fas fa-frown"></i> rejection,</li>
+        <li><i class="fas fa-dragon"></i> fear,</li>
+        <li><i class="fas fa-lock"></i> emotional insecurity,</li>
+        <li><i class="fas fa-hand-holding-heart"></i> guilt,</li>
+        <li><i class="fas fa-chart-line"></i> low self-worth,</li>
+        <li><i class="fas fa-angry"></i> anger,</li>
+        <li><i class="fas fa-heart-broken"></i> emotional dependency,</li>
+        <li><i class="fas fa-ban"></i> or failure,</li>
+      </ul>
+      <p>
+        then life unconsciously starts creating similar emotional experiences
+        repeatedly.
+      </p>
+      <p>
+        Many people think:<br />
+        “Why does this always happen to me?”
+      </p>
+      <p>
+        But they never realize that unresolved emotional patterns silently
+        attract similar situations.
+      </p>
+
+      <h2>Information Does Not Change Emotional Programming</h2>
+      <p>
+        Today people watch thousands of motivational videos and self-help
+        content.
+      </p>
+      <p>They understand many things logically.</p>
+      <p>But still they repeat the same mistakes.</p>
+      <p>Why?</p>
+      <p>Because awareness alone is not transformation.</p>
+      <p>
+        You can understand something consciously and still remain emotionally
+        trapped in the same cycle.
+      </p>
+      <p>This is why many people:</p>
+      <ul class="icon-list">
+        <li>
+          <i class="fas fa-smoking"></i> know smoking is harmful but continue,
+        </li>
+        <li>
+          <i class="fas fa-fire"></i> know anger destroys relationships but
+          cannot stop,
+        </li>
+        <li>
+          <i class="fas fa-comment-dots"></i> know overthinking is damaging but
+          still suffer,
+        </li>
+        <li>
+          <i class="fas fa-heartbeat"></i> know stress affects health but remain
+          emotionally overloaded.
+        </li>
+      </ul>
+      <p>
+        The problem is deeper than knowledge. The nervous system and
+        subconscious emotional memory are involved.
+      </p>
+
+      <div class="insight-card">
+        <i class="fas fa-heart" style="color: #2f80ed; margin-right: 8px"></i>
+        <strong style="font-size: 1.2rem"
+          >Heart to Mind Integration Helps Break Inner Cycles</strong
+        >
+        <p style="margin-top: 12px; margin-bottom: 0">
+          Heart to Mind Integration focuses on creating emotional and mental
+          alignment from the root level.<br /><br />
+          Because transformation cannot happen only through forced
+          discipline.<br /><br />
+          Real transformation starts when: emotional pain is processed,
+          subconscious resistance decreases, inner conflict reduces, and the
+          heart and mind start working together.<br /><br />
+          Most people live disconnected from their emotions. Either they
+          suppress emotions completely or become controlled by emotions
+          completely. Both create imbalance.<br /><br />
+          Heart to Mind Integration helps individuals understand their emotional
+          patterns consciously while creating inner stability.
+        </p>
+      </div>
+
+      <h2>Why People Feel Emotionally Exhausted Today</h2>
+      <p>
+        Modern life has increased mental stimulation but reduced emotional
+        connection.
+      </p>
+      <p>People are carrying:</p>
+      <ul class="icon-list">
+        <li><i class="fas fa-tachometer-alt"></i> pressure,</li>
+        <li><i class="fa fa-bar-chart"></i> comparison,</li>
+        <li><i class="fas fa-shield-alt"></i> insecurity,</li>
+        <li><i class="fas fa-user-friends"></i> emotional loneliness,</li>
+        <li><i class="fas fa-heart-broken"></i> relationship stress,</li>
+        <li><i class="fas fa-coins"></i> financial fear,</li>
+        <li><i class="fas fa-brain"></i> and inner confusion silently.</li>
+      </ul>
+      <p>Outwardly they look normal. Internally they feel tired.</p>
+      <p>This emotional overload slowly affects:</p>
+      <ul class="icon-list">
+        <li><i class="fas fa-moon"></i> sleep,</li>
+        <li><i class="fas fa-smile-beam"></i> confidence,</li>
+        <li><i class="fas fa-hand-holding-heart"></i> relationships,</li>
+        <li><i class="fas fa-bullseye"></i> focus,</li>
+        <li><i class="fas fa-clipboard-list"></i> decision-making,</li>
+        <li><i class="fas fa-heartbeat"></i> and physical health.</li>
+      </ul>
+      <p>
+        Sometimes people think they are weak. But many times the nervous system
+        is simply emotionally overloaded for years.
+      </p>
+
+      <h2>NLP Can Change Patterns, But Integration Makes Them Stable</h2>
+      <p>
+        Neuro-Linguistic Programming (NLP) is a powerful approach to understand
+        human psychology, emotional behavior, communication patterns, and
+        subconscious conditioning.
+      </p>
+      <p>
+        It helps people identify limiting beliefs and negative mental loops.
+      </p>
+      <p>
+        But if emotional integration does not happen, many people return to old
+        patterns after some time.
+      </p>
+      <p>
+        Because the mind may understand change, but the emotional system still
+        holds the old identity.
+      </p>
+      <p>
+        This is why Heart to Mind Integration becomes important. It helps people
+        create deeper congruence between:
+      </p>
+      <ul class="icon-list">
+        <li><i class="fas fa-brain"></i> thoughts,</li>
+        <li><i class="fas fa-heart"></i> emotions,</li>
+        <li><i class="fas fa-check-circle"></i> beliefs,</li>
+        <li><i class="fas fa-running"></i> actions,</li>
+        <li><i class="fas fa-id-card"></i> and inner identity.</li>
+      </ul>
+
+      <h2>Your Inner State Creates Your Outer Life</h2>
+      <p>
+        Most people try to control life externally while ignoring their internal
+        emotional state.
+      </p>
+      <p>But your outer reality is deeply connected to your inner condition.</p>
+      <p>If internally there is:</p>
+      <ul class="icon-list">
+        <li><i class="fas fa-dragon"></i> fear,</li>
+        <li><i class="fas fa-bolt"></i> emotional chaos,</li>
+        <li><i class="fas fa-thumbs-down"></i> self-rejection,</li>
+        <li><i class="fas fa-tint"></i> unresolved pain,</li>
+        <li><i class="fas fa-question-circle"></i> or inner confusion,</li>
+      </ul>
+      <p>then life eventually reflects that imbalance.</p>
+      <p>
+        This is why healing internally becomes important. Not only for emotional
+        peace. But also for:
+      </p>
+      <ul class="icon-list">
+        <li><i class="fas fa-hand-holding-heart"></i> better relationships,</li>
+        <li><i class="fas fa-chart-line"></i> stronger confidence,</li>
+        <li><i class="fas fa-lightbulb"></i> clearer thinking,</li>
+        <li><i class="fas fa-apple-alt"></i> healthier decisions,</li>
+        <li><i class="fas fa-balance-scale"></i> and a more balanced life.</li>
+      </ul>
+
+      <div class="quiet-quote">
+        <i
+          class="fas fa-quote-left"
+          style="margin-right: 8px; opacity: 0.6"
+        ></i>
+        Real transformation is not acting positive. Today many people are
+        pretending to be strong while suffering internally. Real healing is not
+        pretending. Real healing is understanding yourself deeply. Heart to Mind
+        Integration is not about escaping emotions. It is about understanding
+        emotions, balancing the nervous system, and creating alignment between
+        the heart and mind.
+      </div>
+
+      <h2>Final Thoughts</h2>
+      <p>Life does not repeat problems to punish people.</p>
+      <p>
+        Sometimes life repeats patterns until the person understands themselves
+        deeply.
+      </p>
+      <p>
+        Temporary motivation can excite you. But inner integration transforms
+        you.
+      </p>
+      <p>
+        When your heart and mind move in the same direction, emotional
+        resistance decreases and life starts changing naturally.
+      </p>
+      <p>
+        That is where true peace, clarity, confidence, and transformation begin.
+      </p>
+
+      <div class="insight-card">
+        <p style="font-size: 1.15rem; font-weight: 500">
+          <i
+            class="fas fa-feather-alt"
+            style="margin-right: 8px; color: var(--light-pink)"
+          ></i>
+          When your inner world changes, your outer reality starts responding
+          differently automatically.
+        </p>
+      </div>
+
+      <div class="signature-block">
+        <i class="fas fa-pen-fancy"></i> — Dr. Nitin Sharma<br />
+        <span
+          >Founder of Heart to Mind Integration<br />Certified Life
+          Transformation Coach &amp; NLP Practitioner</span
+        >
+      </div>
+
+      <hr />
+      <div
+        style="
+          text-align: center;
+          font-size: 0.8rem;
+          color: #6c86a3;
+          margin-top: 2rem;
+        "
+      >
+        <i class="fas fa-sync-alt" style="opacity: 0.4"></i>
+        <i class="fas fa-infinity" style="opacity: 0.4"></i>
+        <i class="fas fa-brain" style="opacity: 0.4"></i>
+      </div>
+    </div>
+
+    <!-- ========== FLOATING BUTTONS ========== -->
+    <div class="floating-buttons">
+      <a
+        href="https://wa.me/7276217902"
+        class="floating-btn floating-btn-wa"
+        target="_blank"
+        ><i class="fab fa-whatsapp"></i
+      ></a>
+      <a href="tel:+917276217902" class="floating-btn floating-btn-call"
+        ><i class="fas fa-phone-alt"></i
+      ></a>
+    </div>
+
+    <script>
+      // Header scroll effect
+      window.addEventListener("scroll", function () {
+        const header = document.getElementById("main-header");
+        if (header) header.classList.toggle("scrolled", window.scrollY > 50);
+      });
+
+      // Mobile menu toggle
+      const menuToggle = document.getElementById("menuToggle");
+      const navLinks = document.getElementById("navLinks");
+      if (menuToggle) {
+        menuToggle.addEventListener("click", function () {
+          navLinks.classList.toggle("active");
+          const spans = menuToggle.querySelectorAll("span");
+          if (navLinks.classList.contains("active")) {
+            spans[0].style.transform = "rotate(45deg) translate(5px,6px)";
+            spans[1].style.opacity = "0";
+            spans[2].style.transform = "rotate(-45deg) translate(5px,-6px)";
+          } else {
+            spans[0].style.transform = "none";
+            spans[1].style.opacity = "1";
+            spans[2].style.transform = "none";
+          }
+        });
+      }
+
+      // Mega menu mobile toggle
+      if (window.innerWidth <= 768) {
+        const megaMenu = document.querySelector(".mega-menu");
+        if (megaMenu) {
+          const toggle = megaMenu.querySelector(".mega-toggle");
+          toggle?.addEventListener("click", function (e) {
+            e.preventDefault();
+            megaMenu.classList.toggle("active");
+          });
+        }
+      }
+
+      // Newsletter form submission
+      document
+        .getElementById("newsletterForm")
+        ?.addEventListener("submit", function (e) {
+          e.preventDefault();
+          const email = e.target.querySelector("input").value;
+          if (email) alert("Thank you! We'll send insights to " + email);
+          e.target.reset();
+        });
+    </script>
+    <script>
+      // Header/Footer Loader (self-contained)
+      class HeaderFooterLoader {
+        constructor() {
+          this.headerHTML = `<header id="main-header"><div class="container"><nav class="navbar">
+            <a href="index.html" class="logo" id="brandLogo">
+              <img src="images/favicon-removebg-preview.png" alt="Heart to Mind Integration Logo" class="logo-img" onerror="this.onerror=null; this.src='https://placehold.co/400x120?text=Heart+to+Mind'; this.style.width='auto';">
+              <div class="logo-text-side">
+                <h2>Heart to Mind</h2>
+                <p>INTEGRATION</p>
+              </div>
+            </a><div class="nav-links" id="navLinks"><a href="index.html" class="nav-link" data-page="home">Home</a><div class="mega-menu"><a href="javascript:void(0)" class="mega-toggle nav-link">Programs <i class="fas fa-chevron-down"></i></a><div class="mega-dropdown"><div class="mega-container"><div class="mega-grid"><div class="mega-col"><div class="mega-header"><i class="fas fa-gift"></i><h4>Free Resources</h4></div><a href="free-session.html" class="mega-item"><i class="fas fa-chalkboard-user"></i><div><strong>Free Session</strong><span>With Nileema Kirkire</span></div></a><a href="#" class="mega-item"><i class="fas fa-book-open"></i><div><strong>Free E-Book</strong><span>The Heart-Mind Guide</span></div></a></div><div class="mega-col"><div class="mega-header"><i class="fas fa-crown"></i><h4>Premium Programs</h4></div><a href="programs.html" class="mega-item"><i class="fas fa-star"></i><div><strong>Gold - ₹499</strong><span>Life Audit & Clarity</span></div></a><a href="programs.html" class="mega-item"><i class="fas fa-gem"></i><div><strong>Platinum - ₹24,997</strong><span>20 Sessions / 3 Months</span></div></a><a href="programs.html" class="mega-item"><i class="fas fa-diamond"></i><div><strong>Diamond - ₹98,997</strong><span>~45 Sessions / Year</span></div></a></div><div class="mega-col"><div class="mega-header"><i class="fas fa-users"></i><h4>Community</h4></div><a href="insights.html#stories" class="mega-item"><i class="fas fa-heart"></i><div><strong>Success Stories</strong><span>Real transformations</span></div></a><a href="insights.html" class="mega-item"><i class="fas fa-newspaper"></i><div><strong>Wisdom Library</strong><span>Articles & insights</span></div></a></div></div></div></div></div><a href="about.html" class="nav-link" data-page="about">About</a><a href="mentors.html" class="nav-link" data-page="mentors">Mentors</a><a href="insights.html" class="nav-link" data-page="insights">Insights</a><a href="contact.html" class="nav-link" data-page="contact">Connect</a><a href="free-session.html" class="btn-premium"><i class="fas fa-calendar-alt"></i> Free Session</a></div><div class="header-actions"><div class="menu-toggle" id="menuToggle"><span></span><span></span><span></span></div></div></nav></div></header>`;
+          this.footerHTML = `<footer><div class="container"><div class="footer-grid"><div class="footer-col"><div class="footer-logo"><img src="images/favicon-removebg-preview.png" alt="Heart to Mind Integration Logo" class="logo-img" onerror="this.onerror=null; this.src='https://placehold.co/400x120?text=Heart+to+Mind'; this.style.width='auto';">
+              <div class="logo-text-side">
+                <h2>Heart to Mind</h2>
+                <p>INTEGRATION</p>
+              </div></div><p class="footer-desc">Align Your Heart. Reprogram Your Mind. Transform Your Life.</p>
+            <div class="social-links"><a href="https://www.facebook.com/harshnitin.sharma"><i class="fab fa-facebook-f"></i></a><a href="https://www.instagram.com/official_dr.nitinsharmanlp/"><i class="fab fa-instagram"></i></a><a href="https://www.linkedin.com/in/nitin-sharma-982bb615b/"><i class="fab fa-linkedin-in"></i></a><a href="https://youtube.com/playlist?list=PL0H1qta9hwykpiUu1zZNrFKErGqTC8U08&si=xLKUv0ICzMFis7VM"><i class="fab fa-youtube"></i></a></div></div><div class="footer-col"><h4>Explore</h4><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About Dr. Nitin</a></li><li><a href="mentors.html">Our Mentors</a></li><li><a href="insights.html#stories">Success Stories</a></li><li><a href="contact.html">Contact</a></li></ul></div><div class="footer-col"><h4>Programs</h4><ul><li><a href="free-session.html">Free Session</a></li><li><a href="programs.html">Gold - ₹499</a></li><li><a href="programs.html">Platinum - ₹24,997</a></li><li><a href="programs.html">Diamond - ₹98,997</a></li></ul></div><div class="footer-col"><h4>Contact</h4><ul class="contact-info"><li><i class="fas fa-envelope"></i> hello@hearttomind.com</li><li><i class="fas fa-phone"></i>+91 72762 17902</li><li><i class="fas fa-clock"></i> Mon-Fri: 9AM - 7PM IST</li></ul></div></div><div class="footer-bottom"><p>&copy; 2025 Heart to Mind Integration. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p><p class="credits">Dr. Nitin Sharma & Nileema Kirkire — Transforming lives since 2017</p></div></div></footer>`;
+          this.floatingButtons = `<div class="floating-buttons"><a href="https://wa.me/7276217902" class="floating-btn floating-btn-wa" target="_blank"><i class="fab fa-whatsapp"></i></a><a href="tel:+917276217902" class="floating-btn floating-btn-call"><i class="fas fa-phone-alt"></i></a></div>`;
+        }
+        loadHeader() {
+          document.body.insertAdjacentHTML("afterbegin", this.headerHTML);
+          document.body.insertAdjacentHTML("beforeend", this.floatingButtons);
+          this.setActiveNavLink();
+          this.initMegaMenuMobile();
+        }
+        loadFooter() {
+          document.body.insertAdjacentHTML("beforeend", this.footerHTML);
+          this.initFooterScripts();
+        }
+        setActiveNavLink() {
+          const current =
+            window.location.pathname.split("/").pop() || "index.html";
+          document.querySelectorAll(".nav-link[data-page]").forEach((link) => {
+            const page = link.getAttribute("data-page");
+            if (
+              (current === "index.html" && page === "home") ||
+              current === page + ".html"
+            )
+              link.classList.add("active");
+          });
+        }
+        initMegaMenuMobile() {
+          if (window.innerWidth <= 768) {
+            const megaMenu = document.querySelector(".mega-menu");
+            if (megaMenu) {
+              const toggle = megaMenu.querySelector(".mega-toggle");
+              toggle?.addEventListener("click", (e) => {
+                e.preventDefault();
+                megaMenu.classList.toggle("active");
+              });
+            }
+          }
+        }
+        initFooterScripts() {
+          document
+            .getElementById("newsletterForm")
+            ?.addEventListener("submit", (e) => {
+              e.preventDefault();
+              alert(
+                `Thank you! We'll send insights to ${e.target.querySelector("input").value}`,
+              );
+              e.target.reset();
+            });
+        }
+      }
+      document.addEventListener("DOMContentLoaded", function () {
+        const loader = new HeaderFooterLoader();
+        loader.loadHeader();
+        loader.loadFooter();
+        window.addEventListener("scroll", () => {
+          const header = document.getElementById("main-header");
+          if (header) header.classList.toggle("scrolled", window.scrollY > 50);
+        });
+        const menuToggle = document.getElementById("menuToggle"),
+          navLinks = document.getElementById("navLinks");
+        if (menuToggle) {
+          menuToggle.addEventListener("click", () => {
+            navLinks.classList.toggle("active");
+            const spans = menuToggle.querySelectorAll("span");
+            if (navLinks.classList.contains("active")) {
+              spans[0].style.transform = "rotate(45deg) translate(5px,6px)";
+              spans[1].style.opacity = "0";
+              spans[2].style.transform = "rotate(-45deg) translate(5px,-6px)";
+            } else {
+              spans[0].style.transform = "none";
+              spans[1].style.opacity = "1";
+              spans[2].style.transform = "none";
+            }
+          });
+        }
+      });
+    </script>
+  </body>
+</html>

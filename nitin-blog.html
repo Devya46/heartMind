@@ -1,0 +1,802 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <title>About Dr. Nitin Sharma | Heart to Mind Integration</title>
+    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        background: #ffffff;
+        color: #1a2a3f;
+        line-height: 1.65;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      :root {
+        --blue-deep: #0f2a44;
+        --blue-dark: #1e4d8f;
+        --blue-primary: #2f80ed;
+        --blue-medium: #56a6ff;
+        --blue-light: #cfe9ff;
+        --blue-gradient: linear-gradient(135deg, #001e5a, #0051e9);
+        --light-pink: #ff4d8d;
+        --light-pink-light: #ffd6e5;
+        --white: #ffffff;
+        --black: #0f172a;
+        --off-white: #f8fbff;
+        --shadow-sm: 0 4px 20px rgba(47, 128, 237, 0.08);
+        --shadow-md: 0 8px 30px rgba(47, 128, 237, 0.12);
+        --shadow-lg: 0 20px 50px rgba(47, 128, 237, 0.18);
+        --transition: all 0.4s cubic-bezier(0.2, 0.95, 0.4, 1);
+      }
+
+      h1,
+      h2,
+      h3,
+      .logo-text h2 {
+        font-family: "Playfair Display", serif;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+      }
+
+      /* header styles */
+      header {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(20px);
+        z-index: 1000;
+        transition: var(--transition);
+        border-bottom: 1px solid rgba(30, 58, 111, 0.1);
+      }
+      header.scrolled {
+        background: white;
+        box-shadow: var(--shadow-md);
+      }
+      .container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 80px;
+      }
+      @media (max-width: 1200px) {
+        .container {
+          padding: 0 50px;
+        }
+      }
+      @media (max-width: 768px) {
+        .container {
+          padding: 0 24px;
+        }
+      }
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 18px 0;
+      }
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        text-decoration: none;
+      }
+      .logo-img {
+        height: 56px;
+        width: auto;
+        object-fit: contain;
+      }
+      .nav-links {
+        display: flex;
+        gap: 42px;
+        align-items: center;
+      }
+      .nav-link {
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 15px;
+        color: var(--black);
+        transition: var(--transition);
+      }
+      .nav-link:hover,
+      .nav-link.active {
+        color: var(--light-pink);
+      }
+      .btn-premium {
+        background: var(--blue-gradient);
+        color: white;
+        padding: 10px 28px;
+        border-radius: 40px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: var(--transition);
+      }
+      .btn-premium:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-md);
+      }
+      .menu-toggle {
+        display: none;
+        flex-direction: column;
+        gap: 6px;
+        cursor: pointer;
+      }
+      .menu-toggle span {
+        width: 24px;
+        height: 2px;
+        background: var(--black);
+        transition: var(--transition);
+      }
+      .mega-menu {
+        position: static;
+      }
+      .mega-dropdown {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: white;
+        box-shadow: var(--shadow-lg);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(20px);
+        transition: var(--transition);
+        border-top: 3px solid var(--light-pink);
+        z-index: 999;
+      }
+      .mega-menu:hover .mega-dropdown {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+      .mega-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 56px 80px;
+      }
+      .mega-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 56px;
+      }
+      .mega-header {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 28px;
+        border-bottom: 2px solid var(--light-pink-light);
+        padding-bottom: 12px;
+      }
+      .mega-header i {
+        font-size: 24px;
+        color: var(--blue-primary);
+      }
+      .mega-header h4 {
+        font-family: "Playfair Display", serif;
+        font-weight: 700;
+      }
+      .mega-item {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        padding: 12px 0;
+        text-decoration: none;
+        transition: var(--transition);
+      }
+      .mega-item i {
+        font-size: 22px;
+        color: var(--light-pink);
+        width: 40px;
+      }
+      .mega-item strong {
+        display: block;
+        font-size: 15px;
+        color: var(--black);
+      }
+      .mega-item span {
+        font-size: 12px;
+        color: var(--blue-primary);
+      }
+
+      /* floating buttons */
+      .floating-buttons {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        z-index: 999;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+      .floating-btn {
+        width: 55px;
+        height: 55px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        transition: var(--transition);
+        box-shadow: var(--shadow-lg);
+        animation: float 3s ease-in-out infinite;
+      }
+      .floating-btn-wa {
+        background: linear-gradient(135deg, #25d366, #128c7e);
+        color: white;
+      }
+      .floating-btn-call {
+        background: var(--blue-gradient);
+        color: white;
+      }
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+
+      /* footer */
+      footer {
+        background: var(--blue-deep);
+        color: rgba(255, 255, 255, 0.7);
+        padding: 70px 0 40px;
+        margin-top: 80px;
+      }
+      .footer-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 50px;
+        margin-bottom: 50px;
+      }
+      .footer-logo {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 20px;
+      }
+      .footer-logo .logo-img {
+        height: 50px;
+      }
+      .footer-logo h3 {
+        font-size: 22px;
+        color: white;
+        font-family: "Playfair Display", serif;
+      }
+      .footer-desc {
+        margin-top: 10px;
+        color: rgba(255, 255, 255, 0.6);
+      }
+      .footer-col h4 {
+        font-size: 18px;
+        margin-bottom: 24px;
+        color: white;
+        font-family: "Playfair Display", serif;
+      }
+      .footer-col ul {
+        list-style: none;
+      }
+      .footer-col ul li {
+        margin-bottom: 12px;
+      }
+      .footer-col ul li a {
+        color: rgba(255, 255, 255, 0.7);
+        text-decoration: none;
+        transition: var(--transition);
+      }
+      .footer-col ul li a:hover {
+        color: var(--light-pink);
+        padding-left: 6px;
+      }
+      .contact-info li {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .social-links {
+        display: flex;
+        gap: 16px;
+        margin-top: 20px;
+      }
+      .social-links a {
+        width: 40px;
+        height: 40px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        transition: var(--transition);
+      }
+      .social-links a:hover {
+        background: var(--light-pink);
+        transform: translateY(-3px);
+      }
+      .footer-bottom {
+        text-align: center;
+        padding-top: 32px;
+        font-size: 13px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .credits {
+        font-size: 12px;
+        opacity: 0.6;
+        margin-top: 12px;
+      }
+
+      @media (max-width: 768px) {
+        .nav-links {
+          position: fixed;
+          top: 80px;
+          left: -100%;
+          width: 100%;
+          height: calc(100vh - 80px);
+          background: white;
+          flex-direction: column;
+          padding: 40px 24px;
+          transition: var(--transition);
+          gap: 24px;
+          align-items: flex-start;
+          box-shadow: var(--shadow-lg);
+        }
+        .nav-links.active {
+          left: 0;
+        }
+        .menu-toggle {
+          display: flex;
+        }
+        .mega-dropdown {
+          display: none;
+          position: static;
+          opacity: 1;
+          visibility: visible;
+          transform: none;
+          box-shadow: none;
+          border-top: none;
+        }
+        .mega-menu.active .mega-dropdown {
+          display: block;
+        }
+        .mega-grid {
+          grid-template-columns: 1fr;
+          gap: 28px;
+        }
+        .mega-container {
+          padding: 30px 20px;
+        }
+      }
+
+      /* ========== BLOG-STYLE ABOUT PAGE (CLEAN, NO AWARD IMAGES) ========== */
+      .blog-about-container {
+        max-width: 860px;
+        margin: 0 auto;
+        padding: 9rem 2rem 5rem 2rem;
+      }
+      .blog-header {
+        text-align: center;
+        margin-bottom: 2.5rem;
+      }
+      .blog-tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: #eef4ff;
+        padding: 6px 18px;
+        border-radius: 40px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        color: var(--blue-dark);
+        margin-bottom: 1rem;
+      }
+      .blog-about-container h1 {
+        font-size: 3rem;
+        line-height: 1.2;
+        margin: 0.5rem 0 1rem;
+        color: var(--blue-deep);
+        font-family: "Playfair Display", serif;
+        font-weight: 800;
+      }
+      .gradient-name {
+        background: linear-gradient(135deg, #ff4d8d, #ff9f4a);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+      .hero-subhead {
+        font-size: 1.2rem;
+        color: #2f80ed;
+        font-weight: 500;
+        margin-bottom: 2rem;
+      }
+      .profile-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 40px;
+        align-items: center;
+        margin: 2rem 0 2.5rem;
+        background: var(--off-white);
+        border-radius: 32px;
+        padding: 30px;
+        justify-content: center;
+      }
+      .profile-img-wrapper {
+        flex: 0 0 200px;
+        text-align: center;
+      }
+      .profile-img {
+        width: 100%;
+        max-width: 200px;
+        border-radius: 28px;
+        box-shadow: var(--shadow-lg);
+        border: 4px solid white;
+        object-fit: cover;
+        aspect-ratio: 1 / 1;
+      }
+      .honor-list {
+        flex: 1;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 12px;
+      }
+      .honor-badge-sm {
+        background: white;
+        padding: 6px 16px;
+        border-radius: 40px;
+        font-size: 0.8rem;
+        font-weight: 500;
+        color: var(--blue-dark);
+        box-shadow: var(--shadow-sm);
+      }
+      .honor-badge-sm i {
+        color: #ffb347;
+        margin-right: 6px;
+      }
+      .about-paragraph {
+        font-size: 1.05rem;
+        margin-bottom: 1.5rem;
+        color: #1f2e45;
+        line-height: 1.7;
+      }
+      .insight-quote {
+        background: #f0f7ff;
+        padding: 2rem 2rem;
+        border-radius: 28px;
+        margin: 2rem 0;
+        border-left: 5px solid var(--light-pink);
+      }
+      .insight-quote i {
+        font-size: 1.8rem;
+        color: var(--light-pink);
+        opacity: 0.7;
+        margin-right: 12px;
+      }
+      .expertise-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin: 1.5rem 0 1rem;
+      }
+      .expertise-list span {
+        background: #eef4ff;
+        padding: 6px 18px;
+        border-radius: 40px;
+        font-weight: 500;
+        font-size: 0.85rem;
+        color: var(--blue-dark);
+      }
+      .subhead {
+        font-size: 1.8rem;
+        font-family: "Playfair Display", serif;
+        margin: 2rem 0 1rem;
+        color: var(--blue-dark);
+        font-weight: 700;
+      }
+      .signoff {
+        margin-top: 3rem;
+        padding-top: 1.5rem;
+        border-top: 2px solid #e2edff;
+        text-align: center;
+        font-family: "Playfair Display", serif;
+        font-size: 1rem;
+      }
+      @media (max-width: 680px) {
+        .blog-about-container {
+          padding: 6rem 1.5rem 3rem;
+        }
+        .blog-about-container h1 {
+          font-size: 2.2rem;
+        }
+        .profile-row {
+          flex-direction: column;
+          text-align: center;
+        }
+        .honor-list {
+          justify-content: center;
+        }
+        .subhead {
+          font-size: 1.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="header-placeholder"></div>
+
+    <main class="blog-about-container">
+      <div class="blog-header">
+        <div class="blog-tag">
+          <i class="fas fa-user-astronaut"></i>
+          <span>Founder & Lead Coach</span>
+        </div>
+        <h1>
+          Dr. Nitin Sharma: The Visionary Behind
+          <span class="gradient-name">Heart to Mind Integration</span>
+        </h1>
+        <div class="hero-subhead">
+          Life Transformation Coach | NLP Practitioner | Mind-Body Alignment
+          Expert
+        </div>
+      </div>
+
+      <!-- Profile row with main image from /images/NITIN-profile.png -->
+      <div class="profile-row">
+        <div class="profile-img-wrapper">
+          <img
+            src="images/NITIN-profile.png"
+            alt="Dr. Nitin Sharma portrait"
+            class="profile-img"
+            onerror="
+              this.onerror = null;
+              this.src =
+                'https://placehold.co/400x500/2f80ed/white?text=Dr.+Nitin+Sharma';
+            "
+          />
+        </div>
+        <div>
+          <p class="about-paragraph">
+            <strong>Dr. Nitin Sharma</strong> is a renowned Life Transformation
+            Coach, Neuro-Linguistic Programming (NLP) Practitioner, and founder
+            of the transformational methodology known as
+            <strong>Heart to Mind Integration</strong>. With over 7 years of
+            experience in personal development, emotional healing, mindset
+            transformation, and human behavior understanding, he has guided
+            countless individuals toward clarity, confidence, emotional balance,
+            and purposeful living.
+          </p>
+          <div class="honor-list">
+            <span class="honor-badge-sm"
+              ><i class="fas fa-medal"></i> Iconic Pride of India Award</span
+            >
+            <span class="honor-badge-sm"
+              ><i class="fas fa-graduation-cap"></i> Honorary Doctorate (Life
+              Transformation)</span
+            >
+            <span class="honor-badge-sm"
+              ><i class="fas fa-brain"></i> Certified NLP Practitioner</span
+            >
+          </div>
+        </div>
+      </div>
+
+      <div class="about-paragraph">
+        <p>
+          Through his unique approach, Dr. Sharma combines modern NLP
+          methodologies, subconscious reprogramming, emotional intelligence,
+          spiritual alignment, and practical life strategies to create deep and
+          lasting transformation. His work focuses on helping individuals break
+          negative patterns, improve relationships, enhance self-confidence,
+          overcome emotional stress, and achieve inner congruence between heart,
+          mind, and action.
+        </p>
+      </div>
+
+      <div class="insight-quote">
+        <i class="fas fa-quote-left"></i> “True success, health, peace, and
+        fulfillment are achieved when the conscious mind, subconscious
+        conditioning, emotions, and inner values work in harmony.”
+        <div style="margin-top: 12px; font-weight: 600">— Dr. Nitin Sharma</div>
+      </div>
+
+      <div class="about-paragraph">
+        <p>
+          As the creator of Heart to Mind Integration, Dr. Nitin Sharma believes
+          that transformational sessions, workshops, seminars, and coaching
+          programs are designed to help people reconnect with their authentic
+          selves and unlock their highest potential. Over the years, he has
+          worked with entrepreneurs, professionals, parents, students, and
+          individuals from different walks of life who seek personal growth,
+          emotional healing, mental clarity, and a more meaningful life journey.
+        </p>
+      </div>
+
+      <h2 class="subhead">Core Expertise</h2>
+      <div class="expertise-list">
+        <span>Neuro-Linguistic Programming (NLP)</span>
+        <span>Subconscious Mind Reprogramming</span>
+        <span>Emotional & Mindset Transformation</span>
+        <span>Heart to Mind Integration Methodology</span>
+        <span>Personal Development & Self-Growth</span>
+        <span>Relationship & Emotional Healing</span>
+        <span>Confidence & Leadership Development</span>
+        <span>Mind-Body Alignment Techniques</span>
+        <span>Human Behavior & Conscious Living</span>
+      </div>
+
+      <div class="about-paragraph">
+        <p>
+          Dr. Nitin Sharma is also actively involved in spreading awareness
+          about mindset transformation, emotional wellness, conscious living,
+          and holistic personal development through workshops, social platforms,
+          and public speaking engagements. His dedication to human empowerment
+          has earned him the prestigious Iconic Pride of India Award and an
+          Honorary Doctorate in Life Transformation, recognizing his
+          contribution to helping individuals overcome mental, emotional, and
+          behavioral limitations through scientifically aligned mindset
+          techniques and holistic transformation practices.
+        </p>
+      </div>
+
+      <div
+        class="insight-quote"
+        style="
+          background: linear-gradient(135deg, #0f2a44 0%, #1e4d8f 100%);
+          color: white;
+          border-left-color: #ffd6e5;
+        "
+      >
+        <i class="fas fa-heart" style="color: #ffd6e5"></i>
+        <strong style="font-size: 1.2rem"
+          >Heart to Mind Integration Philosophy</strong
+        >
+        <p style="margin-top: 12px">
+          When the heart and mind work together, transformation becomes natural.
+          Dr. Nitin Sharma's methodology bridges the gap between subconscious
+          conditioning and conscious intention, allowing individuals to live
+          with authenticity, emotional freedom, and purpose.
+        </p>
+      </div>
+
+      <div class="about-paragraph">
+        <p>
+          Whether through one-on-one coaching, group seminars, or digital
+          resources, Dr. Sharma's mission remains clear: to guide people toward
+          inner congruence, break free from invisible limitations, and step into
+          a life of clarity, confidence, and contribution. His work continues to
+          inspire a global community seeking real, sustainable change from the
+          inside out.
+        </p>
+      </div>
+
+      <!-- Final CTA - minimal -->
+      <div
+        style="
+          text-align: center;
+          background: #fff6f9;
+          border-radius: 48px;
+          padding: 32px 24px;
+          margin: 48px 0 20px;
+        "
+      >
+        <i
+          class="fas fa-calendar-alt"
+          style="font-size: 2rem; color: var(--light-pink)"
+        ></i>
+        <h3
+          style="
+            font-family: &quot;Playfair Display&quot;, serif;
+            margin: 12px 0 8px;
+          "
+        >
+          Begin Your Transformation Journey
+        </h3>
+        <p style="max-width: 500px; margin: 0 auto 20px">
+          Experience a complimentary session and discover how Heart to Mind
+          Integration can bring clarity, emotional balance, and lasting change.
+        </p>
+        <a href="contact.html" class="btn-premium" style="display: inline-block"
+          ><i class="fas fa-chalkboard-user"></i> Book Free Session</a
+        >
+      </div>
+
+      <div class="signoff">
+        <i class="fas fa-feather-alt"></i> Written with intention — Dr. Nitin
+        Sharma & Team<br />
+        <span style="font-size: 0.8rem; opacity: 0.7"
+          >Heart to Mind Integration — Align, Reprogram, Transform.</span
+        >
+      </div>
+    </main>
+
+    <div class="floating-buttons">
+      <a
+        href="https://wa.me/7276217902"
+        class="floating-btn floating-btn-wa"
+        target="_blank"
+        ><i class="fab fa-whatsapp"></i
+      ></a>
+      <a href="tel:+917276217902" class="floating-btn floating-btn-call"
+        ><i class="fas fa-phone-alt"></i
+      ></a>
+    </div>
+
+    <script>
+      // Header/footer loader (no award images, no extra gallery)
+      class HeaderFooterLoader {
+        constructor() {
+          this.headerHTML = `<header id="main-header"><div class="container"><nav class="navbar"><a href="index.html" class="logo"><img src="images/favicon-removebg-preview.png" alt="Heart to Mind Integration Logo" class="logo-img" onerror="this.onerror=null; this.src='https://placehold.co/400x120?text=Heart+to+Mind'; this.style.width='auto';"><div class="logo-text-side"><h2>Heart to Mind</h2><p>INTEGRATION</p></div></a><div class="nav-links" id="navLinks"><a href="index.html" class="nav-link" data-page="home">Home</a><div class="mega-menu"><a href="javascript:void(0)" class="mega-toggle nav-link">Programs <i class="fas fa-chevron-down"></i></a><div class="mega-dropdown"><div class="mega-container"><div class="mega-grid"><div class="mega-col"><div class="mega-header"><i class="fas fa-gift"></i><h4>Free Resources</h4></div><a href="free-session.html" class="mega-item"><i class="fas fa-chalkboard-user"></i><div><strong>Free Session</strong><span>With Nileema Kirkire</span></div></a><a href="#" class="mega-item"><i class="fas fa-book-open"></i><div><strong>Free E-Book</strong><span>The Heart-Mind Guide</span></div></a></div><div class="mega-col"><div class="mega-header"><i class="fas fa-crown"></i><h4>Premium Programs</h4></div><a href="programs.html" class="mega-item"><i class="fas fa-star"></i><div><strong>Gold - ₹499</strong><span>Life Audit & Clarity</span></div></a><a href="programs.html" class="mega-item"><i class="fas fa-gem"></i><div><strong>Platinum - ₹24,997</strong><span>20 Sessions / 3 Months</span></div></a><a href="programs.html" class="mega-item"><i class="fas fa-diamond"></i><div><strong>Diamond - ₹98,997</strong><span>~45 Sessions / Year</span></div></a></div><div class="mega-col"><div class="mega-header"><i class="fas fa-users"></i><h4>Community</h4></div><a href="insights.html#stories" class="mega-item"><i class="fas fa-heart"></i><div><strong>Success Stories</strong><span>Real transformations</span></div></a><a href="insights.html" class="mega-item"><i class="fas fa-newspaper"></i><div><strong>Wisdom Library</strong><span>Articles & insights</span></div></a></div></div></div></div></div><a href="about.html" class="nav-link active" data-page="about">About</a><a href="mentors.html" class="nav-link">Mentors</a><a href="insights.html" class="nav-link">Insights</a><a href="contact.html" class="nav-link">Connect</a><a href="free-session.html" class="btn-premium"><i class="fas fa-calendar-alt"></i> Free Session</a></div><div class="menu-toggle" id="menuToggle"><span></span><span></span><span></span></div></nav></div></header>`;
+          this.footerHTML = `<footer><div class="container"><div class="footer-grid"><div class="footer-col"><div class="footer-logo"><img src="images/favicon-removebg-preview.png" alt="Logo" class="logo-img" onerror="this.src='https://placehold.co/400x120?text=Heart+to+Mind'"><h3>Heart to Mind</h3></div><p class="footer-desc">Align Your Heart. Reprogram Your Mind. Transform Your Life.</p><div class="social-links"><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fab fa-linkedin-in"></i></a><a href="#"><i class="fab fa-youtube"></i></a></div></div><div class="footer-col"><h4>Explore</h4><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About Dr. Nitin</a></li><li><a href="mentors.html">Our Mentors</a></li><li><a href="contact.html">Contact</a></li></ul></div><div class="footer-col"><h4>Programs</h4><ul><li><a href="free-session.html">Free Session</a></li><li><a href="programs.html">Gold - ₹499</a></li><li><a href="programs.html">Platinum - ₹24,997</a></li></ul></div><div class="footer-col"><h4>Contact</h4><ul class="contact-info"><li><i class="fas fa-envelope"></i> hello@hearttomind.com</li><li><i class="fas fa-phone"></i>+91 72762 17902</li></ul></div></div><div class="footer-bottom"><p>&copy; 2025 Heart to Mind Integration. All rights reserved.</p><p class="credits">Dr. Nitin Sharma & Nileema Kirkire — Transforming lives since 2017</p></div></div></footer>`;
+        }
+        loadHeader() {
+          document.body.insertAdjacentHTML("afterbegin", this.headerHTML);
+          this.setActiveNav();
+          this.initMobileMenu();
+        }
+        loadFooter() {
+          document.body.insertAdjacentHTML("beforeend", this.footerHTML);
+        }
+        setActiveNav() {
+          const curr =
+            window.location.pathname.split("/").pop() || "about.html";
+          document.querySelectorAll(".nav-link").forEach((link) => {
+            if (link.getAttribute("href") === curr)
+              link.classList.add("active");
+          });
+        }
+        initMobileMenu() {
+          const toggle = document.getElementById("menuToggle");
+          if (toggle)
+            toggle.onclick = () => {
+              const nav = document.getElementById("navLinks");
+              nav.classList.toggle("active");
+              const spans = toggle.querySelectorAll("span");
+              if (nav.classList.contains("active")) {
+                spans[0].style.transform = "rotate(45deg) translate(5px,6px)";
+                spans[1].style.opacity = "0";
+                spans[2].style.transform = "rotate(-45deg) translate(5px,-6px)";
+              } else {
+                spans.forEach((s) => {
+                  s.style.transform = "none";
+                  s.style.opacity = "1";
+                });
+              }
+            };
+        }
+      }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const loader = new HeaderFooterLoader();
+        loader.loadHeader();
+        loader.loadFooter();
+
+        // Scroll effect for header
+        window.addEventListener("scroll", () => {
+          const header = document.getElementById("main-header");
+          if (header) header.classList.toggle("scrolled", window.scrollY > 50);
+        });
+      });
+    </script>
+  </body>
+</html>
