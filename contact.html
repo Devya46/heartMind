@@ -19,34 +19,23 @@
     <style>
       /* ========== GLOBAL STYLES ========== */
       :root {
-        /* SKY BLUE SYSTEM (clean, modern) */
         --blue-deep: #0f2a44;
         --blue-dark: #1e4d8f;
         --blue-primary: #2f80ed;
         --blue-medium: #56a6ff;
         --blue-light: #cfe9ff;
-
-        /* GRADIENTS */
         --blue-gradient: linear-gradient(135deg, #001e5a, #0051e9);
         --blue-gradient-light: linear-gradient(135deg, #56a6ff, #a6d4ff);
-        --blue-gradient-radial: linear-gradient(120deg, #009de0, #14a4e6);
-
-        /* BETTER PINK (modern, not harsh) */
         --light-pink: #ff4d8d;
         --light-pink-dark: #e63e7a;
         --light-pink-light: #ffd6e5;
-
-        /* NEUTRALS */
         --white: #ffffff;
-        --black: #0f172a; /* replaced 'navy' with a proper deep tone */
+        --black: #0f172a;
         --off-white: #f8fbff;
-
-        /* SHADOWS (slight blue tint = premium feel) */
         --shadow-sm: 0 4px 20px rgba(47, 128, 237, 0.08);
         --shadow-md: 0 8px 30px rgba(47, 128, 237, 0.12);
         --shadow-lg: 0 20px 50px rgba(47, 128, 237, 0.18);
         --shadow-xl: 0 30px 70px rgba(47, 128, 237, 0.22);
-
         --transition: all 0.4s cubic-bezier(0.2, 0.95, 0.4, 1);
       }
       * {
@@ -85,8 +74,6 @@
           padding: 0 24px;
         }
       }
-
-      /* Buttons */
       .btn-primary,
       .btn-secondary,
       .btn-outline-light {
@@ -111,16 +98,6 @@
         transform: translateY(-3px);
         box-shadow: var(--shadow-md);
       }
-      .btn-secondary {
-        background: transparent;
-        border: 2px solid var(--blue-primary);
-        color: var(--blue-primary);
-      }
-      .btn-secondary:hover {
-        background: var(--blue-primary);
-        color: white;
-        transform: translateY(-3px);
-      }
       .btn-white {
         background: white;
         color: var(--blue-deep);
@@ -138,8 +115,6 @@
         background: var(--light-pink-light);
         color: var(--blue-deep);
       }
-
-      /* Header (no search bar) */
       header {
         position: fixed;
         top: 0;
@@ -161,7 +136,6 @@
         filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.05));
         transition: transform 0.2s ease;
       }
-
       .navbar {
         display: flex;
         justify-content: space-between;
@@ -173,30 +147,6 @@
         align-items: center;
         gap: 14px;
         text-decoration: none;
-      }
-      .logo-icon {
-        width: 48px;
-        height: 48px;
-        background: var(--blue-deep);
-        border-radius: 16px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: white;
-        font-size: 24px;
-      }
-      .logo-text h2 {
-        font-size: 24px;
-        background: var(--blue-deep);
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
-      }
-      .logo-text p {
-        font-size: 9px;
-        letter-spacing: 3px;
-        color: var(--blue-primary);
-        font-weight: 500;
       }
       .nav-links {
         display: flex;
@@ -240,8 +190,6 @@
         background: var(--black);
         transition: var(--transition);
       }
-
-      /* Mega Menu */
       .mega-menu {
         position: static;
       }
@@ -308,8 +256,6 @@
         font-size: 12px;
         color: var(--blue-primary);
       }
-
-      /* Floating Buttons */
       .floating-buttons {
         position: fixed;
         bottom: 30px;
@@ -348,8 +294,6 @@
           transform: translateY(-10px);
         }
       }
-
-      /* Footer (no Resources column) */
       footer {
         background: var(--blue-deep);
         color: rgba(255, 255, 255, 0.7);
@@ -367,14 +311,6 @@
         align-items: center;
         gap: 12px;
         margin-bottom: 20px;
-      }
-      .footer-logo i {
-        font-size: 32px;
-        color: var(--light-pink);
-      }
-      .footer-logo h3 {
-        font-size: 22px;
-        color: white;
       }
       .footer-col h4 {
         font-size: 18px;
@@ -453,8 +389,6 @@
         padding-top: 32px;
         font-size: 13px;
       }
-
-      /* Page specific */
       .page-header {
         background: var(--blue-gradient);
         color: white;
@@ -572,6 +506,30 @@
         padding: 70px 60px;
         color: white;
       }
+      .form-toast {
+        position: fixed;
+        bottom: 30px;
+        left: 50%;
+        transform: translateX(-50%) translateY(100px);
+        background: #1e293b;
+        color: white;
+        padding: 12px 24px;
+        border-radius: 60px;
+        font-weight: 500;
+        z-index: 9999;
+        transition: transform 0.3s ease;
+        box-shadow: var(--shadow-md);
+        pointer-events: none;
+      }
+      .form-toast.show {
+        transform: translateX(-50%) translateY(0);
+      }
+      .form-toast.error {
+        background: linear-gradient(135deg, #b91c1c, #7f1a1a);
+      }
+      .form-toast.success {
+        background: linear-gradient(135deg, #0f2a44, #1e4d8f);
+      }
       @media (max-width: 768px) {
         .contact-grid {
           grid-template-columns: 1fr;
@@ -654,7 +612,6 @@
       <section class="section">
         <div class="container">
           <div class="contact-grid">
-            <!-- Left Column: Contact Info & Office Hours -->
             <div>
               <div class="contact-info-card">
                 <h3>Get in Touch</h3>
@@ -668,9 +625,8 @@
                 >
                   <i class="fas fa-map-marker-alt"></i>
                   <div>
-                    <strong>Visit Us</strong><br />
-                    Heart to Mind Integration Center<br />
-                    Sector-23, Faridabad, India
+                    <strong>Visit Us</strong><br />Heart to Mind Integration
+                    Center<br />Sector-23, Faridabad, India
                   </div>
                 </div>
                 <div
@@ -682,10 +638,7 @@
                   "
                 >
                   <i class="fas fa-phone-alt"></i>
-                  <div>
-                    <strong>Call Us</strong><br />
-                    +91 72762 17902
-                  </div>
+                  <div><strong>Call Us</strong><br />+91 72762 17902</div>
                 </div>
                 <div
                   style="
@@ -697,21 +650,18 @@
                 >
                   <i class="fas fa-envelope"></i>
                   <div>
-                    <strong>Email Us</strong><br />
-                    hello@hearttomind.com<br />
-                    support@hearttomind.com
+                    <strong>Email Us</strong
+                    ><br />hello@hearttomind.com<br />support@hearttomind.com
                   </div>
                 </div>
                 <div style="display: flex; align-items: center; gap: 16px">
                   <i class="fab fa-whatsapp"></i>
                   <div>
-                    <strong>WhatsApp</strong><br />
-                    +91 85888 62861<br />
-                    Mon-Fri, 9 AM - 7 PM
+                    <strong>WhatsApp</strong><br />+91 85888 62861<br />Mon-Fri,
+                    9 AM - 7 PM
                   </div>
                 </div>
               </div>
-
               <div class="contact-info-card">
                 <h3>Office Hours</h3>
                 <div class="office-hours">
@@ -734,17 +684,25 @@
                 </div>
               </div>
             </div>
-
-            <!-- Right Column: Contact Form -->
             <div class="contact-form">
               <h3>Send a Message</h3>
               <p>We'll get back to you within 24 hours</p>
               <form id="contactForm">
-                <input type="text" placeholder="Your Name" required />
-                <input type="email" placeholder="Email Address" required />
-                <input type="tel" placeholder="Phone Number" />
-                <select>
-                  <option>I'm interested in...</option>
+                <input
+                  type="text"
+                  id="userName"
+                  placeholder="Your Name"
+                  required
+                />
+                <input
+                  type="email"
+                  id="userEmail"
+                  placeholder="Email Address"
+                  required
+                />
+                <input type="tel" id="userPhone" placeholder="Phone Number" />
+                <select id="userInterest">
+                  <option value="">I'm interested in...</option>
                   <option>Free Workshop</option>
                   <option>Core Integration Program</option>
                   <option>Leadership Mastery</option>
@@ -752,41 +710,42 @@
                   <option>Private Retreat</option>
                   <option>General Inquiry</option>
                 </select>
-                <textarea rows="4" placeholder="Your Message..."></textarea>
+                <textarea
+                  id="userMessage"
+                  rows="4"
+                  placeholder="Your Message..."
+                ></textarea>
                 <button
                   type="submit"
                   class="btn-primary"
                   style="width: 100%; justify-content: center"
+                  id="submitBtn"
                 >
                   Send Message →
                 </button>
               </form>
             </div>
           </div>
-
-          <!-- Google Map -->
           <div class="map-container">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3770.906929498976!2d72.85767631490124!3d19.06987808708791!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c630e8d4e4b7%3A0x8e1e8e8e8e8e8e8e!2sBandra%20Kurla%20Complex!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
               width="100%"
               height="100%"
               style="border: 0"
-              allowfullscreen=""
+              allowfullscreen
               loading="lazy"
             ></iframe>
           </div>
         </div>
       </section>
 
-      <!-- FAQ Section -->
       <section class="section" style="background: var(--off-white)">
         <div class="container">
           <h2 class="section-title">Frequently Asked <span>Questions</span></h2>
           <div class="faq-list">
             <div class="faq-item">
               <div class="faq-q">
-                Do you offer online sessions?
-                <i class="fas fa-chevron-down"></i>
+                Do you offer online sessions?<i class="fas fa-chevron-down"></i>
               </div>
               <div class="faq-a">
                 Yes, all our programs are available online via Zoom. We serve
@@ -795,8 +754,9 @@
             </div>
             <div class="faq-item">
               <div class="faq-q">
-                What is the cancellation policy?
-                <i class="fas fa-chevron-down"></i>
+                What is the cancellation policy?<i
+                  class="fas fa-chevron-down"
+                ></i>
               </div>
               <div class="faq-a">
                 Free cancellations up to 24 hours before scheduled sessions.
@@ -805,8 +765,9 @@
             </div>
             <div class="faq-item">
               <div class="faq-q">
-                Do you offer corporate packages?
-                <i class="fas fa-chevron-down"></i>
+                Do you offer corporate packages?<i
+                  class="fas fa-chevron-down"
+                ></i>
               </div>
               <div class="faq-a">
                 Yes, we provide customized wellness programs for organizations.
@@ -817,7 +778,6 @@
         </div>
       </section>
 
-      <!-- CTA Section -->
       <div class="cta-premium">
         <div class="container">
           <h2 style="color: white">Prefer to Talk Directly?</h2>
@@ -834,8 +794,182 @@
       </div>
     </main>
     <div id="footer-placeholder"></div>
+    <div id="formToast" class="form-toast"></div>
+
     <script>
-      // Header/Footer Loader (self-contained)
+      // ========== GOOGLE SHEETS INTEGRATION - FULLY FIXED ==========
+      const SCRIPT_URL =
+        "https://script.google.com/macros/s/AKfycbyyL3I0qpfDgncWgBk3BfieUoBLabr0i4MFIXaWjvJQ66M6wK6CchHCxcMxlek7Mp_T/exec";
+
+      function showToast(message, type = "success") {
+        const toast = document.getElementById("formToast");
+        toast.textContent = message;
+        toast.className = `form-toast ${type} show`;
+        setTimeout(() => {
+          toast.classList.remove("show");
+        }, 4000);
+      }
+
+      // ========== NEWSLETTER SUBMISSION (SHEET 2) ==========
+      async function submitNewsletter(email) {
+        const payload = {
+          sheet2: true, // Flag to identify newsletter submission
+          email: email,
+          source: "Footer Newsletter",
+          timestamp: new Date().toLocaleString("en-IN", {
+            timeZone: "Asia/Kolkata",
+          }),
+          status: "Active",
+        };
+
+        try {
+          await fetch(SCRIPT_URL, {
+            method: "POST",
+            mode: "no-cors",
+            cache: "no-cache",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(payload),
+            keepalive: true,
+          });
+
+          showToast(
+            "🎉 Thanks for subscribing! You'll hear from us soon.",
+            "success",
+          );
+          return true;
+        } catch (error) {
+          console.error("Newsletter error:", error);
+          showToast("❌ Subscription failed. Please try again.", "error");
+          return false;
+        }
+      }
+
+      // ========== CONTACT FORM SUBMISSION (SHEET 1) ==========
+      async function submitContactForm(formDataObj) {
+        const payload = {
+          name: formDataObj.name,
+          email: formDataObj.email,
+          phone: formDataObj.phone,
+          city: formDataObj.city || "",
+          state: formDataObj.state || "",
+          message: formDataObj.message,
+          source: formDataObj.source || "Contact Page",
+          timestamp: formDataObj.timestamp,
+        };
+
+        try {
+          await fetch(SCRIPT_URL, {
+            method: "POST",
+            mode: "no-cors",
+            cache: "no-cache",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(payload),
+            keepalive: true,
+          });
+
+          showToast(
+            "✅ Message sent successfully! We'll reach out within 24 hours.",
+            "success",
+          );
+          return true;
+        } catch (error) {
+          console.error("Contact form error:", error);
+          showToast(
+            "❌ Unable to send message. Please try again or call us directly.",
+            "error",
+          );
+          return false;
+        }
+      }
+
+      // ========== INITIALIZE CONTACT FORM ==========
+      function initContactForm() {
+        const form = document.getElementById("contactForm");
+        if (!form) return;
+
+        form.addEventListener("submit", async (e) => {
+          e.preventDefault();
+
+          const name = document.getElementById("userName")?.value.trim();
+          const email = document.getElementById("userEmail")?.value.trim();
+          const phone = document.getElementById("userPhone")?.value.trim();
+          const interest = document.getElementById("userInterest")?.value;
+          const message = document.getElementById("userMessage")?.value.trim();
+
+          if (!name) {
+            showToast("Please enter your name", "error");
+            return;
+          }
+          if (!email || !email.includes("@")) {
+            showToast("Please enter a valid email address", "error");
+            return;
+          }
+
+          const formData = {
+            name: name,
+            email: email,
+            phone: phone || "Not provided",
+            interest: interest || "General Inquiry",
+            message: message || "No message provided",
+            timestamp: new Date().toLocaleString("en-IN", {
+              timeZone: "Asia/Kolkata",
+            }),
+            source: "Contact Page",
+          };
+
+          const submitBtn = document.getElementById("submitBtn");
+          const originalText = submitBtn.innerHTML;
+          submitBtn.innerHTML =
+            '<i class="fas fa-spinner fa-pulse"></i> Sending...';
+          submitBtn.disabled = true;
+
+          await submitContactForm(formData);
+
+          submitBtn.innerHTML = originalText;
+          submitBtn.disabled = false;
+          form.reset();
+        });
+      }
+
+      // ========== INITIALIZE NEWSLETTER FORM (FIXED) ==========
+      function initNewsletterForm() {
+        const newsletterForm = document.getElementById("newsletterForm");
+        if (!newsletterForm) return;
+
+        newsletterForm.addEventListener("submit", async (e) => {
+          e.preventDefault();
+
+          const emailInput = newsletterForm.querySelector(
+            'input[type="email"]',
+          );
+          const email = emailInput?.value.trim();
+
+          if (!email || !email.includes("@")) {
+            showToast("Please enter a valid email address", "error");
+            return;
+          }
+
+          const submitBtn = newsletterForm.querySelector(
+            'button[type="submit"]',
+          );
+          const originalText = submitBtn.innerHTML;
+          submitBtn.innerHTML =
+            '<i class="fas fa-spinner fa-pulse"></i> Subscribing...';
+          submitBtn.disabled = true;
+
+          await submitNewsletter(email);
+
+          submitBtn.innerHTML = originalText;
+          submitBtn.disabled = false;
+          newsletterForm.reset();
+        });
+      }
+
+      // ========== HEADER/FOOTER LOADER ==========
       class HeaderFooterLoader {
         constructor() {
           this.headerHTML = `<header id="main-header"><div class="container"><nav class="navbar">
@@ -852,19 +986,23 @@
                 <p>INTEGRATION</p>
               </div></i><div></div></div><p class="footer-desc">Align Your Heart. Reprogram Your Mind. Transform Your Life.</p>
             <div class="social-links"><a href="www.facebook.com/harshnitin.sharma">
-            <i class="fab fa-facebook-f"></i></a><a href="https://www.instagram.com/official_dr.nitinsharmanlp/"><i class="fab fa-instagram"></i></a><a href="https://www.linkedin.com/in/nitin-sharma-982bb615b/"><i class="fab fa-linkedin-in"></i></a><a href="https://youtube.com/playlist?list=PL0H1qta9hwykpiUu1zZNrFKErGqTC8U08&si=xLKUv0ICzMFis7VM"><i class="fab fa-youtube"></i></a></div></div><div class="footer-col"><h4>Explore</h4><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About Dr. Nitin</a></li><li><a href="mentors.html">Our Mentors</a></li><li><a href="insights.html#stories">Success Stories</a></li><li><a href="contact.html">Contact</a></li></ul></div><div class="footer-col"><h4>Programs</h4><ul><li><a href="free-session.html">Free Session</a></li><li><a href="programs.html">Gold - ₹499</a></li><li><a href="programs.html">Platinum - ₹24,997</a></li><li><a href="programs.html">Diamond - ₹98,997</a></li></ul></div><div class="footer-col"><h4>Contact</h4><ul class="contact-info"><li><i class="fas fa-envelope"></i> hello@hearttomind.com</li><li><i class="fas fa-phone"></i>+91 72762 17902</li><li><i class="fas fa-clock"></i> Mon-Fri: 9AM - 7PM IST</li></ul></div></div><div class="footer-newsletter"><h4>Join 2,800+ Souls on the Path to Integration</h4><form id="newsletterForm"><input type="email" placeholder="Your email address" required><button type="submit">Subscribe →</button></form></div><div class="footer-bottom"><p>&copy; 2025 Heart to Mind Integration. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p><p class="credits">Dr. Nitin Sharma & Nileema Kirkire — Transforming lives since 2017</p></div></div></footer>`;
+            <i class="fab fa-facebook-f"></i></a><a href="https://www.instagram.com/official_dr.nitinsharmanlp/"><i class="fab fa-instagram"></i></a><a href="https://www.linkedin.com/in/nitin-sharma-982bb615b/"><i class="fab fa-linkedin-in"></i></a><a href="https://youtube.com/playlist?list=PL0H1qta9hwykpiUu1zZNrFKErGqTC8U08&si=xLKUv0ICzMFis7VM"><i class="fab fa-youtube"></i></a></div></div><div class="footer-col"><h4>Explore</h4><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About Dr. Nitin</a></li><li><a href="mentors.html">Our Mentors</a></li><li><a href="insights.html#stories">Success Stories</a></li><li><a href="contact.html">Contact</a></li></ul></div><div class="footer-col"><h4>Programs</h4><ul><li><a href="free-session.html">Free Session</a></li><li><a href="programs.html">Gold - ₹499</a></li><li><a href="programs.html">Platinum - ₹24,997</a></li><li><a href="programs.html">Diamond - ₹98,997</a></li></ul></div><div class="footer-col"><h4>Contact</h4><ul class="contact-info"><li><i class="fas fa-envelope"></i> hello@hearttomind.com</li><li><i class="fas fa-phone"></i>+91 72762 17902</li><li><i class="fas fa-clock"></i> Mon-Fri: 9AM - 7PM IST</li></ul></div></div><div class="footer-bottom"><p>&copy; 2025 Heart to Mind Integration. All rights reserved. </p><p class="credits">Dr. Nitin Sharma & Nileema Kirkire — Transforming lives since 2017</p></div></div></footer>`;
           this.floatingButtons = `<div class="floating-buttons"><a href="https://wa.me/7276217902" class="floating-btn floating-btn-wa" target="_blank"><i class="fab fa-whatsapp"></i></a><a href="tel:+917276217902" class="floating-btn floating-btn-call"><i class="fas fa-phone-alt"></i></a></div>`;
         }
+
         loadHeader() {
           document.body.insertAdjacentHTML("afterbegin", this.headerHTML);
           document.body.insertAdjacentHTML("beforeend", this.floatingButtons);
           this.setActiveNavLink();
           this.initMegaMenuMobile();
         }
+
         loadFooter() {
           document.body.insertAdjacentHTML("beforeend", this.footerHTML);
-          this.initFooterScripts();
+          // Initialize newsletter form AFTER footer is loaded
+          setTimeout(() => initNewsletterForm(), 100);
         }
+
         setActiveNavLink() {
           const current =
             window.location.pathname.split("/").pop() || "index.html";
@@ -873,10 +1011,12 @@
             if (
               (current === "index.html" && page === "home") ||
               current === page + ".html"
-            )
+            ) {
               link.classList.add("active");
+            }
           });
         }
+
         initMegaMenuMobile() {
           if (window.innerWidth <= 768) {
             const megaMenu = document.querySelector(".mega-menu");
@@ -889,45 +1029,29 @@
             }
           }
         }
-        initFooterScripts() {
-          document
-            .getElementById("newsletterForm")
-            ?.addEventListener("submit", (e) => {
-              e.preventDefault();
-              alert(
-                `Thank you! We'll send insights to ${e.target.querySelector("input").value}`,
-              );
-              e.target.reset();
-            });
-        }
       }
+
+      // ========== INITIALIZE EVERYTHING ==========
       document.addEventListener("DOMContentLoaded", function () {
         const loader = new HeaderFooterLoader();
         loader.loadHeader();
         loader.loadFooter();
+        initContactForm();
 
-        new Swiper(".testimonial-swiper", {
-          loop: true,
-          autoplay: { delay: 4000 },
-          pagination: { el: ".swiper-pagination", clickable: true },
-          slidesPerView: 1,
-          spaceBetween: 20,
-          breakpoints: {
-            768: { slidesPerView: 2 },
-            1024: { slidesPerView: 3 },
-          },
-        });
         document.querySelectorAll(".faq-item").forEach((item) => {
           const q = item.querySelector(".faq-q");
-          if (q)
+          if (q) {
             q.addEventListener("click", () => item.classList.toggle("active"));
+          }
         });
+
         window.addEventListener("scroll", () => {
           const header = document.getElementById("main-header");
           if (header) header.classList.toggle("scrolled", window.scrollY > 50);
         });
-        const menuToggle = document.getElementById("menuToggle"),
-          navLinks = document.getElementById("navLinks");
+
+        const menuToggle = document.getElementById("menuToggle");
+        const navLinks = document.getElementById("navLinks");
         if (menuToggle) {
           menuToggle.addEventListener("click", () => {
             navLinks.classList.toggle("active");
@@ -943,61 +1067,7 @@
             }
           });
         }
-        const statsSection = document.querySelector(".stats-premium");
-        if (statsSection) {
-          const observer = new IntersectionObserver(
-            (entries) => {
-              entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                  [1, 2, 3, 4].forEach((i) => {
-                    const stat = document.getElementById(`stat${i}`);
-                    if (stat && !stat.getAttribute("data-animated")) {
-                      stat.setAttribute("data-animated", "true");
-                      const text = stat.textContent;
-                      const num = parseInt(text.replace(/[^0-9]/g, ""));
-                      if (num) {
-                        let current = 0;
-                        const inc = num / 50;
-                        const timer = setInterval(() => {
-                          current += inc;
-                          if (current >= num) {
-                            stat.textContent = text;
-                            clearInterval(timer);
-                          } else {
-                            stat.textContent =
-                              Math.floor(current) +
-                              (text.includes("%")
-                                ? "%"
-                                : text.includes("+")
-                                  ? "+"
-                                  : "");
-                          }
-                        }, 30);
-                      }
-                    }
-                  });
-                  observer.unobserve(entry.target);
-                }
-              });
-            },
-            { threshold: 0.5 },
-          );
-          observer.observe(statsSection);
-        }
-        document
-          .querySelectorAll(".video-card, .gallery-item")
-          .forEach((item) => {
-            item.addEventListener("click", () => {
-              const img = item.querySelector("img")?.src;
-              if (img) alert(`View full image: ${img}`);
-            });
-          });
       });
-      // Add this to your existing script
-      if (window.location.pathname.endsWith(".html")) {
-        const cleanUrl = window.location.pathname.replace(".html", "/");
-        window.history.replaceState({}, "", cleanUrl);
-      }
     </script>
   </body>
 </html>
